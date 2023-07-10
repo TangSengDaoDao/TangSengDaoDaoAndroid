@@ -88,12 +88,12 @@ WKMsgItemViewManager.getInstance().addChatItemViewProvider(WKContentType.WK_LOCA
 
 |对方正在输入|语音消息|合并转发|
 |:---:|:---:|:--:|
-|![](imgs/typing.gif)|![](imgs/voice.gif)|![](imgs/forward.gif)|
+|![](imgs/typing.webp)|![](imgs/voice.webp)|![](imgs/forward.webp)|
 
 
-|快速回复|群内操作|        其他功能         |
+|快速回复|群内操作|其他功能|
 |:---:|:---:|:-------------------:|
-|![](imgs/reply.gif)|![](imgs/group.gif)| ![](imgs/other.gif) |
+|![](imgs/reply.webp)|![](imgs/group.webp)| ![](imgs/other.webp) |
 
 
 由于GIF被压缩，演示效果很模糊。真机预览效果更佳
