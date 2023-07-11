@@ -1,0 +1,69 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:1:1-27:12
+INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:1:1-27:12
+	package
+		INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:1:1-27:12
+		INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:3:5-66
+	android:name
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:3:22-63
+application
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:4:5-26:19
+activity#com.chat.base.act.WKWebViewActivity
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:5:9-18:20
+	android:exported
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:7:13-36
+	android:name
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:6:13-50
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:url+data:scheme:com.xinbida.tangsengdaodao
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:8:13-17:29
+action#android.intent.action.VIEW
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:9:17-69
+	android:name
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:9:25-66
+category#android.intent.category.DEFAULT
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:11:17-76
+	android:name
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:11:27-73
+category#android.intent.category.BROWSABLE
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:12:17-78
+	android:name
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:12:27-75
+data
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:14:17-16:67
+	android:host
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:15:21-39
+	android:scheme
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:16:21-64
+activity#com.chat.base.act.WKCropImageActivity
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:19:9-61
+	android:name
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:19:19-58
+service#com.tencent.smtt.export.external.DexClassLoaderProviderService
+ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:21:9-24:41
+	android:process
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:24:13-38
+	android:label
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:23:13-35
+	android:name
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml:22:13-90
+uses-sdk
+INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+		INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+		ADDED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml
+		INJECTED from /Users/songlun/Desktop/workspace/androidworkspace/TsddClient/wkbase/src/main/AndroidManifest.xml

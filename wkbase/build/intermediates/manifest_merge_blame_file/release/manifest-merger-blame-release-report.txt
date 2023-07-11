@@ -1,0 +1,55 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.chat.base" >
+4
+5    <uses-sdk android:minSdkVersion="23" />
+5-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml
+6
+7    <uses-permission android:name="android.permission.VIBRATE" />
+7-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:3:5-66
+7-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:3:22-63
+8
+9    <application>
+9-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:4:5-26:19
+10        <activity
+10-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:5:9-18:20
+11            android:name="com.chat.base.act.WKWebViewActivity"
+11-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:6:13-50
+12            android:exported="true" >
+12-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:7:13-36
+13            <intent-filter>
+13-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:8:13-17:29
+14                <action android:name="android.intent.action.VIEW" />
+14-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:9:17-69
+14-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:9:25-66
+15
+16                <category android:name="android.intent.category.DEFAULT" />
+16-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:11:17-76
+16-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:11:27-73
+17                <category android:name="android.intent.category.BROWSABLE" />
+17-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:12:17-78
+17-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:12:27-75
+18
+19                <data
+19-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:14:17-16:67
+20                    android:host="url"
+20-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:15:21-39
+21                    android:scheme="com.xinbida.tangsengdaodao" />
+21-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:16:21-64
+22            </intent-filter>
+23        </activity>
+24        <activity android:name="com.chat.base.act.WKCropImageActivity" />
+24-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:19:9-61
+24-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:19:19-58
+25
+26        <service
+26-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:21:9-24:41
+27            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+27-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:22:13-90
+28            android:label="dexopt"
+28-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:23:13-35
+29            android:process=":dexopt" />
+29-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkbase/src/main/AndroidManifest.xml:24:13-38
+30    </application>
+31
+32</manifest>

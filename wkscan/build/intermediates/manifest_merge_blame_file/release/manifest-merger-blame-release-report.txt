@@ -1,0 +1,22 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.chat.scan" >
+4
+5    <uses-sdk android:minSdkVersion="23" />
+5-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml
+6
+7    <uses-permission android:name="android.permission.VIBRATE" />
+7-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml:3:5-66
+7-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml:3:22-63
+8
+9    <application>
+9-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml:4:5-7:19
+10        <activity android:name="com.chat.scan.WKScanActivity" />
+10-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml:5:9-52
+10-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml:5:19-49
+11        <activity android:name="com.chat.scan.WKScanOtherResultActivity" />
+11-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml:6:9-63
+11-->/Users/songlun/Desktop/workspace/androidworkspace/WuKongIMAndroidDemo/wkscan/src/main/AndroidManifest.xml:6:19-60
+12    </application>
+13
+14</manifest>
