@@ -57,6 +57,7 @@
     <string name="no_relation_group">Message cannot be sent because it is not in the group</string>
     <string name="no_relation_user">The other party is not a friend and cannot send a message</string>
     <string name="nodata">No Data</string>
+    <string name="notification_permissions_desc">Allow notification permission in Settings Application %s Permissions. To remind you promptly when receiving new messages</string>
     <string name="open_system_browser">Open with Browser</string>
     <string name="phone_tips">may be %s number or phone number, you can</string>
     <string name="re_edit">Re-edit</string>

@@ -62,7 +62,6 @@
         <activity android:name="com.chat.uikit.search.MailListActivity" />
         <activity android:name="com.chat.uikit.group.GroupHeaderActivity" />
         <activity android:name="com.chat.uikit.message.BackupRestoreMessageActivity" />
-        <activity android:name="com.chat.uikit.setting.AppModulesActivity" />
         <activity android:name="com.chat.uikit.setting.ErrorLogsActivity" />
     </application>
 

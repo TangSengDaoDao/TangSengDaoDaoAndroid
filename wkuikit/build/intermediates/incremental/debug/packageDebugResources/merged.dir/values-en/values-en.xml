@@ -71,6 +71,7 @@
     <string name="dark_night">Dark Mode</string>
     <string name="dark_normal">Normal Mode</string>
     <string name="dark_save_tips">New settings will take effect after restarting %s</string>
+    <string name="default_new_msg">you have a new message</string>
     <string name="delete">Delete</string>
     <string name="delete_conver_msg_tips">After deleting, the chat message record will be cleared</string>
     <string name="delete_friends">Delete</string>

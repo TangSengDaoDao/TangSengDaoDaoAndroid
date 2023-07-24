@@ -76,6 +76,7 @@
     <string name="dark_night">深色模式</string>
     <string name="dark_normal">普通模式</string>
     <string name="dark_save_tips">新的设置需要重启%s才能生效</string>
+    <string name="default_new_msg">你有一条新消息</string>
     <string name="delete">删除</string>
     <string name="delete_conver_msg_tips">删除后，将清空该聊天的消息记录</string>
     <string name="delete_friends">解除好友关系</string>

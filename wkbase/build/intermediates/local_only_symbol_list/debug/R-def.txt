@@ -562,6 +562,7 @@ string no_group_blacklist_noselect
 string no_relation_group
 string no_relation_user
 string nodata
+string notification_permissions_desc
 string open_system_browser
 string phone_tips
 string re_edit

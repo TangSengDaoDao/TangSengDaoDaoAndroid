@@ -215,6 +215,7 @@
     <string name="no_relation_group">未在群内，消息发送失败，确定重发吗？</string>
     <string name="no_relation_user">对方非好友关系，消息发送失败，确定重发吗？</string>
     <string name="nodata">暂无数据</string>
+    <string name="notification_permissions_desc">在设置-应用-%s-权限中开启通知权限。以收到新消息时能及时提醒你。</string>
     <string name="open_system_browser">系统浏览器打开</string>
     <string name="phone_tips">可能是%s号或电话号码，你可以</string>
     <string name="re_edit">重新编辑</string>

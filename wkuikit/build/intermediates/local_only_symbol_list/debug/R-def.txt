@@ -182,7 +182,6 @@ id markdownIv
 id menuIv
 id menuLayout
 id menuView
-id moduleLayout
 id more_panel
 id msgBackupLayout
 id msgCountTv
@@ -556,6 +555,7 @@ string dark_follow_system_desc
 string dark_night
 string dark_normal
 string dark_save_tips
+string default_new_msg
 string delete
 string delete_conver_msg_tips
 string delete_friends
