@@ -5023,6 +5023,7 @@ int string no_group_blacklist_noselect 0x0
 int string no_relation_group 0x0
 int string no_relation_user 0x0
 int string nodata 0x0
+int string notification_permissions_desc 0x0
 int string open_system_browser 0x0
 int string other_device_login 0x0
 int string password_toggle_content_description 0x0

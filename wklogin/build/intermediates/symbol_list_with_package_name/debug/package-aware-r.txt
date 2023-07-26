@@ -5024,6 +5024,7 @@ string no_group_blacklist_noselect
 string no_relation_group
 string no_relation_user
 string nodata
+string notification_permissions_desc
 string open_system_browser
 string other_device_login
 string password_toggle_content_description

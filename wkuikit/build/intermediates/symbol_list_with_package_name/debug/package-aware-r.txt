@@ -4109,7 +4109,6 @@ id message
 id middle
 id min_width_tag
 id mini
-id moduleLayout
 id month_grid
 id month_navigation_bar
 id month_navigation_fragment_toggle
@@ -5280,6 +5279,7 @@ string dark_follow_system_desc
 string dark_night
 string dark_normal
 string dark_save_tips
+string default_new_msg
 string delete
 string delete_conver_msg_tips
 string delete_friends
@@ -5533,6 +5533,7 @@ string no_saved_group
 string nodata
 string non_friend_relationship
 string not_connected
+string notification_permissions_desc
 string official
 string online
 string online_count

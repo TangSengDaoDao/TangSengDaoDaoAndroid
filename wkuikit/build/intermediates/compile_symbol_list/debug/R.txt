@@ -4108,7 +4108,6 @@ int id message 0x0
 int id middle 0x0
 int id min_width_tag 0x0
 int id mini 0x0
-int id moduleLayout 0x0
 int id month_grid 0x0
 int id month_navigation_bar 0x0
 int id month_navigation_fragment_toggle 0x0
@@ -5279,6 +5278,7 @@ int string dark_follow_system_desc 0x0
 int string dark_night 0x0
 int string dark_normal 0x0
 int string dark_save_tips 0x0
+int string default_new_msg 0x0
 int string delete 0x0
 int string delete_conver_msg_tips 0x0
 int string delete_friends 0x0
@@ -5532,6 +5532,7 @@ int string no_saved_group 0x0
 int string nodata 0x0
 int string non_friend_relationship 0x0
 int string not_connected 0x0
+int string notification_permissions_desc 0x0
 int string official 0x0
 int string online 0x0
 int string online_count 0x0
