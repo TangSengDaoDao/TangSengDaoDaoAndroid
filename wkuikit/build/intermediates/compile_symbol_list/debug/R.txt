@@ -4790,6 +4790,7 @@ int layout chat_item_base_layout 0x0
 int layout chat_item_card 0x0
 int layout chat_item_empty_view 0x0
 int layout chat_item_img 0x0
+int layout chat_item_loading 0x0
 int layout chat_item_multi_forward 0x0
 int layout chat_item_no_relation_layout 0x0
 int layout chat_item_popu_view_layout 0x0

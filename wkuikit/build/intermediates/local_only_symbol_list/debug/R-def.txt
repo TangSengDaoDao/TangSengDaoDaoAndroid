@@ -372,6 +372,7 @@ layout chat_input_layout
 layout chat_item_card
 layout chat_item_empty_view
 layout chat_item_img
+layout chat_item_loading
 layout chat_item_multi_forward
 layout chat_item_no_relation_layout
 layout chat_item_sensitive_words_layout

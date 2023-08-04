@@ -11,14 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.chat.base.views.RecyclerListView;
 import com.chat.base.views.blurview.ShapeBlurView;
 import com.chat.uikit.R;
 import com.chat.uikit.view.ChatInputPanel;
 import com.chat.uikit.view.ChatMorePanel;
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -43,16 +42,13 @@ public final class ActChatLayoutBinding implements ViewBinding {
   public final ChatMorePanel morePanel;
 
   @NonNull
-  public final RecyclerView recyclerView;
+  public final RecyclerListView recyclerView;
 
   @NonNull
   public final FrameLayout recyclerViewContentLayout;
 
   @NonNull
   public final RelativeLayout recyclerViewLayout;
-
-  @NonNull
-  public final SmartRefreshLayout refreshLayout;
 
   @NonNull
   public final RelativeLayout rootLayout;
@@ -72,11 +68,10 @@ public final class ActChatLayoutBinding implements ViewBinding {
   private ActChatLayoutBinding(@NonNull RelativeLayout rootView, @NonNull ShapeBlurView blurView,
       @NonNull ChatInputPanel chatInputPanel, @NonNull ChatUnreadLayoutBinding chatUnreadLayout,
       @NonNull AppCompatImageView imageView, @NonNull ChatMorePanel morePanel,
-      @NonNull RecyclerView recyclerView, @NonNull FrameLayout recyclerViewContentLayout,
-      @NonNull RelativeLayout recyclerViewLayout, @NonNull SmartRefreshLayout refreshLayout,
-      @NonNull RelativeLayout rootLayout, @NonNull TextView timeTv,
-      @NonNull ChatTitleLayoutBinding topLayout, @NonNull LinearLayout topView,
-      @NonNull LinearLayout viewGroupLayout) {
+      @NonNull RecyclerListView recyclerView, @NonNull FrameLayout recyclerViewContentLayout,
+      @NonNull RelativeLayout recyclerViewLayout, @NonNull RelativeLayout rootLayout,
+      @NonNull TextView timeTv, @NonNull ChatTitleLayoutBinding topLayout,
+      @NonNull LinearLayout topView, @NonNull LinearLayout viewGroupLayout) {
     this.rootView = rootView;
     this.blurView = blurView;
     this.chatInputPanel = chatInputPanel;
@@ -86,7 +81,6 @@ public final class ActChatLayoutBinding implements ViewBinding {
     this.recyclerView = recyclerView;
     this.recyclerViewContentLayout = recyclerViewContentLayout;
     this.recyclerViewLayout = recyclerViewLayout;
-    this.refreshLayout = refreshLayout;
     this.rootLayout = rootLayout;
     this.timeTv = timeTv;
     this.topLayout = topLayout;
@@ -153,7 +147,7 @@ public final class ActChatLayoutBinding implements ViewBinding {
       }
 
       id = R.id.recyclerView;
-      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
+      RecyclerListView recyclerView = ViewBindings.findChildViewById(rootView, id);
       if (recyclerView == null) {
         break missingId;
       }
@@ -167,12 +161,6 @@ public final class ActChatLayoutBinding implements ViewBinding {
       id = R.id.recyclerViewLayout;
       RelativeLayout recyclerViewLayout = ViewBindings.findChildViewById(rootView, id);
       if (recyclerViewLayout == null) {
-        break missingId;
-      }
-
-      id = R.id.refreshLayout;
-      SmartRefreshLayout refreshLayout = ViewBindings.findChildViewById(rootView, id);
-      if (refreshLayout == null) {
         break missingId;
       }
 
@@ -209,8 +197,7 @@ public final class ActChatLayoutBinding implements ViewBinding {
 
       return new ActChatLayoutBinding((RelativeLayout) rootView, blurView, chatInputPanel,
           binding_chatUnreadLayout, imageView, morePanel, recyclerView, recyclerViewContentLayout,
-          recyclerViewLayout, refreshLayout, rootLayout, timeTv, binding_topLayout, topView,
-          viewGroupLayout);
+          recyclerViewLayout, rootLayout, timeTv, binding_topLayout, topView, viewGroupLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4791,6 +4791,7 @@ layout chat_item_base_layout
 layout chat_item_card
 layout chat_item_empty_view
 layout chat_item_img
+layout chat_item_loading
 layout chat_item_multi_forward
 layout chat_item_no_relation_layout
 layout chat_item_popu_view_layout
