@@ -1,2 +1,0 @@
-D com/chat/base/views/ChatReadCountCircleProgressBar$ShaderMode
-D com/chat/base/views/ChatReadCountCircleProgressBar$Style
