@@ -3888,7 +3888,6 @@ int id immediateStop 0x0
 int id included 0x0
 int id indeterminate 0x0
 int id index_tag 0x0
-int id indicator_container 0x0
 int id info 0x0
 int id inner 0x0
 int id invisible 0x0
@@ -4133,7 +4132,6 @@ int id screen 0x0
 int id scrollIndicatorDown 0x0
 int id scrollIndicatorUp 0x0
 int id scrollView 0x0
-int id scroll_view 0x0
 int id scrollable 0x0
 int id searchEt 0x0
 int id search_badge 0x0
@@ -4277,7 +4275,6 @@ int id titleRightLoadingIv 0x0
 int id titleRightTv 0x0
 int id title_bar 0x0
 int id title_bar_line 0x0
-int id title_container 0x0
 int id title_template 0x0
 int id toastIv 0x0
 int id toastLayout 0x0
@@ -4616,8 +4613,6 @@ int layout notification_template_icon_group 0x0
 int layout notification_template_part_chronometer 0x0
 int layout notification_template_part_time 0x0
 int layout other_device_login_dialog 0x0
-int layout pager_navigator_layout 0x0
-int layout pager_navigator_layout_no_scroll 0x0
 int layout pc_login_view_layout 0x0
 int layout ps_activity_container 0x0
 int layout ps_album_folder_item 0x0

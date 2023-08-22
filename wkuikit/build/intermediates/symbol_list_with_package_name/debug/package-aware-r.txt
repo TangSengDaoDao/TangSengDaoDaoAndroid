@@ -3438,6 +3438,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable divider
+drawable drop_line
 drawable greenprogress
 drawable home_bg
 drawable ic_arrow_back_black_24
@@ -3891,6 +3892,7 @@ id dragStart
 id dragUp
 id drawerContentContainer
 id drawerLayout
+id dropRecyclerView
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -4014,7 +4016,6 @@ id inGroupNameTv
 id included
 id indeterminate
 id index_tag
-id indicator_container
 id info
 id inner
 id invisible
@@ -4049,6 +4050,7 @@ id legacy
 id line
 id line1
 id line3
+id lineView
 id linear
 id linkContentTv
 id linkCoverIv
@@ -4072,7 +4074,6 @@ id loading_text
 id loadview
 id loginOutTv
 id m3_side_sheet
-id magicIndicator
 id magical
 id mailListLayout
 id markdownIv
@@ -4324,7 +4325,6 @@ id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
-id scroll_view
 id scrollable
 id searchBtn
 id searchEt
@@ -4504,7 +4504,6 @@ id titleTv
 id titleView
 id title_bar
 id title_bar_line
-id title_container
 id title_template
 id toastIv
 id toastLayout
@@ -4840,6 +4839,7 @@ layout item_all_members_layout
 layout item_app_module_layout
 layout item_attach_view
 layout item_chat_conv_layout
+layout item_chat_function_drop
 layout item_chat_multi_froward_content
 layout item_chat_multi_froward_time
 layout item_chat_multi_froward_view
@@ -4936,8 +4936,6 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout pager_navigator_layout
-layout pager_navigator_layout_no_scroll
 layout panel_function_layout
 layout pop_operate
 layout ps_activity_container

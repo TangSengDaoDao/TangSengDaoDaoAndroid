@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import androidx.viewpager2.widget.ViewPager2;
@@ -14,22 +15,21 @@ import com.chat.uikit.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
-import net.lucode.hackware.magicindicator.MagicIndicator;
 
 public final class PanelFunctionLayoutBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
 
   @NonNull
-  public final MagicIndicator magicIndicator;
+  public final RecyclerView dropRecyclerView;
 
   @NonNull
   public final ViewPager2 viewPage;
 
   private PanelFunctionLayoutBinding(@NonNull LinearLayout rootView,
-      @NonNull MagicIndicator magicIndicator, @NonNull ViewPager2 viewPage) {
+      @NonNull RecyclerView dropRecyclerView, @NonNull ViewPager2 viewPage) {
     this.rootView = rootView;
-    this.magicIndicator = magicIndicator;
+    this.dropRecyclerView = dropRecyclerView;
     this.viewPage = viewPage;
   }
 
@@ -60,9 +60,9 @@ public final class PanelFunctionLayoutBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.magicIndicator;
-      MagicIndicator magicIndicator = ViewBindings.findChildViewById(rootView, id);
-      if (magicIndicator == null) {
+      id = R.id.dropRecyclerView;
+      RecyclerView dropRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (dropRecyclerView == null) {
         break missingId;
       }
 
@@ -72,7 +72,7 @@ public final class PanelFunctionLayoutBinding implements ViewBinding {
         break missingId;
       }
 
-      return new PanelFunctionLayoutBinding((LinearLayout) rootView, magicIndicator, viewPage);
+      return new PanelFunctionLayoutBinding((LinearLayout) rootView, dropRecyclerView, viewPage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

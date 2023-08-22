@@ -40,6 +40,7 @@ drawable ar_cancel_layout_background
 drawable ar_record_audio_btn_selector
 drawable chat_img_cover_bg
 drawable chat_text_link_desc_bg
+drawable drop_line
 drawable ic_reply_black_24dp
 drawable left_bg
 drawable msg_bg
@@ -104,6 +105,7 @@ id deleteView
 id descTv
 id deviceIv
 id dotIv
+id dropRecyclerView
 id easy_alert_dialog_layout
 id editText
 id endView
@@ -166,6 +168,7 @@ id joinGroupWayTv
 id languageLayout
 id layout_record_audio
 id leftAvatarIv1
+id lineView
 id linkContentTv
 id linkCoverIv
 id linkLogoIv
@@ -176,7 +179,6 @@ id ll_font_size_1
 id ll_pop_item
 id loading
 id loginOutTv
-id magicIndicator
 id mailListLayout
 id markdownIv
 id menuIv
@@ -391,6 +393,7 @@ layout in_group_name_dialog_view
 layout item_all_members_layout
 layout item_app_module_layout
 layout item_chat_conv_layout
+layout item_chat_function_drop
 layout item_chat_multi_froward_content
 layout item_chat_multi_froward_time
 layout item_chat_multi_froward_view

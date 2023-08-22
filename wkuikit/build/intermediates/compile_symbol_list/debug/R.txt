@@ -3437,6 +3437,7 @@ int drawable design_ic_visibility_off 0x0
 int drawable design_password_eye 0x0
 int drawable design_snackbar_background 0x0
 int drawable divider 0x0
+int drawable drop_line 0x0
 int drawable greenprogress 0x0
 int drawable home_bg 0x0
 int drawable ic_arrow_back_black_24 0x0
@@ -3890,6 +3891,7 @@ int id dragStart 0x0
 int id dragUp 0x0
 int id drawerContentContainer 0x0
 int id drawerLayout 0x0
+int id dropRecyclerView 0x0
 int id dropdown_menu 0x0
 int id easeIn 0x0
 int id easeInOut 0x0
@@ -4013,7 +4015,6 @@ int id inGroupNameTv 0x0
 int id included 0x0
 int id indeterminate 0x0
 int id index_tag 0x0
-int id indicator_container 0x0
 int id info 0x0
 int id inner 0x0
 int id invisible 0x0
@@ -4048,6 +4049,7 @@ int id legacy 0x0
 int id line 0x0
 int id line1 0x0
 int id line3 0x0
+int id lineView 0x0
 int id linear 0x0
 int id linkContentTv 0x0
 int id linkCoverIv 0x0
@@ -4071,7 +4073,6 @@ int id loading_text 0x0
 int id loadview 0x0
 int id loginOutTv 0x0
 int id m3_side_sheet 0x0
-int id magicIndicator 0x0
 int id magical 0x0
 int id mailListLayout 0x0
 int id markdownIv 0x0
@@ -4323,7 +4324,6 @@ int id screen 0x0
 int id scrollIndicatorDown 0x0
 int id scrollIndicatorUp 0x0
 int id scrollView 0x0
-int id scroll_view 0x0
 int id scrollable 0x0
 int id searchBtn 0x0
 int id searchEt 0x0
@@ -4503,7 +4503,6 @@ int id titleTv 0x0
 int id titleView 0x0
 int id title_bar 0x0
 int id title_bar_line 0x0
-int id title_container 0x0
 int id title_template 0x0
 int id toastIv 0x0
 int id toastLayout 0x0
@@ -4839,6 +4838,7 @@ int layout item_all_members_layout 0x0
 int layout item_app_module_layout 0x0
 int layout item_attach_view 0x0
 int layout item_chat_conv_layout 0x0
+int layout item_chat_function_drop 0x0
 int layout item_chat_multi_froward_content 0x0
 int layout item_chat_multi_froward_time 0x0
 int layout item_chat_multi_froward_view 0x0
@@ -4935,8 +4935,6 @@ int layout notification_template_custom_big 0x0
 int layout notification_template_icon_group 0x0
 int layout notification_template_part_chronometer 0x0
 int layout notification_template_part_time 0x0
-int layout pager_navigator_layout 0x0
-int layout pager_navigator_layout_no_scroll 0x0
 int layout panel_function_layout 0x0
 int layout pop_operate 0x0
 int layout ps_activity_container 0x0
