@@ -5766,6 +5766,7 @@ int string version_info 0x0
 int string video_call 0x0
 int string visitor 0x0
 int string voice 0x0
+int string voice_download_fail 0x0
 int string voice_shock_desc 0x0
 int string web 0x0
 int string web_login 0x0

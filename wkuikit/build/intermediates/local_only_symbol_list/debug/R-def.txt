@@ -746,6 +746,7 @@ string version_info
 string video_call
 string visitor
 string voice
+string voice_download_fail
 string voice_shock_desc
 string web
 string web_login
