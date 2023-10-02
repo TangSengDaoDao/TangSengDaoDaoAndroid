@@ -50,6 +50,8 @@
     <string name="monday">Mon</string>
     <string name="msg_read_count">%d Read</string>
     <string name="msg_reply">Reply</string>
+    <string name="msg_send_fail">Message sending failed</string>
+    <string name="msg_send_fail_resend">Resend</string>
     <string name="multiple_choice">Choose</string>
     <string name="my_revoke_msg">You Withdrawn a message</string>
     <string name="new_version">New Version</string>
@@ -84,9 +86,12 @@
     <string name="str_edit">Edit</string>
     <string name="str_forget_pwd">Forget password</string>
     <string name="str_forward">Forwarded</string>
+    <string name="str_get_name_avatar">Get your nickname and avatar</string>
     <string name="str_just">Just</string>
     <string name="str_min">%s min</string>
     <string name="str_msg_content_sticker">[Sticker]</string>
+    <string name="str_request">Request</string>
+    <string name="str_request_desc">%s\'s nickname avatar</string>
     <string name="str_resend_msg_tips">Confirm to resend the message</string>
     <string name="str_save">Save</string>
     <string name="str_search">Search</string>

@@ -46,6 +46,7 @@ drawable left_bg
 drawable msg_bg
 drawable msg_bg_gray
 drawable msg_go_down
+drawable reply_line
 drawable right_bg
 drawable shape_color_4c4c4c_radius_8
 id aboutLayout
@@ -184,14 +185,15 @@ id markdownIv
 id menuIv
 id menuLayout
 id menuView
+id moduleLayout
 id more_panel
 id msgBackupLayout
 id msgCountTv
 id msgLayout
-id msgReceiptLayout
 id msgRecoveryLayout
 id msgRecyclerView
 id msgRemindLayout
+id msgSettingLayout
 id msgTimeView
 id multiView
 id multipleChoiceView
@@ -215,6 +217,7 @@ id noticeLayout
 id offlineTv
 id openNoticeLayout
 id otherLayout
+id panelView
 id phoneTv
 id playBtn
 id playIv
@@ -248,6 +251,7 @@ id remindLayout
 id replyAvatarIv
 id replyIv
 id replyLayout
+id replyLine
 id replyNameTv
 id replyTv
 id reportLayout
@@ -295,7 +299,6 @@ id stickSwitchView
 id subtitleCountTv
 id subtitleTv
 id subtitleView
-id sureTv
 id systemTv
 id textContentLayout
 id textSizeTv1
@@ -347,6 +350,7 @@ layout act_common_list_layout
 layout act_common_list_layout_white
 layout act_dark_setting_layout
 layout act_file_helper_layout
+layout act_flex_tab_layout
 layout act_group_detail_layout
 layout act_group_header_layout
 layout act_group_notice_layout
@@ -389,7 +393,6 @@ layout frag_chat_conversation_layout
 layout frag_contacts_layout
 layout frag_my_layout
 layout frag_recording_voice_layout
-layout in_group_name_dialog_view
 layout item_all_members_layout
 layout item_app_module_layout
 layout item_chat_conv_layout
@@ -538,6 +541,7 @@ string clear_all_remind
 string clear_chat_group_msg_dialog
 string clear_chat_msg
 string clear_chat_personal_msg_dialog
+string clear_history
 string clear_img_cache
 string clear_img_cache_tips
 string clear_msg
@@ -561,11 +565,13 @@ string dark_normal
 string dark_save_tips
 string default_new_msg
 string delete
+string delete_chat
 string delete_conver_msg_tips
 string delete_friends
 string delete_friends_tips
 string delete_group
 string delete_group_members
+string delete_messages
 string delete_msg
 string delete_select_msg
 string disabled
@@ -615,7 +621,6 @@ string hint_search
 string hold_to_record
 string identity
 string image
-string in_gorup_name
 string in_group_name
 string input
 string input_apply_remark
@@ -650,6 +655,7 @@ string msg_remind
 string msg_revoked
 string msg_top
 string my_app_id
+string my_in_group_name
 string my_qr
 string my_remark_name_in_group
 string my_wallet

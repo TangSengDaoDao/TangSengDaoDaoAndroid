@@ -62,10 +62,10 @@ public final class ActGroupDetailLayoutBinding implements ViewBinding {
   public final TextView inGroupNameTv;
 
   @NonNull
-  public final LinearLayout msgReceiptLayout;
+  public final LinearLayout msgRemindLayout;
 
   @NonNull
-  public final LinearLayout msgRemindLayout;
+  public final LinearLayout msgSettingLayout;
 
   @NonNull
   public final SwitchView muteSwitchView;
@@ -113,8 +113,8 @@ public final class ActGroupDetailLayoutBinding implements ViewBinding {
       @NonNull LinearLayout groupManageLayout, @NonNull View groupManageView,
       @NonNull LinearLayout groupNameLayout, @NonNull TextView groupNoticeTv,
       @NonNull LinearLayout groupQrLayout, @NonNull LinearLayout inGroupNameLayout,
-      @NonNull TextView inGroupNameTv, @NonNull LinearLayout msgReceiptLayout,
-      @NonNull LinearLayout msgRemindLayout, @NonNull SwitchView muteSwitchView,
+      @NonNull TextView inGroupNameTv, @NonNull LinearLayout msgRemindLayout,
+      @NonNull LinearLayout msgSettingLayout, @NonNull SwitchView muteSwitchView,
       @NonNull TextView nameTv, @NonNull LinearLayout noticeLayout,
       @NonNull SmartRefreshLayout refreshLayout, @NonNull LinearLayout remarkLayout,
       @NonNull TextView remarkTv, @NonNull LinearLayout reportLayout,
@@ -135,8 +135,8 @@ public final class ActGroupDetailLayoutBinding implements ViewBinding {
     this.groupQrLayout = groupQrLayout;
     this.inGroupNameLayout = inGroupNameLayout;
     this.inGroupNameTv = inGroupNameTv;
-    this.msgReceiptLayout = msgReceiptLayout;
     this.msgRemindLayout = msgRemindLayout;
+    this.msgSettingLayout = msgSettingLayout;
     this.muteSwitchView = muteSwitchView;
     this.nameTv = nameTv;
     this.noticeLayout = noticeLayout;
@@ -257,15 +257,15 @@ public final class ActGroupDetailLayoutBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.msgReceiptLayout;
-      LinearLayout msgReceiptLayout = ViewBindings.findChildViewById(rootView, id);
-      if (msgReceiptLayout == null) {
-        break missingId;
-      }
-
       id = R.id.msgRemindLayout;
       LinearLayout msgRemindLayout = ViewBindings.findChildViewById(rootView, id);
       if (msgRemindLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.msgSettingLayout;
+      LinearLayout msgSettingLayout = ViewBindings.findChildViewById(rootView, id);
+      if (msgSettingLayout == null) {
         break missingId;
       }
 
@@ -350,7 +350,7 @@ public final class ActGroupDetailLayoutBinding implements ViewBinding {
       return new ActGroupDetailLayoutBinding((LinearLayout) rootView, chatPwdSwitchView,
           clearChatMsgLayout, exitBtn, findContentLayout, findContentView, groupAvatarLayout,
           groupManageLayout, groupManageView, groupNameLayout, groupNoticeTv, groupQrLayout,
-          inGroupNameLayout, inGroupNameTv, msgReceiptLayout, msgRemindLayout, muteSwitchView,
+          inGroupNameLayout, inGroupNameTv, msgRemindLayout, msgSettingLayout, muteSwitchView,
           nameTv, noticeLayout, refreshLayout, remarkLayout, remarkTv, reportLayout, saveSwitchView,
           showAllMembersTv, showNickSwitchView, stickSwitchView, unsetNoticeLayout,
           userRecyclerView);

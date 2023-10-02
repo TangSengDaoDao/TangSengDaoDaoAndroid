@@ -4,6 +4,7 @@ package com.chat.uikit.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -94,6 +95,9 @@ public final class ChatInputLayoutBinding implements ViewBinding {
   public final LinearLayout multipleChoiceView;
 
   @NonNull
+  public final FrameLayout panelView;
+
+  @NonNull
   public final RecyclerView robotGifRecyclerView;
 
   @NonNull
@@ -128,11 +132,11 @@ public final class ChatInputLayoutBinding implements ViewBinding {
       @NonNull LinearLayout forwardView, @NonNull TextView hitTv,
       @NonNull AppCompatImageView markdownIv, @NonNull AppCompatImageView menuIv,
       @NonNull LinearLayout menuLayout, @NonNull LinearLayout menuView,
-      @NonNull LinearLayout multipleChoiceView, @NonNull RecyclerView robotGifRecyclerView,
-      @NonNull LinearLayout seekBarLayout, @NonNull AppCompatImageView sendIV,
-      @NonNull RecyclerView toolbarRecyclerView, @NonNull AppCompatImageView topCloseIv,
-      @NonNull LinearLayout topLayout, @NonNull AppCompatImageView topLeftIv,
-      @NonNull TextView topTitleTv) {
+      @NonNull LinearLayout multipleChoiceView, @NonNull FrameLayout panelView,
+      @NonNull RecyclerView robotGifRecyclerView, @NonNull LinearLayout seekBarLayout,
+      @NonNull AppCompatImageView sendIV, @NonNull RecyclerView toolbarRecyclerView,
+      @NonNull AppCompatImageView topCloseIv, @NonNull LinearLayout topLayout,
+      @NonNull AppCompatImageView topLeftIv, @NonNull TextView topTitleTv) {
     this.rootView = rootView;
     this.banView = banView;
     this.burnSwitchView = burnSwitchView;
@@ -157,6 +161,7 @@ public final class ChatInputLayoutBinding implements ViewBinding {
     this.menuLayout = menuLayout;
     this.menuView = menuView;
     this.multipleChoiceView = multipleChoiceView;
+    this.panelView = panelView;
     this.robotGifRecyclerView = robotGifRecyclerView;
     this.seekBarLayout = seekBarLayout;
     this.sendIV = sendIV;
@@ -332,6 +337,12 @@ public final class ChatInputLayoutBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.panelView;
+      FrameLayout panelView = ViewBindings.findChildViewById(rootView, id);
+      if (panelView == null) {
+        break missingId;
+      }
+
       id = R.id.robotGifRecyclerView;
       RecyclerView robotGifRecyclerView = ViewBindings.findChildViewById(rootView, id);
       if (robotGifRecyclerView == null) {
@@ -384,8 +395,8 @@ public final class ChatInputLayoutBinding implements ViewBinding {
           burnTimeTv, chatView, closeSearchLottieIV, contentTv, deleteIv, deleteTv, deleteView,
           editText, flameIV, flameLayout, forbiddenTv, forbiddenView, forwardIv, forwardTv,
           forwardView, hitTv, markdownIv, menuIv, menuLayout, menuView, multipleChoiceView,
-          robotGifRecyclerView, seekBarLayout, sendIV, toolbarRecyclerView, topCloseIv, topLayout,
-          topLeftIv, topTitleTv);
+          panelView, robotGifRecyclerView, seekBarLayout, sendIV, toolbarRecyclerView, topCloseIv,
+          topLayout, topLeftIv, topTitleTv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

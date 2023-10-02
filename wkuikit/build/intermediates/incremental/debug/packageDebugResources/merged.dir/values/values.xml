@@ -49,12 +49,13 @@
     <string name="choose_chat">选择会话</string>
     <string name="choose_contacts">选择联系人</string>
     <string name="choose_members">选择成员</string>
-    <string name="choose_module">选择模块</string>
+    <string name="choose_module">企业版模块</string>
     <string name="clear_all_msg_tips">确定清空所有聊天记录？</string>
     <string name="clear_all_remind">标记所有已读</string>
     <string name="clear_chat_group_msg_dialog">删除本地聊天记录和远程数据，确定删除群的聊天记录吗？</string>
     <string name="clear_chat_msg">清空聊天记录</string>
     <string name="clear_chat_personal_msg_dialog">删除本地聊天记录和远程数据，确定删除与 %s 的聊天记录吗？</string>
+    <string name="clear_history">清除历史记录</string>
     <string name="clear_img_cache">清空图片缓存</string>
     <string name="clear_img_cache_tips">确定清空图片缓存？</string>
     <string name="clear_msg">清空聊天记录</string>
@@ -78,11 +79,13 @@
     <string name="dark_save_tips">新的设置需要重启%s才能生效</string>
     <string name="default_new_msg">你有一条新消息</string>
     <string name="delete">删除</string>
+    <string name="delete_chat">删除聊天</string>
     <string name="delete_conver_msg_tips">删除后，将清空该聊天的消息记录</string>
     <string name="delete_friends">解除好友关系</string>
     <string name="delete_friends_tips">将联系人"%s"删除，同时删除与该联系人到聊天记录</string>
     <string name="delete_group">删除并退出</string>
     <string name="delete_group_members">删除群成员</string>
+    <string name="delete_messages">删除消息</string>
     <string name="delete_msg">删除该聊天</string>
     <string name="delete_select_msg">确定删除选中的消息吗？</string>
     <string name="disabled">未开启</string>
@@ -132,7 +135,6 @@
     <string name="hold_to_record">手指上滑，取消发送</string>
     <string name="identity">%s号</string>
     <string name="image">图片</string>
-    <string name="in_gorup_name">我在本群的昵称</string>
     <string name="in_group_name">群内昵称：</string>
     <string name="input">请输入…</string>
     <string name="input_apply_remark">请输入申请备注</string>
@@ -167,6 +169,7 @@
     <string name="msg_revoked">该消息已被撤回无法查看</string>
     <string name="msg_top">置顶聊天</string>
     <string name="my_app_id">我的%s号：</string>
+    <string name="my_in_group_name">我在本群的昵称</string>
     <string name="my_qr">我的二维码</string>
     <string name="my_remark_name_in_group">我在本群的昵称</string>
     <string name="my_wallet">我的钱包</string>

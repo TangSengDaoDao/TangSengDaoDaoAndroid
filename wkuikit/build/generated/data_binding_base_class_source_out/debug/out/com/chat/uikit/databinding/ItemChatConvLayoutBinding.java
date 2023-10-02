@@ -4,6 +4,7 @@ package com.chat.uikit.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -49,6 +50,9 @@ public final class ItemChatConvLayoutBinding implements ViewBinding {
   public final TextView nameTv;
 
   @NonNull
+  public final FrameLayout otherLayout;
+
+  @NonNull
   public final LinearLayout remindLayout;
 
   @NonNull
@@ -67,7 +71,8 @@ public final class ItemChatConvLayoutBinding implements ViewBinding {
       @NonNull LinearLayout categoryLayout, @NonNull LinearLayout contentLayout,
       @NonNull TextView contentTv, @NonNull AppCompatImageView forbiddenIv,
       @NonNull AppCompatImageView groupIV, @NonNull CounterView msgCountTv,
-      @NonNull TextView nameTv, @NonNull LinearLayout remindLayout, @NonNull SpinKitView spinKit,
+      @NonNull TextView nameTv, @NonNull FrameLayout otherLayout,
+      @NonNull LinearLayout remindLayout, @NonNull SpinKitView spinKit,
       @NonNull RLottieImageView statusIV, @NonNull TextView timeTv,
       @NonNull AppCompatImageView unremindIv) {
     this.rootView = rootView;
@@ -79,6 +84,7 @@ public final class ItemChatConvLayoutBinding implements ViewBinding {
     this.groupIV = groupIV;
     this.msgCountTv = msgCountTv;
     this.nameTv = nameTv;
+    this.otherLayout = otherLayout;
     this.remindLayout = remindLayout;
     this.spinKit = spinKit;
     this.statusIV = statusIV;
@@ -161,6 +167,12 @@ public final class ItemChatConvLayoutBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.otherLayout;
+      FrameLayout otherLayout = ViewBindings.findChildViewById(rootView, id);
+      if (otherLayout == null) {
+        break missingId;
+      }
+
       id = R.id.remindLayout;
       LinearLayout remindLayout = ViewBindings.findChildViewById(rootView, id);
       if (remindLayout == null) {
@@ -192,8 +204,8 @@ public final class ItemChatConvLayoutBinding implements ViewBinding {
       }
 
       return new ItemChatConvLayoutBinding((LinearLayout) rootView, avatarView, categoryLayout,
-          contentLayout, contentTv, forbiddenIv, groupIV, msgCountTv, nameTv, remindLayout, spinKit,
-          statusIV, timeTv, unremindIv);
+          contentLayout, contentTv, forbiddenIv, groupIV, msgCountTv, nameTv, otherLayout,
+          remindLayout, spinKit, statusIV, timeTv, unremindIv);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -39,10 +39,10 @@ public final class ActChatPersonalLayoutBinding implements ViewBinding {
   public final LinearLayout findContentLayout;
 
   @NonNull
-  public final LinearLayout msgReceiptLayout;
+  public final LinearLayout msgRemindLayout;
 
   @NonNull
-  public final LinearLayout msgRemindLayout;
+  public final LinearLayout msgSettingLayout;
 
   @NonNull
   public final SwitchView muteSwitchView;
@@ -62,8 +62,8 @@ public final class ActChatPersonalLayoutBinding implements ViewBinding {
   private ActChatPersonalLayoutBinding(@NonNull LinearLayout rootView,
       @NonNull AppCompatImageView addIv, @NonNull AvatarView avatarView,
       @NonNull SwitchView chatPwdSwitchView, @NonNull LinearLayout clearChatMsgLayout,
-      @NonNull LinearLayout findContentLayout, @NonNull LinearLayout msgReceiptLayout,
-      @NonNull LinearLayout msgRemindLayout, @NonNull SwitchView muteSwitchView,
+      @NonNull LinearLayout findContentLayout, @NonNull LinearLayout msgRemindLayout,
+      @NonNull LinearLayout msgSettingLayout, @NonNull SwitchView muteSwitchView,
       @NonNull TextView nameTv, @NonNull SmartRefreshLayout refreshLayout,
       @NonNull LinearLayout reportLayout, @NonNull SwitchView stickSwitchView) {
     this.rootView = rootView;
@@ -72,8 +72,8 @@ public final class ActChatPersonalLayoutBinding implements ViewBinding {
     this.chatPwdSwitchView = chatPwdSwitchView;
     this.clearChatMsgLayout = clearChatMsgLayout;
     this.findContentLayout = findContentLayout;
-    this.msgReceiptLayout = msgReceiptLayout;
     this.msgRemindLayout = msgRemindLayout;
+    this.msgSettingLayout = msgSettingLayout;
     this.muteSwitchView = muteSwitchView;
     this.nameTv = nameTv;
     this.refreshLayout = refreshLayout;
@@ -138,15 +138,15 @@ public final class ActChatPersonalLayoutBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.msgReceiptLayout;
-      LinearLayout msgReceiptLayout = ViewBindings.findChildViewById(rootView, id);
-      if (msgReceiptLayout == null) {
-        break missingId;
-      }
-
       id = R.id.msgRemindLayout;
       LinearLayout msgRemindLayout = ViewBindings.findChildViewById(rootView, id);
       if (msgRemindLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.msgSettingLayout;
+      LinearLayout msgSettingLayout = ViewBindings.findChildViewById(rootView, id);
+      if (msgSettingLayout == null) {
         break missingId;
       }
 
@@ -181,8 +181,8 @@ public final class ActChatPersonalLayoutBinding implements ViewBinding {
       }
 
       return new ActChatPersonalLayoutBinding((LinearLayout) rootView, addIv, avatarView,
-          chatPwdSwitchView, clearChatMsgLayout, findContentLayout, msgReceiptLayout,
-          msgRemindLayout, muteSwitchView, nameTv, refreshLayout, reportLayout, stickSwitchView);
+          chatPwdSwitchView, clearChatMsgLayout, findContentLayout, msgRemindLayout,
+          msgSettingLayout, muteSwitchView, nameTv, refreshLayout, reportLayout, stickSwitchView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -56,7 +56,10 @@ int anim m3_side_sheet_slide_out 0x0
 int anim mtrl_bottom_sheet_slide_in 0x0
 int anim mtrl_bottom_sheet_slide_out 0x0
 int anim mtrl_card_lowers_interpolator 0x0
+int anim no_animation 0x0
 int anim popup_context_in 0x0
+int anim popup_in 0x0
+int anim popup_out 0x0
 int anim ps_anim_album_dismiss 0x0
 int anim ps_anim_album_show 0x0
 int anim ps_anim_alpha_enter 0x0
@@ -1771,6 +1774,7 @@ int color design_fab_stroke_top_inner_color 0x0
 int color design_fab_stroke_top_outer_color 0x0
 int color design_icon_tint 0x0
 int color design_snackbar_background_color 0x0
+int color dialogText 0x0
 int color dim_foreground_disabled_material_dark 0x0
 int color dim_foreground_disabled_material_light 0x0
 int color dim_foreground_material_dark 0x0
@@ -3601,6 +3605,7 @@ int drawable ps_view_normal 0x0
 int drawable ps_view_press 0x0
 int drawable radian_normal_layout 0x0
 int drawable received_chat_text_bg 0x0
+int drawable reply_line 0x0
 int drawable right_bg 0x0
 int drawable round_bg 0x0
 int drawable rsb_default_thumb 0x0
@@ -3734,6 +3739,7 @@ int id animateToEnd 0x0
 int id animateToStart 0x0
 int id antiClockwise 0x0
 int id anticipate 0x0
+int id appIV 0x0
 int id appIdNumLeftTv 0x0
 int id appIdNumTv 0x0
 int id appNameTv 0x0
@@ -3772,7 +3778,6 @@ int id bottom_navigation 0x0
 int id bounce 0x0
 int id btnCheck 0x0
 int id btnOk 0x0
-int id btnTv 0x0
 int id btn_cancel 0x0
 int id btn_commit 0x0
 int id btn_keys 0x0
@@ -3783,6 +3788,7 @@ int id burnTimeTv 0x0
 int id butt 0x0
 int id buttonPanel 0x0
 int id callMeasure 0x0
+int id cancelBtn 0x0
 int id cancelTv 0x0
 int id cancel_button 0x0
 int id cardView 0x0
@@ -4109,6 +4115,7 @@ int id message 0x0
 int id middle 0x0
 int id min_width_tag 0x0
 int id mini 0x0
+int id moduleLayout 0x0
 int id month_grid 0x0
 int id month_navigation_bar 0x0
 int id month_navigation_fragment_toggle 0x0
@@ -4122,10 +4129,10 @@ int id msgCountTv 0x0
 int id msgLayout 0x0
 int id msgReactionsLayout 0x0
 int id msgReactionsLy 0x0
-int id msgReceiptLayout 0x0
 int id msgRecoveryLayout 0x0
 int id msgRecyclerView 0x0
 int id msgRemindLayout 0x0
+int id msgSettingLayout 0x0
 int id msgStatusLayout 0x0
 int id msgTimeTv 0x0
 int id msgTimeView 0x0
@@ -4207,6 +4214,7 @@ int id oval 0x0
 int id overshoot 0x0
 int id packed 0x0
 int id pager 0x0
+int id panelView 0x0
 int id parallax 0x0
 int id parent 0x0
 int id parentPanel 0x0
@@ -4287,6 +4295,7 @@ int id remindLayout 0x0
 int id replyAvatarIv 0x0
 int id replyIv 0x0
 int id replyLayout 0x0
+int id replyLine 0x0
 int id replyNameTv 0x0
 int id replyTv 0x0
 int id reportLayout 0x0
@@ -4442,7 +4451,6 @@ int id subtitleTv 0x0
 int id subtitleView 0x0
 int id support_container 0x0
 int id sureBtn 0x0
-int id sureTv 0x0
 int id sweep 0x0
 int id swipe 0x0
 int id systemTv 0x0
@@ -4756,6 +4764,7 @@ int layout act_common_list_layout_white 0x0
 int layout act_cut_img_layout 0x0
 int layout act_dark_setting_layout 0x0
 int layout act_file_helper_layout 0x0
+int layout act_flex_tab_layout 0x0
 int layout act_group_detail_layout 0x0
 int layout act_group_header_layout 0x0
 int layout act_group_notice_layout 0x0
@@ -4781,6 +4790,7 @@ int layout act_user_detail_layout 0x0
 int layout act_user_qr_layout 0x0
 int layout act_webvieiw_layout 0x0
 int layout all_msg_reactions_popup_view 0x0
+int layout auth_dialog_layout 0x0
 int layout brvah_quick_view_load_more 0x0
 int layout chat_confirm_dialog_view 0x0
 int layout chat_content_format_err_layout 0x0
@@ -4832,8 +4842,6 @@ int layout frag_emoji_layout 0x0
 int layout frag_my_layout 0x0
 int layout frag_recording_voice_layout 0x0
 int layout image_bottom_view 0x0
-int layout in_group_name_dialog_view 0x0
-int layout input_dialog_layout 0x0
 int layout item_all_members_layout 0x0
 int layout item_app_module_layout 0x0
 int layout item_attach_view 0x0
@@ -4875,7 +4883,6 @@ int layout item_search_msg_layout 0x0
 int layout item_search_msg_result_layout 0x0
 int layout item_search_user_layout 0x0
 int layout item_select_text_pop 0x0
-int layout list_attach_view_layout 0x0
 int layout m3_alert_dialog 0x0
 int layout m3_alert_dialog_actions 0x0
 int layout m3_alert_dialog_title 0x0
@@ -4986,8 +4993,6 @@ int layout wk_base_item_common_bottom_layout 0x0
 int layout wk_chat_list_footer 0x0
 int layout wk_item_chat_tool_bar 0x0
 int layout wk_msg_status_layout 0x0
-int layout wk_normal_dialog_single_btn_view 0x0
-int layout wk_normal_dialog_view 0x0
 int layout wk_num_pwd_dialog_layout 0x0
 int layout wk_num_pwd_input_layout 0x0
 int layout wk_pwd_view_layout 0x0
@@ -5001,8 +5006,11 @@ int mipmap ar_record_audio_select 0x0
 int mipmap bg_rotate_large 0x0
 int mipmap chat_calls_video 0x0
 int mipmap chat_calls_voice 0x0
+int mipmap device_web_other 0x0
 int mipmap flame_small 0x0
 int mipmap group_edit 0x0
+int mipmap header_shadow 0x0
+int mipmap header_shadow_reverse 0x0
 int mipmap ic_a 0x0
 int mipmap ic_ab_back 0x0
 int mipmap ic_ab_delete 0x0
@@ -5020,6 +5028,8 @@ int mipmap ic_chat_s 0x0
 int mipmap ic_close_white 0x0
 int mipmap ic_contacts_n 0x0
 int mipmap ic_contacts_s 0x0
+int mipmap ic_gallery 0x0
+int mipmap ic_gallery_background 0x0
 int mipmap ic_logo 0x0
 int mipmap ic_mine_n 0x0
 int mipmap ic_mine_s 0x0
@@ -5079,9 +5089,14 @@ int mipmap menu_add 0x0
 int mipmap menu_chats 0x0
 int mipmap menu_devices 0x0
 int mipmap menu_invite 0x0
+int mipmap menu_scan 0x0
+int mipmap msg2_email 0x0
 int mipmap msg_add 0x0
 int mipmap msg_arrowright 0x0
+int mipmap msg_calls 0x0
+int mipmap msg_camera 0x0
 int mipmap msg_check 0x0
+int mipmap msg_contacts 0x0
 int mipmap msg_copy 0x0
 int mipmap msg_delete 0x0
 int mipmap msg_download 0x0
@@ -5098,11 +5113,15 @@ int mipmap msg_reply 0x0
 int mipmap msg_seen 0x0
 int mipmap msg_seen_signle 0x0
 int mipmap msg_select 0x0
+int mipmap msg_settings 0x0
+int mipmap msg_share 0x0
 int mipmap msg_unmute 0x0
 int mipmap msg_unpin 0x0
 int mipmap msg_withdraw 0x0
 int mipmap passcode_delete 0x0
 int mipmap popup_fixed_alert 0x0
+int mipmap popup_fixed_alert3 0x0
+int mipmap qr_gallery 0x0
 int mipmap reactions_bubble_shadow 0x0
 int mipmap round_check2 0x0
 int mipmap search_links 0x0
@@ -5110,6 +5129,7 @@ int mipmap selectphoto_large 0x0
 int mipmap shadow_bottom 0x0
 int mipmap shadow_left 0x0
 int mipmap shadow_right 0x0
+int mipmap sheet_shadow_round 0x0
 int mipmap themes_deletecolor 0x0
 int mipmap tool_rotate 0x0
 int plurals mtrl_badge_content_description 0x0
@@ -5241,6 +5261,7 @@ int string clear_all_remind 0x0
 int string clear_chat_group_msg_dialog 0x0
 int string clear_chat_msg 0x0
 int string clear_chat_personal_msg_dialog 0x0
+int string clear_history 0x0
 int string clear_img_cache 0x0
 int string clear_img_cache_tips 0x0
 int string clear_msg 0x0
@@ -5279,11 +5300,13 @@ int string dark_normal 0x0
 int string dark_save_tips 0x0
 int string default_new_msg 0x0
 int string delete 0x0
+int string delete_chat 0x0
 int string delete_conver_msg_tips 0x0
 int string delete_friends 0x0
 int string delete_friends_tips 0x0
 int string delete_group 0x0
 int string delete_group_members 0x0
+int string delete_messages 0x0
 int string delete_msg 0x0
 int string delete_select_msg 0x0
 int string disabled 0x0
@@ -5348,7 +5371,6 @@ int string hold_to_record 0x0
 int string icon_content_description 0x0
 int string identity 0x0
 int string image 0x0
-int string in_gorup_name 0x0
 int string in_group_name 0x0
 int string init_data 0x0
 int string input 0x0
@@ -5446,6 +5468,8 @@ int string msg_record 0x0
 int string msg_remind 0x0
 int string msg_reply 0x0
 int string msg_revoked 0x0
+int string msg_send_fail 0x0
+int string msg_send_fail_resend 0x0
 int string msg_top 0x0
 int string mtrl_badge_numberless_content_description 0x0
 int string mtrl_checkbox_button_icon_path_checked 0x0
@@ -5511,6 +5535,7 @@ int string mtrl_timepicker_cancel 0x0
 int string mtrl_timepicker_confirm 0x0
 int string multiple_choice 0x0
 int string my_app_id 0x0
+int string my_in_group_name 0x0
 int string my_qr 0x0
 int string my_remark_name_in_group 0x0
 int string my_revoke_msg 0x0
@@ -5717,9 +5742,12 @@ int string str_delete 0x0
 int string str_edit 0x0
 int string str_forget_pwd 0x0
 int string str_forward 0x0
+int string str_get_name_avatar 0x0
 int string str_just 0x0
 int string str_min 0x0
 int string str_msg_content_sticker 0x0
+int string str_request 0x0
+int string str_request_desc 0x0
 int string str_resend_msg_tips 0x0
 int string str_save 0x0
 int string str_search 0x0
@@ -6071,6 +6099,7 @@ int style Base_Widget_MaterialComponents_TextView 0x0
 int style CardView 0x0
 int style CardView_Dark 0x0
 int style CardView_Light 0x0
+int style DialogNoAnimation 0x0
 int style EmptyTheme 0x0
 int style MaterialAlertDialog_Material3 0x0
 int style MaterialAlertDialog_Material3_Animation 0x0
@@ -6113,7 +6142,9 @@ int style Platform_V21_AppCompat_Light 0x0
 int style Platform_V25_AppCompat 0x0
 int style Platform_V25_AppCompat_Light 0x0
 int style Platform_Widget_AppCompat_Spinner 0x0
+int style PopupAnimation 0x0
 int style PopupContextAnimation 0x0
+int style PopupContextAnimation2 0x0
 int style RtlOverlay_DialogWindowTitle_AppCompat 0x0
 int style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem 0x0
 int style RtlOverlay_Widget_AppCompat_DialogTitle_Icon 0x0
@@ -6595,6 +6626,8 @@ int style Theme_MaterialComponents_Light_NoActionBar 0x0
 int style Theme_MaterialComponents_Light_NoActionBar_Bridge 0x0
 int style Theme_MaterialComponents_NoActionBar 0x0
 int style Theme_MaterialComponents_NoActionBar_Bridge 0x0
+int style TransparentDialog 0x0
+int style TransparentDialogNoAnimation 0x0
 int style Widget_AppCompat_ActionBar 0x0
 int style Widget_AppCompat_ActionBar_Solid 0x0
 int style Widget_AppCompat_ActionBar_TabBar 0x0

@@ -108,6 +108,7 @@
     <color name="colord8d5d5">#d8d5d5</color>
     <color name="default_shadow_color">#2a000000</color>
     <color name="default_shadowback_color">#fff</color>
+    <color name="dialogText">#4A4949</color>
     <color name="gary">#F3F3F3</color>
     <color name="homeColor">#f6f6f6</color>
     <color name="homeColorSelected">#E7E7E7</color>
@@ -204,10 +205,12 @@
     <string name="max_file_size"> 最大支持500M</string>
     <string name="messages_encryption">用户之间的消息将受到端对端加密保护</string>
     <string name="microphone_permissions_des">在设置-应用-%s-权限中开启麦克风权限。以正常使用语音、音视频通话、小视频等功能</string>
-    <string name="min_file_size"> 不支持的文件</string>
+    <string name="min_file_size">不支持的文件</string>
     <string name="monday">周一</string>
     <string name="msg_read_count">%d已读</string>
     <string name="msg_reply">回复</string>
+    <string name="msg_send_fail">消息发送失败</string>
+    <string name="msg_send_fail_resend">重新发送</string>
     <string name="multiple_choice">多选</string>
     <string name="my_revoke_msg">你撤回了一条消息</string>
     <string name="new_version">最新版本</string>
@@ -242,9 +245,12 @@
     <string name="str_edit">编辑</string>
     <string name="str_forget_pwd">忘记密码</string>
     <string name="str_forward">已转发</string>
+    <string name="str_get_name_avatar">获取你的昵称、头像</string>
     <string name="str_just">刚刚</string>
     <string name="str_min">%s分钟</string>
     <string name="str_msg_content_sticker">[动画表情]</string>
+    <string name="str_request">申请</string>
+    <string name="str_request_desc">%s的昵称头像</string>
     <string name="str_resend_msg_tips">消息发送失败，确定重发消息？</string>
     <string name="str_save">保存</string>
     <string name="str_search">搜索</string>
@@ -276,14 +282,46 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@color/transparent</item>
     </style>
+    <style name="DialogNoAnimation">
+        <item name="android:windowEnterAnimation">@anim/no_animation</item>
+        <item name="android:windowExitAnimation">@anim/no_animation</item>
+    </style>
+    <style mce_bogus="1" name="PopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_out</item>
+    </style>
     <style mce_bogus="1" name="PopupContextAnimation" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/popup_context_in</item>
+    </style>
+    <style mce_bogus="1" name="PopupContextAnimation2" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_context_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_out</item>
     </style>
     <style name="SwipeBackLayout">
         <item name="edge_size">50dip</item>
         <item name="shadow_left">@mipmap/shadow_left</item>
         <item name="shadow_right">@mipmap/shadow_right</item>
         <item name="shadow_bottom">@mipmap/shadow_bottom</item>
+    </style>
+    <style name="TransparentDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+    <style name="TransparentDialogNoAnimation" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
     <style name="arrow_right_iv">
         <item name="android:layout_alignParentRight">true</item>

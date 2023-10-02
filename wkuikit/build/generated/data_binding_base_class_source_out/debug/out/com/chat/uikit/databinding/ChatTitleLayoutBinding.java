@@ -32,6 +32,9 @@ public final class ChatTitleLayoutBinding implements ViewBinding {
   public final LinearLayout categoryLayout;
 
   @NonNull
+  public final FrameLayout otherLayout;
+
+  @NonNull
   public final FrameLayout rightView;
 
   @NonNull
@@ -51,13 +54,15 @@ public final class ChatTitleLayoutBinding implements ViewBinding {
 
   private ChatTitleLayoutBinding(@NonNull LinearLayout rootView, @NonNull AvatarView avatarView,
       @NonNull AppCompatImageView backIv, @NonNull LinearLayout categoryLayout,
-      @NonNull FrameLayout rightView, @NonNull TextView subtitleCountTv,
-      @NonNull TextView subtitleTv, @NonNull LinearLayout subtitleView,
-      @NonNull TextView titleCenterTv, @NonNull LinearLayout titleView) {
+      @NonNull FrameLayout otherLayout, @NonNull FrameLayout rightView,
+      @NonNull TextView subtitleCountTv, @NonNull TextView subtitleTv,
+      @NonNull LinearLayout subtitleView, @NonNull TextView titleCenterTv,
+      @NonNull LinearLayout titleView) {
     this.rootView = rootView;
     this.avatarView = avatarView;
     this.backIv = backIv;
     this.categoryLayout = categoryLayout;
+    this.otherLayout = otherLayout;
     this.rightView = rightView;
     this.subtitleCountTv = subtitleCountTv;
     this.subtitleTv = subtitleTv;
@@ -111,6 +116,12 @@ public final class ChatTitleLayoutBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.otherLayout;
+      FrameLayout otherLayout = ViewBindings.findChildViewById(rootView, id);
+      if (otherLayout == null) {
+        break missingId;
+      }
+
       id = R.id.rightView;
       FrameLayout rightView = ViewBindings.findChildViewById(rootView, id);
       if (rightView == null) {
@@ -144,7 +155,8 @@ public final class ChatTitleLayoutBinding implements ViewBinding {
       LinearLayout titleView = (LinearLayout) rootView;
 
       return new ChatTitleLayoutBinding((LinearLayout) rootView, avatarView, backIv, categoryLayout,
-          rightView, subtitleCountTv, subtitleTv, subtitleView, titleCenterTv, titleView);
+          otherLayout, rightView, subtitleCountTv, subtitleTv, subtitleView, titleCenterTv,
+          titleView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

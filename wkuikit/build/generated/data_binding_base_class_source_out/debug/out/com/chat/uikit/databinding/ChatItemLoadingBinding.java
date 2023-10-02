@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -18,7 +17,7 @@ import java.lang.String;
 
 public final class ChatItemLoadingBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final FrameLayout rootView;
 
   @NonNull
   public final FrameLayout loading;
@@ -26,7 +25,7 @@ public final class ChatItemLoadingBinding implements ViewBinding {
   @NonNull
   public final RadialProgressView progress;
 
-  private ChatItemLoadingBinding(@NonNull LinearLayout rootView, @NonNull FrameLayout loading,
+  private ChatItemLoadingBinding(@NonNull FrameLayout rootView, @NonNull FrameLayout loading,
       @NonNull RadialProgressView progress) {
     this.rootView = rootView;
     this.loading = loading;
@@ -35,7 +34,7 @@ public final class ChatItemLoadingBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public FrameLayout getRoot() {
     return rootView;
   }
 
@@ -72,7 +71,7 @@ public final class ChatItemLoadingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ChatItemLoadingBinding((LinearLayout) rootView, loading, progress);
+      return new ChatItemLoadingBinding((FrameLayout) rootView, loading, progress);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

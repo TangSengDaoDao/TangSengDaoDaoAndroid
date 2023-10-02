@@ -55,7 +55,10 @@ anim m3_side_sheet_slide_out
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
+anim no_animation
 anim popup_context_in
+anim popup_in
+anim popup_out
 anim ps_anim_album_dismiss
 anim ps_anim_album_show
 anim ps_anim_alpha_enter
@@ -1740,6 +1743,7 @@ color design_fab_stroke_top_inner_color
 color design_fab_stroke_top_outer_color
 color design_icon_tint
 color design_snackbar_background_color
+color dialogText
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -3687,6 +3691,8 @@ id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
+id appIV
+id appNameTv
 id arc
 id asConfigured
 id async
@@ -3712,7 +3718,6 @@ id bottom_nar_bar
 id bounce
 id btnCheck
 id btnOk
-id btnTv
 id btn_cancel
 id btn_commit
 id btn_keys
@@ -3721,6 +3726,7 @@ id bubbleLayout
 id butt
 id buttonPanel
 id callMeasure
+id cancelBtn
 id cancelTv
 id cancel_button
 id carryVelocity
@@ -3791,6 +3797,7 @@ id deleteIv
 id deleteLayout
 id delete_iv
 id deltaRelative
+id descTv
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -4106,7 +4113,6 @@ id recyclerView
 id registerAppTv
 id registerBtn
 id registerTv
-id remarkEt
 id remarkTv
 id resetLoginPwdTv
 id reverseSawtooth
@@ -4512,6 +4518,7 @@ layout act_web_login_auth_layout
 layout act_web_login_layout
 layout act_webvieiw_layout
 layout all_msg_reactions_popup_view
+layout auth_dialog_layout
 layout brvah_quick_view_load_more
 layout chat_content_format_err_layout
 layout chat_item_base_layout
@@ -4543,7 +4550,6 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout frag_emoji_layout
 layout image_bottom_view
-layout input_dialog_layout
 layout item_attach_view
 layout item_choose_country_code_layout
 layout item_emoji_layout
@@ -4554,7 +4560,6 @@ layout item_msg_reactions_user_layout
 layout item_num_pwd
 layout item_screen_layout
 layout item_search_layout
-layout list_attach_view_layout
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -4663,8 +4668,6 @@ layout view_emoji_panel
 layout wk_base_common_bottom_layout
 layout wk_base_item_common_bottom_layout
 layout wk_msg_status_layout
-layout wk_normal_dialog_single_btn_view
-layout wk_normal_dialog_view
 layout wk_num_pwd_dialog_layout
 layout wk_num_pwd_input_layout
 layout wk_pwd_view_layout
@@ -4675,8 +4678,11 @@ menu crop_image_menu
 mipmap bg_rotate_large
 mipmap device_status_pc_online_normal
 mipmap device_status_pc_online_silence
+mipmap device_web_other
 mipmap flame_small
 mipmap group_edit
+mipmap header_shadow
+mipmap header_shadow_reverse
 mipmap ic_ab_back
 mipmap ic_ab_delete
 mipmap ic_ab_done
@@ -4688,6 +4694,8 @@ mipmap ic_ab_search
 mipmap ic_arrow_drop_down
 mipmap ic_arrow_right
 mipmap ic_close_white
+mipmap ic_gallery
+mipmap ic_gallery_background
 mipmap ic_gitee
 mipmap ic_github
 mipmap ic_password_invisible
@@ -4721,9 +4729,14 @@ mipmap list_group
 mipmap list_reorder
 mipmap lock_close
 mipmap menu_add
+mipmap menu_scan
+mipmap msg2_email
 mipmap msg_add
 mipmap msg_arrowright
+mipmap msg_calls
+mipmap msg_camera
 mipmap msg_check
+mipmap msg_contacts
 mipmap msg_copy
 mipmap msg_delete
 mipmap msg_download
@@ -4737,9 +4750,13 @@ mipmap msg_reply
 mipmap msg_seen
 mipmap msg_seen_signle
 mipmap msg_select
+mipmap msg_settings
+mipmap msg_share
 mipmap msg_withdraw
 mipmap passcode_delete
 mipmap popup_fixed_alert
+mipmap popup_fixed_alert3
+mipmap qr_gallery
 mipmap reactions_bubble_shadow
 mipmap round_check2
 mipmap search_links
@@ -4747,6 +4764,7 @@ mipmap selectphoto_large
 mipmap shadow_bottom
 mipmap shadow_left
 mipmap shadow_right
+mipmap sheet_shadow_round
 mipmap themes_deletecolor
 mipmap tool_rotate
 plurals mtrl_badge_content_description
@@ -4946,6 +4964,8 @@ string min_file_size
 string monday
 string msg_read_count
 string msg_reply
+string msg_send_fail
+string msg_send_fail_resend
 string mtrl_badge_numberless_content_description
 string mtrl_checkbox_button_icon_path_checked
 string mtrl_checkbox_button_icon_path_group_name
@@ -5171,9 +5191,12 @@ string str_delete
 string str_edit
 string str_forget_pwd
 string str_forward
+string str_get_name_avatar
 string str_just
 string str_min
 string str_msg_content_sticker
+string str_request
+string str_request_desc
 string str_resend_msg_tips
 string str_save
 string str_search
@@ -5500,6 +5523,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style DialogNoAnimation
 style EmptyTheme
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
@@ -5542,7 +5566,9 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style PopupAnimation
 style PopupContextAnimation
+style PopupContextAnimation2
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon
@@ -6024,6 +6050,8 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
+style TransparentDialog
+style TransparentDialogNoAnimation
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

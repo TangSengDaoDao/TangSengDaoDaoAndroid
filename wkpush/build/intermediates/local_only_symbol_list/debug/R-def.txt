@@ -3,3 +3,4 @@ local
 raw shake
 string open_notification_content
 string open_notification_title
+string open_setting

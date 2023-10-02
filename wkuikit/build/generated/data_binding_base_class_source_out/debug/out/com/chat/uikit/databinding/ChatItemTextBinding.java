@@ -52,6 +52,9 @@ public final class ChatItemTextBinding implements ViewBinding {
   public final LinearLayout replyLayout;
 
   @NonNull
+  public final View replyLine;
+
+  @NonNull
   public final TextView replyNameTv;
 
   @NonNull
@@ -65,7 +68,7 @@ public final class ChatItemTextBinding implements ViewBinding {
       @NonNull LinearLayout linkView, @NonNull WkMsgStatusLayoutBinding msgTimeView,
       @NonNull TextView receivedTextNameTv, @NonNull AvatarView replyAvatarIv,
       @NonNull AppCompatImageView replyIv, @NonNull LinearLayout replyLayout,
-      @NonNull TextView replyNameTv, @NonNull TextView replyTv,
+      @NonNull View replyLine, @NonNull TextView replyNameTv, @NonNull TextView replyTv,
       @NonNull ChatTextTimeLayout textContentLayout) {
     this.rootView = rootView;
     this.contentLayout = contentLayout;
@@ -77,6 +80,7 @@ public final class ChatItemTextBinding implements ViewBinding {
     this.replyAvatarIv = replyAvatarIv;
     this.replyIv = replyIv;
     this.replyLayout = replyLayout;
+    this.replyLine = replyLine;
     this.replyNameTv = replyNameTv;
     this.replyTv = replyTv;
     this.textContentLayout = textContentLayout;
@@ -160,6 +164,12 @@ public final class ChatItemTextBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.replyLine;
+      View replyLine = ViewBindings.findChildViewById(rootView, id);
+      if (replyLine == null) {
+        break missingId;
+      }
+
       id = R.id.replyNameTv;
       TextView replyNameTv = ViewBindings.findChildViewById(rootView, id);
       if (replyNameTv == null) {
@@ -180,7 +190,7 @@ public final class ChatItemTextBinding implements ViewBinding {
 
       return new ChatItemTextBinding((LinearLayout) rootView, contentLayout, contentTv,
           contentTvLayout, linkView, binding_msgTimeView, receivedTextNameTv, replyAvatarIv,
-          replyIv, replyLayout, replyNameTv, replyTv, textContentLayout);
+          replyIv, replyLayout, replyLine, replyNameTv, replyTv, textContentLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pushsdk"
+    android:versionCode="3000"
+    android:versionName="3.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="28" />
+
+    <application>
+        <meta-data
+            android:name="sdkVersion"
+            android:value="3000" />
+    </application>
+
+</manifest>

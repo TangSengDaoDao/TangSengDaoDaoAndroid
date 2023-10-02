@@ -26,9 +26,6 @@ public final class ChatConfirmDialogViewBinding implements ViewBinding {
   public final AvatarView avatarView;
 
   @NonNull
-  public final TextView cancelTv;
-
-  @NonNull
   public final TextView contentTv;
 
   @NonNull
@@ -40,21 +37,16 @@ public final class ChatConfirmDialogViewBinding implements ViewBinding {
   @NonNull
   public final RecyclerView recyclerView;
 
-  @NonNull
-  public final TextView sureTv;
-
   private ChatConfirmDialogViewBinding(@NonNull LinearLayout rootView,
-      @NonNull AvatarView avatarView, @NonNull TextView cancelTv, @NonNull TextView contentTv,
+      @NonNull AvatarView avatarView, @NonNull TextView contentTv,
       @NonNull AppCompatImageView imageView, @NonNull TextView nameTv,
-      @NonNull RecyclerView recyclerView, @NonNull TextView sureTv) {
+      @NonNull RecyclerView recyclerView) {
     this.rootView = rootView;
     this.avatarView = avatarView;
-    this.cancelTv = cancelTv;
     this.contentTv = contentTv;
     this.imageView = imageView;
     this.nameTv = nameTv;
     this.recyclerView = recyclerView;
-    this.sureTv = sureTv;
   }
 
   @Override
@@ -90,12 +82,6 @@ public final class ChatConfirmDialogViewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.cancelTv;
-      TextView cancelTv = ViewBindings.findChildViewById(rootView, id);
-      if (cancelTv == null) {
-        break missingId;
-      }
-
       id = R.id.contentTv;
       TextView contentTv = ViewBindings.findChildViewById(rootView, id);
       if (contentTv == null) {
@@ -120,14 +106,8 @@ public final class ChatConfirmDialogViewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.sureTv;
-      TextView sureTv = ViewBindings.findChildViewById(rootView, id);
-      if (sureTv == null) {
-        break missingId;
-      }
-
-      return new ChatConfirmDialogViewBinding((LinearLayout) rootView, avatarView, cancelTv,
-          contentTv, imageView, nameTv, recyclerView, sureTv);
+      return new ChatConfirmDialogViewBinding((LinearLayout) rootView, avatarView, contentTv,
+          imageView, nameTv, recyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

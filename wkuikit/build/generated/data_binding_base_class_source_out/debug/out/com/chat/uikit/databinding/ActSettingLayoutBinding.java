@@ -55,6 +55,9 @@ public final class ActSettingLayoutBinding implements ViewBinding {
   public final TextView loginOutTv;
 
   @NonNull
+  public final LinearLayout moduleLayout;
+
+  @NonNull
   public final LinearLayout msgBackupLayout;
 
   @NonNull
@@ -75,9 +78,9 @@ public final class ActSettingLayoutBinding implements ViewBinding {
       @NonNull TextView darkStatusTv, @NonNull LinearLayout errorLogLayout,
       @NonNull LinearLayout fontSizeLayout, @NonNull TextView imageCacheTv,
       @NonNull LinearLayout languageLayout, @NonNull TextView loginOutTv,
-      @NonNull LinearLayout msgBackupLayout, @NonNull LinearLayout msgRecoveryLayout,
-      @NonNull AppCompatImageView newVersionIv, @NonNull SmartRefreshLayout refreshLayout,
-      @NonNull LinearLayout thirdShareLayout) {
+      @NonNull LinearLayout moduleLayout, @NonNull LinearLayout msgBackupLayout,
+      @NonNull LinearLayout msgRecoveryLayout, @NonNull AppCompatImageView newVersionIv,
+      @NonNull SmartRefreshLayout refreshLayout, @NonNull LinearLayout thirdShareLayout) {
     this.rootView = rootView;
     this.aboutLayout = aboutLayout;
     this.chatBgLayout = chatBgLayout;
@@ -90,6 +93,7 @@ public final class ActSettingLayoutBinding implements ViewBinding {
     this.imageCacheTv = imageCacheTv;
     this.languageLayout = languageLayout;
     this.loginOutTv = loginOutTv;
+    this.moduleLayout = moduleLayout;
     this.msgBackupLayout = msgBackupLayout;
     this.msgRecoveryLayout = msgRecoveryLayout;
     this.newVersionIv = newVersionIv;
@@ -190,6 +194,12 @@ public final class ActSettingLayoutBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.moduleLayout;
+      LinearLayout moduleLayout = ViewBindings.findChildViewById(rootView, id);
+      if (moduleLayout == null) {
+        break missingId;
+      }
+
       id = R.id.msgBackupLayout;
       LinearLayout msgBackupLayout = ViewBindings.findChildViewById(rootView, id);
       if (msgBackupLayout == null) {
@@ -222,7 +232,7 @@ public final class ActSettingLayoutBinding implements ViewBinding {
 
       return new ActSettingLayoutBinding((LinearLayout) rootView, aboutLayout, chatBgLayout,
           clearChatMsgLayout, clearImgCacheLayout, darkLayout, darkStatusTv, errorLogLayout,
-          fontSizeLayout, imageCacheTv, languageLayout, loginOutTv, msgBackupLayout,
+          fontSizeLayout, imageCacheTv, languageLayout, loginOutTv, moduleLayout, msgBackupLayout,
           msgRecoveryLayout, newVersionIv, refreshLayout, thirdShareLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
