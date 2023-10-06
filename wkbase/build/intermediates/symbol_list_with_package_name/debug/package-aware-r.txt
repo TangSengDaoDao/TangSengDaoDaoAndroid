@@ -3956,8 +3956,6 @@ id month_navigation_next
 id month_navigation_previous
 id month_title
 id motion_base
-id msgReactionsLayout
-id msgReactionsLy
 id msgStatusLayout
 id msgTimeTv
 id mtrl_anchor_parent
@@ -4513,7 +4511,6 @@ layout material_time_input
 layout material_timepicker
 layout material_timepicker_dialog
 layout material_timepicker_textinput_display
-layout msg_reactions_layout
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

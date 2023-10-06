@@ -3983,8 +3983,6 @@ int id month_navigation_next 0x0
 int id month_navigation_previous 0x0
 int id month_title 0x0
 int id motion_base 0x0
-int id msgReactionsLayout 0x0
-int id msgReactionsLy 0x0
 int id msgStatusLayout 0x0
 int id msgTimeTv 0x0
 int id mtrl_anchor_parent 0x0
@@ -4578,7 +4576,6 @@ int layout material_time_input 0x0
 int layout material_timepicker 0x0
 int layout material_timepicker_dialog 0x0
 int layout material_timepicker_textinput_display 0x0
-int layout msg_reactions_layout 0x0
 int layout mtrl_alert_dialog 0x0
 int layout mtrl_alert_dialog_actions 0x0
 int layout mtrl_alert_dialog_title 0x0

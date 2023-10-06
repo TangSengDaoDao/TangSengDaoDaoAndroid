@@ -33,7 +33,7 @@ public final class ChatItemBaseLayoutBinding implements ViewBinding {
   public final LinearLayout fullContentLayout;
 
   @NonNull
-  public final MsgReactionsLayoutBinding reactionsView;
+  public final FrameLayout reactionsView;
 
   @NonNull
   public final TextView receivedNameTv;
@@ -49,7 +49,7 @@ public final class ChatItemBaseLayoutBinding implements ViewBinding {
 
   private ChatItemBaseLayoutBinding(@NonNull ChatItemView rootView, @NonNull AvatarView avatarView,
       @NonNull CheckBox checkBox, @NonNull LinearLayout fullContentLayout,
-      @NonNull MsgReactionsLayoutBinding reactionsView, @NonNull TextView receivedNameTv,
+      @NonNull FrameLayout reactionsView, @NonNull TextView receivedNameTv,
       @NonNull FrameLayout viewContentLayout, @NonNull ChatItemView viewGroupLayout,
       @NonNull LinearLayout wkBaseContentLayout) {
     this.rootView = rootView;
@@ -109,11 +109,10 @@ public final class ChatItemBaseLayoutBinding implements ViewBinding {
       }
 
       id = R.id.reactionsView;
-      View reactionsView = ViewBindings.findChildViewById(rootView, id);
+      FrameLayout reactionsView = ViewBindings.findChildViewById(rootView, id);
       if (reactionsView == null) {
         break missingId;
       }
-      MsgReactionsLayoutBinding binding_reactionsView = MsgReactionsLayoutBinding.bind(reactionsView);
 
       id = R.id.receivedNameTv;
       TextView receivedNameTv = ViewBindings.findChildViewById(rootView, id);
@@ -136,8 +135,8 @@ public final class ChatItemBaseLayoutBinding implements ViewBinding {
       }
 
       return new ChatItemBaseLayoutBinding((ChatItemView) rootView, avatarView, checkBox,
-          fullContentLayout, binding_reactionsView, receivedNameTv, viewContentLayout,
-          viewGroupLayout, wkBaseContentLayout);
+          fullContentLayout, reactionsView, receivedNameTv, viewContentLayout, viewGroupLayout,
+          wkBaseContentLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

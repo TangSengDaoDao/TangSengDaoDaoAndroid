@@ -319,8 +319,6 @@ id left
 id line
 id linear
 id min_width_tag
-id msgReactionsLayout
-id msgReactionsLy
 id msgStatusLayout
 id msgTimeTv
 id nameTv
@@ -433,7 +431,6 @@ layout item_msg_reactions_user_layout
 layout item_num_pwd
 layout item_screen_layout
 layout item_search_layout
-layout msg_reactions_layout
 layout view_emoji_panel
 layout wk_base_common_bottom_layout
 layout wk_base_item_common_bottom_layout
