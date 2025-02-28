@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "232134567764",
+    "project_id": "tsdddemo",
+    "storage_bucket": "tangsengdaodaoandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232134567764:android:4454b65123eds3092326735",
+        "android_client_info": {
+          "package_name": "com.xinbida.tsdd.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOVB7GuZnDXIZWT-qaIiCrQU4qvfwWKGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
