@@ -14,24 +14,24 @@ android {
             keyPassword 'demo1365'
         }
         release {
-            storeFile file('../demo.jks')
-            storePassword 'demo1365'
-            keyAlias = 'demo'
-            keyPassword 'demo1365'
+            storeFile file('../huaxin.jks')
+            storePassword 'Aa3536781314'
+            keyAlias = 'key0'
+            keyPassword 'Aa3536781314'
         }
     }
-    namespace 'com.test.demo'
+    namespace 'com.mvc.huaxin'
     compileSdk rootProject.ext.compileSdkVersion
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 
 
     defaultConfig {
-        applicationId "com.test.demo"
+        applicationId "com.mvc.huaxin"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 222
+        versionName "2.2.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -41,8 +41,8 @@ android {
         multiDexEnabled true
         ndk {
             //根据需要 自行选择添加的对应cpu类型的.so库。
-            abiFilters "armeabi-v7a", "arm64-v8a"
-//            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
+//            abiFilters "armeabi-v7a", "arm64-v8a"
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
         compileSdkPreview = "UpsideDownCake"
     }

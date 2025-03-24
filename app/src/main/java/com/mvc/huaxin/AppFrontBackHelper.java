@@ -1,4 +1,4 @@
-package com.test.demo;
+package com.mvc.huaxin;
 
 import android.app.Activity;
 import android.app.Application;

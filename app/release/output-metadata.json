@@ -4,15 +4,15 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.test.demo",
+  "applicationId": "com.mvc.huaxin",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 1,
-      "versionName": "1.0",
+      "versionCode": 222,
+      "versionName": "2.2.2",
       "outputFile": "app-release.apk"
     }
   ],

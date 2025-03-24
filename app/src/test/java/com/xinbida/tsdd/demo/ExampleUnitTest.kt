@@ -1,4 +1,4 @@
-package com.test.demo
+package com.mvc.huaxin
 
 import org.junit.Test
 

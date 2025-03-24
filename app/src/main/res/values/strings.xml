@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">demo</string>
+    <string name="app_name">MVC</string>
     <string name="no_permissions">授权失败,APP部分功能将无法使用，请打开应用权限后重试</string>
     <string name="agree">同意</string>
     <string name="disagree">不同意</string>
-    <string name="app_slogan">两行代码，即可通讯</string>
+    <string name="app_slogan">随时随地，即可通讯</string>
     <string name="dialog_title">用户协议与隐私政策</string>
     <string name="dialog_content">尊敬的用户:在使用软件之前,为了让您更好地了解我们是如何保护用户的个人信息,请您仔细阅读《用户协议》和《隐私政策》
         \n重点内容如下:

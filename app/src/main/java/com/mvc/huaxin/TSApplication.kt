@@ -1,4 +1,4 @@
-package com.test.demo
+package com.mvc.huaxin
 
 import android.app.Activity
 import android.app.ActivityManager
@@ -108,7 +108,7 @@ class TSApplication : MultiDexApplication() {
     private fun initApi() {
         var apiURL = WKSharedPreferencesUtil.getInstance().getSP("api_base_url")
         if (TextUtils.isEmpty(apiURL)) {
-            apiURL = "https://api.botgate.cn"
+            apiURL = "http://api.newhxchat.top/api"
             WKApiConfig.initBaseURL(apiURL)
         } else {
             WKApiConfig.initBaseURLIncludeIP(apiURL)
@@ -116,7 +116,7 @@ class TSApplication : MultiDexApplication() {
     }
 
     private fun getAppPackageName(): String {
-        return "com.test.demo"
+        return "com.mvc.huaxin"
     }
 
     private fun getProcessName(cxt: Context, pid: Int): String? {
