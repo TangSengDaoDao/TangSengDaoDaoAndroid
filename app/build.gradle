@@ -20,14 +20,14 @@ android {
             keyPassword 'Aa3536781314'
         }
     }
-    namespace 'com.mvc.huaxin'
+    namespace 'com.mvc.bage'
     compileSdk rootProject.ext.compileSdkVersion
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 
 
     defaultConfig {
-        applicationId "com.mvc.huaxin"
+        applicationId "com.mvc.bage"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 222
