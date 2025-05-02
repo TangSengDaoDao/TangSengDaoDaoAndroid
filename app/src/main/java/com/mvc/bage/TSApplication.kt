@@ -138,6 +138,7 @@ class TSApplication : MultiDexApplication() {
         WKMultiLanguageUtil.getInstance().init(this)
         WKBaseApplication.getInstance().init(getAppPackageName(), this)
         Theme.applyTheme()
+        addAppFrontBack()
         // 其他不依赖API的基础初始化...
     }
 
@@ -152,12 +153,11 @@ class TSApplication : MultiDexApplication() {
         initApi(apiUrl)
 
         // 初始化其他依赖API的组件，确保使用正确的上下文
-        addAppFrontBack()
         WKLoginApplication.getInstance().init(this) // 这里的this始终指向TSApplication实例
         WKScanApplication.getInstance().init(this)
         WKUIKitApplication.getInstance().init(this)
         WKPushApplication.getInstance().init(getAppPackageName(), this)
-
+        UserModel.getInstance().getOnlineUsers()
         // 添加其他监听器
         addListener()
 
@@ -216,23 +216,21 @@ class TSApplication : MultiDexApplication() {
                     }
                     WKIMUtils.getInstance().initIMListener()
                     WKUIKitApplication.getInstance().startChat()
-                    UserModel.getInstance().getOnlineUsers()
-
                 }
             }
 
             override fun onBack() {
-                val result = EndpointManager.getInstance().invoke("rtc_is_calling", null)
-                var isCalling = false
-                if (result != null) {
-                    isCalling = result as Boolean
-                }
-                if (WKBaseApplication.getInstance().disconnect && !isCalling) {
-                    WKUIKitApplication.getInstance().stopConn()
-                }
-                WKIMUtils.getInstance().removeListener()
-                WKSharedPreferencesUtil.getInstance()
-                    .putLong("lock_start_time", WKTimeUtils.getInstance().currentSeconds)
+//                val result = EndpointManager.getInstance().invoke("rtc_is_calling", null)
+//                var isCalling = false
+//                if (result != null) {
+//                    isCalling = result as Boolean
+//                }
+//                if (WKBaseApplication.getInstance().disconnect && !isCalling) {
+//                    WKUIKitApplication.getInstance().stopConn()
+//                }
+//                WKIMUtils.getInstance().removeListener()
+//                WKSharedPreferencesUtil.getInstance()
+//                    .putLong("lock_start_time", WKTimeUtils.getInstance().currentSeconds)
 
             }
         })

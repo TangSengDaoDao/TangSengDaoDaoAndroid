@@ -68,7 +68,7 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
         wkVBinding.privacyPolicyTv.setTextColor(Theme.colorAccount);
         wkVBinding.userAgreementTv.setTextColor(Theme.colorAccount);
         wkVBinding.registerTv.setTextColor(Theme.colorAccount);
-        wkVBinding.forgetPwdTv.setTextColor(Theme.colorAccount);
+//        wkVBinding.forgetPwdTv.setTextColor(Theme.colorAccount);
         wkVBinding.checkbox.setResId(getContext(), R.mipmap.round_check2);
         wkVBinding.checkbox.setDrawBackground(true);
         wkVBinding.checkbox.setHasBorder(true);
@@ -151,11 +151,11 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
             Intent intent = new Intent(this, ChooseAreaCodeActivity.class);
             intentActivityResultLauncher.launch(intent);
         });
-        SingleClickUtil.onSingleClick(wkVBinding.forgetPwdTv, v -> {
-            Intent intent = new Intent(this, WKResetLoginPwdActivity.class);
-            intent.putExtra("canEditPhone", true);
-            startActivity(intent);
-        });
+//        SingleClickUtil.onSingleClick(wkVBinding.forgetPwdTv, v -> {
+//            Intent intent = new Intent(this, WKResetLoginPwdActivity.class);
+//            intent.putExtra("canEditPhone", true);
+//            startActivity(intent);
+//        });
 
         EndpointManager.getInstance().setMethod("other_login_result", object -> {
             OtherLoginResultMenu menu = (OtherLoginResultMenu) object;

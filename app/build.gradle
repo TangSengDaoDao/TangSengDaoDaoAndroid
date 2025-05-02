@@ -92,4 +92,8 @@ dependencies {
     implementation project(path: ':wklogin')
     implementation project(path: ':wkscan')
     implementation project(path: ':wkpush')
+    implementation 'androidx.test.ext:junit-ktx:1.2.1'
+    implementation 'androidx.test:monitor:1.7.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.12'
 }

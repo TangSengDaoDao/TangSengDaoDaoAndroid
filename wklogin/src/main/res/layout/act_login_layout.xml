@@ -201,20 +201,20 @@
                 android:textColor="@color/color999"
                 android:textSize="@dimen/font_size_13" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@color/colorLine" />
+<!--            <View-->
+<!--                android:layout_width="1dp"-->
+<!--                android:layout_height="15dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:background="@color/colorLine" />-->
 
-            <TextView
-                android:id="@+id/forgetPwdTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/forget_pwd"
-                android:textColor="@color/color999"
-                android:textSize="@dimen/font_size_13" />
+<!--            <TextView-->
+<!--                android:id="@+id/forgetPwdTv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/forget_pwd"-->
+<!--                android:textColor="@color/color999"-->
+<!--                android:textSize="@dimen/font_size_13" />-->
         </LinearLayout>
 
 

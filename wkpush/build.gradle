@@ -44,5 +44,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:32.8.1')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-messaging'
+    testImplementation 'org.testng:testng:6.9.6'
+    androidTestImplementation 'org.testng:testng:6.9.6'
+    androidTestImplementation 'androidx.test:monitor:1.7.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
 
 }

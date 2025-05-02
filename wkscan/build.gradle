@@ -29,5 +29,8 @@ android {
 dependencies {
     api project(':wkbase')//二维码扫描
     implementation 'com.github.jenly1314:zxing-lite:3.2.0'
-   // implementation 'com.github.jenly1314:zxing-lite:2.1.1'
+    testImplementation 'org.testng:testng:6.9.6'
+    androidTestImplementation 'org.testng:testng:6.9.6'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    // implementation 'com.github.jenly1314:zxing-lite:2.1.1'
 }

@@ -1,8 +1,8 @@
-package com.chat.login;
+package com.chat.im.limlogin;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
