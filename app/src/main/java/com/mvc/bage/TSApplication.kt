@@ -120,25 +120,24 @@ class TSApplication : MultiDexApplication() {
         super.attachBaseContext(WKMultiLanguageUtil.getInstance().attachBaseContext(base))
     }
 
-    private fun initAll() {
-
-        WKMultiLanguageUtil.getInstance().init(this)
-        WKBaseApplication.getInstance().init(getAppPackageName(), this)
-        Theme.applyTheme()
-        initApi()
-        WKLoginApplication.getInstance().init(this)
-        WKScanApplication.getInstance().init(this)
-        WKUIKitApplication.getInstance().init(this)
-        WKPushApplication.getInstance().init(getAppPackageName(), this)
-        addAppFrontBack()
-        addListener()
-    }
+//    private fun initAll() {
+//
+//        WKMultiLanguageUtil.getInstance().init(this)
+//        WKBaseApplication.getInstance().init(getAppPackageName(), this)
+//        Theme.applyTheme()
+//        initApi()
+//        WKLoginApplication.getInstance().init(this)
+//        WKScanApplication.getInstance().init(this)
+//        WKUIKitApplication.getInstance().init(this)
+//        WKPushApplication.getInstance().init(getAppPackageName(), this)
+//        addAppFrontBack()
+//        addListener()
+//    }
 
     fun initBasicComponents(){
         WKMultiLanguageUtil.getInstance().init(this)
         WKBaseApplication.getInstance().init(getAppPackageName(), this)
         Theme.applyTheme()
-        addAppFrontBack()
         // 其他不依赖API的基础初始化...
     }
 
@@ -153,6 +152,7 @@ class TSApplication : MultiDexApplication() {
         initApi(apiUrl)
 
         // 初始化其他依赖API的组件，确保使用正确的上下文
+        addAppFrontBack()
         WKLoginApplication.getInstance().init(this) // 这里的this始终指向TSApplication实例
         WKScanApplication.getInstance().init(this)
         WKUIKitApplication.getInstance().init(this)

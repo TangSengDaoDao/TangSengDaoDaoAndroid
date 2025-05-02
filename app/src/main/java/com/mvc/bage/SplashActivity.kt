@@ -38,24 +38,24 @@ public final class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
-        val rootView = FrameLayout(this)
-        rootView.layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        )
-        rootView.setBackgroundColor(Color.WHITE) // 或您应用的主题颜色
-
-        // 添加进度指示器
-        val progressBar = ProgressBar(this)
-        val layoutParams = FrameLayout.LayoutParams(
-            FrameLayout.LayoutParams.WRAP_CONTENT,
-            FrameLayout.LayoutParams.WRAP_CONTENT
-        )
-        layoutParams.gravity = Gravity.CENTER
-        progressBar.layoutParams = layoutParams
-        rootView.addView(progressBar)
-
-        setContentView(rootView)
+//        val rootView = FrameLayout(this)
+//        rootView.layoutParams = ViewGroup.LayoutParams(
+//            ViewGroup.LayoutParams.MATCH_PARENT,
+//            ViewGroup.LayoutParams.MATCH_PARENT
+//        )
+//        rootView.setBackgroundColor(Color.WHITE) // 或您应用的主题颜色
+//
+//        // 添加进度指示器
+//        val progressBar = ProgressBar(this)
+//        val layoutParams = FrameLayout.LayoutParams(
+//            FrameLayout.LayoutParams.WRAP_CONTENT,
+//            FrameLayout.LayoutParams.WRAP_CONTENT
+//        )
+//        layoutParams.gravity = Gravity.CENTER
+//        progressBar.layoutParams = layoutParams
+//        rootView.addView(progressBar)
+//
+//        setContentView(rootView)
 
         // 使用单例方法获取TSApplication实例，而不是使用application属性转换
         val tsApp = TSApplication.getInstance()

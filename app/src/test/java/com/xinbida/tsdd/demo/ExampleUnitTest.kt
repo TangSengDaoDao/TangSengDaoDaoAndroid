@@ -1,4 +1,4 @@
-package com.mvc.huaxin
+package com.mvc.bage
 
 import org.junit.Test
 
