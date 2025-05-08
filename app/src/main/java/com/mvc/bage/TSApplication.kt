@@ -60,7 +60,8 @@ class TSApplication : MultiDexApplication() {
 
         // 只初始化基础组件
         initBasicComponents()
-
+        val cachedApiUrl = WKSharedPreferencesUtil.getInstance().getSP(KEY_API_URL)
+        initApi(cachedApiUrl);
         // 检查本地是否已缓存API地址
 //        val cachedApiUrl = WKSharedPreferencesUtil.getInstance().getSP(KEY_API_URL)
 //        if (!TextUtils.isEmpty(cachedApiUrl)) {
@@ -178,6 +179,7 @@ class TSApplication : MultiDexApplication() {
 
 
     private fun initApi(apiUrl: String) {
+        Log.d("TSApplication 初始化", "当前初始化API地址  $apiUrl")
         WKApiConfig.initBaseURL(apiUrl)
         // 其他API相关设置...
     }

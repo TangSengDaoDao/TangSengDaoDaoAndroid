@@ -9,11 +9,11 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ProgressBar
+import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.chat.base.WKBaseApplication
 import com.chat.base.config.WKSharedPreferencesUtil
@@ -33,29 +33,26 @@ import javax.net.ssl.HttpsURLConnection
 
 @SuppressLint("CustomSplashScreen")
 public final class SplashActivity : AppCompatActivity() {
+    val KEY_API_URL = "api_url"
     override fun onCreate(savedInstanceState: Bundle?) {
-        val KEY_API_URL = "api_url"
         super.onCreate(savedInstanceState)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val window: Window = getWindow()
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.setStatusBarColor(Color.TRANSPARENT)
 
-//        val rootView = FrameLayout(this)
-//        rootView.layoutParams = ViewGroup.LayoutParams(
-//            ViewGroup.LayoutParams.MATCH_PARENT,
-//            ViewGroup.LayoutParams.MATCH_PARENT
-//        )
-//        rootView.setBackgroundColor(Color.WHITE) // 或您应用的主题颜色
-//
-//        // 添加进度指示器
-//        val progressBar = ProgressBar(this)
-//        val layoutParams = FrameLayout.LayoutParams(
-//            FrameLayout.LayoutParams.WRAP_CONTENT,
-//            FrameLayout.LayoutParams.WRAP_CONTENT
-//        )
-//        layoutParams.gravity = Gravity.CENTER
-//        progressBar.layoutParams = layoutParams
-//        rootView.addView(progressBar)
-//
-//        setContentView(rootView)
+
+            // 设置内容延伸到状态栏
+            window.getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            )
+        }
+
+
+        setContentView(R.layout.splash_activity_with_animation)
 
         // 使用单例方法获取TSApplication实例，而不是使用application属性转换
         val tsApp = TSApplication.getInstance()
@@ -88,6 +85,8 @@ public final class SplashActivity : AppCompatActivity() {
 
                 // 使用单例方法获取TSApplication实例
                 TSApplication.getInstance().initApiDependentComponents(apiUrl)
+
+                WKSharedPreferencesUtil.getInstance().putSP(KEY_API_URL,apiUrl)
 
                 // 进入主界面
                 startMainActivity()
