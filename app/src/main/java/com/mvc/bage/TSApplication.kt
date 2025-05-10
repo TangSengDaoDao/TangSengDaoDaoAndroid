@@ -102,6 +102,33 @@ class TSApplication : MultiDexApplication() {
         })
     }
 
+
+    // 检测是否是进程被杀死后重启
+    private fun isProcessRestarted(): Boolean {
+        // 可以通过SharedPreferences存储一个标记和时间戳
+        val sp = getSharedPreferences("app_state", Context.MODE_PRIVATE)
+        val lastTimestamp = sp.getLong("last_running_timestamp", 0)
+        val currentTime = System.currentTimeMillis()
+
+        // 更新时间戳
+        sp.edit().putLong("last_running_timestamp", currentTime).apply()
+
+        // 如果上次记录时间与当前时间差距过大，说明应用被杀死过
+        return lastTimestamp > 0 && (currentTime - lastTimestamp > 30000) // 30秒是示例阈值
+    }
+
+    fun ensureInitialized(context: Context) {
+        if (!isApiInitialized) {
+            // 重新初始化必要组件
+            initBasicComponents()
+            // 获取保存的API URL
+            val apiUrl = WKSharedPreferencesUtil.getInstance().getSP(KEY_API_URL) ?: DEFAULT_API_URL
+            initApiDependentComponents(apiUrl)
+        }
+    }
+
+
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         if (applicationContext != null && applicationContext.resources != null && applicationContext.resources.configuration != null && applicationContext.resources.configuration.uiMode != newConfig.uiMode) {
