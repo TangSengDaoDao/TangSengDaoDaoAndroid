@@ -98,7 +98,7 @@ dependencies {
     api 'com.github.WuKongIM:WuKongIMAndroidSDK:1.4.0'
     api 'com.tencent.bugly:crashreport:latest.release'
     implementation "net.zetetic:android-database-sqlcipher:4.5.3"
-    implementation "androidx.sqlite:sqlite-ktx:2.4.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.5.0"
     implementation 'org.whispersystems:curve25519-android:0.5.0'
     implementation 'org.whispersystems:signal-protocol-android:2.8.1'
     testImplementation 'org.testng:testng:6.9.6'
