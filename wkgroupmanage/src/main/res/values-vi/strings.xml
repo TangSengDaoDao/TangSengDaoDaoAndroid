@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="group_manage"> quản lí nhóm </string>
+    <string name="invitation_confirmation">xác nhận lời mời </string>
+    <string name="invitation_confirmation_explain">.Sau khi chức năng này được bật, các thành viên trong nhóm chỉ có thể mời bạn bè vào nhóm sau khi chủ sở hữu hoặc quản trị viên xác nhận lời mời. Quét mã QR để tham gia nhóm sẽ được</string>
+    <string name="group_owner_transfer">Chuyển nhượng chủ sở hữu nhóm</string>
+    <string name="member_setting">cài đặt thành viên </string>
+    <string name="full_staff_ban">im lặng rất cả thành viên </string>
+    <string name="forbidden_add_friend">Thêm bạn bè bị cấm</string>
+    <string name="forbidden_add_friend_explain">Nếu được bật, thành viên nhóm không thể thêm bạn bè thông qua nhóm</string>
+    <string name="full_staff_ban_explain">  Nếu Im lặng tất cả thành viên được bật thì chỉ chủ sở hữu nhóm và quản trị viên mới được phép phát biểu. Nhập thẻ tên thành viên nhóm, bạn có thể đặt lệnh cấm đối với một thành viên.</string>
+    <string name="group_admin_and_manager">Chủ sở hữu, quản trị viên</string>
+    <string name="add_group_managers">Thêm quản trị viên</string>
+    <string name="sure">Xác nhận</string>
+    <string name="choose_new_group_admin">Chọn chủ sở hữu mới</string>
+    <string name="choose_new_group_admin_desc">Xác nhận chọn %s làm chủ sở hữu mới, bạn sẽ tự động từ bỏ vai trò này.</string>
+    <string name="group_approve">Phê duyệt</string>
+    <string name="black_list">Danh sách đen</string>
+    <string name="remove_user_in_black_list">Xác nhận xóa %s khỏi danh sách đen</string>
+    <string name="group_manager_members">Thành viên nhóm</string>
+    <string name="group_admin">Người sở hữu</string>
+    <string name="group_manager">Người quản lý</string>
+    <string name="new_members_view_historical_messages">Cho phép thành viên xem tin nhắn lịch sử</string>
+    <string name="new_members_view_historical_messages_desc">Nếu được bật, người tham gia nhóm mới có thể xem các tin nhắn lịch sử</string>
+    <string name="forbidden_time">Thời lượng im lặng</string>
+    <string name="forbidden_with_group_member">Cài đặt im lặng</string>
+    <string name="forbiddening">Bật im lặng</string>
+    <string name="lift_ban">im lặng Tắt</string>
+    <string name="lift_forbiddening">Xác nhận tắt Im lặng</string>
+    <string name="exit_members">Thành viên rời nhóm</string>
+    <string name="gm_forbidden_to_day">Đang bật Im lặng, khoảng %dd sẽ Tắt</string>
+    <string name="gm_forbidden_to_hour">Đang bật Im lặng, khoảng %dh sẽ tắt</string>
+    <string name="gm_forbidden_to_minute">Đang bật Im lặng, khoảng %dm sẽ Tắt</string>
+    <string name="group_avatar">Hình đại diện nhóm</string>
+    <string name="update_avatar">Cập nhật Avatar nhóm</string>
+    <string name="group_disband">Giải tán nhóm</string>
+    <string name="disband_group_tip">Sau khi giải tán, cả thành viên nhóm và chủ nhóm sẽ bị xóa khỏi cuộc trò chuyện nhóm.</string>
+    <string name="disband">Xác định giải tán</string>
+    <string name="allow_member_pinned_message">Cho phép thành viên đặt tin nhắn hàng đầu</string>
+    <string name="allow_member_pinned_message_desc">Sau khi mở, thành viên bình thường có thể đặt tin nhắn nhóm này</string>
+    <string name="delete_member">Xóa thành viên nhóm này</string>
+    <string name="delete_member_dialog_content">Bạn có chắc chắn muốn loại bỏ các thành viên của nhóm?</string>
+</resources>

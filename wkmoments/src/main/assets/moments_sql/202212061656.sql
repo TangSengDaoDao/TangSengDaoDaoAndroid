@@ -1,0 +1,1 @@
+ALTER TABLE 'moment_msg' add column 'comment_id' INTEGER NOT NULL default 0;

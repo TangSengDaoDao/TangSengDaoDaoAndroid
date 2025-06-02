@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".activities.MomentsActivity" />
+        <activity android:name=".activities.PublishMomentsActivity" />
+        <activity
+            android:name=".activities.PreviewVideoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity android:name=".activities.MomentsDetailActivity" />
+        <activity android:name=".activities.MomentsVisibleRangeActivity" />
+        <activity android:name=".activities.MomentsMsgListActivity" />
+        <activity android:name=".activities.PrivacyUserActivity" />
+        <activity android:name=".activities.MomentSettingActivity" />
+    </application>
+</manifest>

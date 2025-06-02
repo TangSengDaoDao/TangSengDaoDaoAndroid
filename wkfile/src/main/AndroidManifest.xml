@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".ChooseFileActivity" />
+        <activity android:name=".ChatFileActivity" />
+        <activity android:name=".search.SearchChatFileActivity" />
+        <activity android:name="com.chat.file.search.remote.SearchWithFileActivity" />
+    </application>
+</manifest>

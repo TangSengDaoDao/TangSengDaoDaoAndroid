@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="end"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/videoLayout"
+        android:layout_width="100dp"
+        android:layout_height="200dp">
+
+        <com.chat.base.ui.components.FilterImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_view_bg" />
+
+        <View
+            android:id="@+id/coverView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chat_img_conver_bg" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/playIv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/icon_play" />
+
+        <com.chat.base.views.blurview.ShapeBlurView
+            android:id="@+id/blurView"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            app:blur_corner_radius="10dp"
+            app:blur_mode="rectangle"
+            app:blur_radius="10dp" />
+
+        <FrameLayout
+            android:id="@+id/otherLayout"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.chat.base.views.CircularProgressView
+            android:id="@+id/progressView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:backColor="@color/white"
+            app:backWidth="2dp"
+            app:progColor="@color/color999"
+            app:progWidth="2dp"
+            app:progress="0" />
+
+        <TextView
+            android:id="@+id/progressTv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chat_img_conver_bg"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/durationTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/msg_time_status_bg">
+
+                <include layout="@layout/wk_msg_status_layout" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>

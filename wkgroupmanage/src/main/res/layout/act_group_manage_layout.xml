@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeColor"
+    android:orientation="vertical">
+
+    <include layout="@layout/wk_title_bar_layout" />
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/homeColor">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/homeColor"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    style="@style/layoutBgPaddingSmall"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_weight="1"
+                        android:text="@string/invitation_confirmation" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/invitConfirmationSwitch"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/invitation_confirmation_explain"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/groupOwnerTransferLayout"
+                        style="@style/layoutBg">
+
+                        <TextView
+                            style="@style/leftTextView"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="@string/group_owner_transfer" />
+
+                        <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/member_setting"
+                    android:textSize="14sp" />
+
+                <LinearLayout style="@style/layoutBgPaddingSmall">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_weight="1"
+                        android:text="@string/full_staff_ban" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/fullStaffBanSwitch"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/full_staff_ban_explain" />
+
+                <LinearLayout style="@style/layoutBgPaddingSmall">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_weight="1"
+                        android:text="@string/forbidden_add_friend" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/forbiddenAddFriendSwitch"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/forbidden_add_friend_explain" />
+
+                <LinearLayout style="@style/layoutBgPaddingSmall">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_weight="1"
+                        android:text="@string/new_members_view_historical_messages" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/allowNewMembersViewHistoryMsgSwitch"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/new_members_view_historical_messages_desc" />
+
+                <LinearLayout android:id="@+id/allowMemberPinnedMessageLayout" style="@style/layoutBgPaddingSmall">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_weight="1"
+                        android:text="@string/allow_member_pinned_message" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/allowMemberPinnedMessageSwitch"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/allowMemberPinnedMessageTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/allow_member_pinned_message_desc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/layoutColor"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/blackListLayout"
+                        style="@style/layoutBg">
+
+                        <TextView
+                            style="@style/leftTextView"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="@string/black_list" />
+
+                        <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/outUserLayout"
+                        style="@style/layoutBg">
+
+                        <TextView
+                            style="@style/leftTextView"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="@string/exit_members" />
+
+                        <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/group_admin_and_manager" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:id="@+id/disbandLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
+                    <TextView
+                        android:id="@+id/disbandBtn"
+                        style="@style/layoutBg"
+                        android:gravity="center"
+                        android:text="@string/group_disband"
+                        android:textColor="@color/red"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</LinearLayout>

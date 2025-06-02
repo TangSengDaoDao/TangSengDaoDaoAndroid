@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layoutBg">
+
+    <TextView
+        android:id="@+id/timeTv"
+        style="@style/leftTextView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/checkIv"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/icon_group_manager_checked" />
+</LinearLayout>

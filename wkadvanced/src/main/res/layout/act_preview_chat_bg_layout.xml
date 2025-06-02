@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeColor"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <include layout="@layout/wk_title_bar_layout" />
+
+    <FrameLayout
+        android:id="@+id/parentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <com.chat.base.views.blurview.ShapeBlurView
+            android:id="@+id/blurView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:blur_corner_radius="0dp"
+            app:blur_mode="rectangle"
+            app:blur_radius="3dp" />
+
+        <FrameLayout
+            android:id="@+id/loading"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_corner_rectangle">
+
+            <com.chat.base.ui.components.RadialProgressView
+                android:id="@+id/progress"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="60dp"
+                    android:gravity="start">
+
+                    <com.chat.base.views.BubbleLayout
+                        android:id="@+id/recvLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|start"
+                        android:minWidth="40dp"
+                        android:minHeight="40dp"
+                        android:orientation="vertical"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:visibility="visible"
+                        app:shadowRadius="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textSizeTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:text="@string/preview_chat_bg"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/font_size_16" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/msgTimeTv1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="15dp"
+                                android:gravity="end"
+                                android:text="10:10AM"
+                                android:textColor="@color/color999"
+                                android:textSize="12sp"
+                                tools:ignore="SmallSp" />
+
+                        </LinearLayout>
+                    </com.chat.base.views.BubbleLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="end">
+
+                    <com.chat.base.views.BubbleLayout
+                        android:id="@+id/sendLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|start"
+                        android:minWidth="40dp"
+                        android:minHeight="40dp"
+                        android:orientation="vertical"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:visibility="visible"
+                        app:shadowRadius="0dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/textSizeTv1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toStartOf="@+id/avatarIv"
+                                android:gravity="center_vertical"
+                                android:text="@string/preview_chat_bg1"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/font_size_16" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/msgTimeTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="5dp"
+                                android:text="10:10AM"
+                                android:textColor="@color/color999"
+                                android:textSize="12sp"
+                                tools:ignore="SmallSp" />
+
+                            <org.telegram.ui.Components.RLottieImageView
+                                android:id="@+id/statusIV"
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="bottom"
+                                android:tint="@color/color999"
+                                android:visibility="visible" />
+                        </LinearLayout>
+                    </com.chat.base.views.BubbleLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/patternLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/trans_round_bg">
+
+                        <com.chat.base.ui.components.CheckBox
+                            android:id="@+id/patternCB"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/pattern"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/blurredLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/trans_round_bg">
+
+                        <com.chat.base.ui.components.CheckBox
+                            android:id="@+id/blurredCB"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/blurred"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/rotateView"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/trans_round_bg">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/rotateIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/bg_rotate_large" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/saveTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/layout_bg"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="@string/set_chat_bg"
+                    android:textSize="@dimen/font_size_16" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>

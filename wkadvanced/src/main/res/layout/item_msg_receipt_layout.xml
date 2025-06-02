@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/layoutColor"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout style="@style/layoutBgPaddingSmall">
+
+        <TextView
+            style="@style/leftTextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/msg_receipt" />
+
+        <com.chat.base.ui.components.SwitchView
+            android:id="@+id/receiptSwitchView"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:checked="true" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/homeColor"
+        android:paddingStart="15dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="20dp"
+        android:text="@string/msg_receipt_desc"
+        android:textColor="@color/color999"
+        android:textSize="@dimen/font_size_14" />
+</LinearLayout>

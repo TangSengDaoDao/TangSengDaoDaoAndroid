@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".ui.GroupManageActivity" />
+        <activity
+            android:name=".ui.ChooseNormalMembersActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity android:name=".ui.GroupBlacklistActivity" />
+        <activity android:name=".ui.ForbiddenWitchGroupMemberActivity" />
+        <activity android:name=".ui.OutGroupMembersActivity" />
+        <activity android:name="com.chat.groupmanage.ui.GroupHeaderActivity" />
+    </application>
+</manifest>

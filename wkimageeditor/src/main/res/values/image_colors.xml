@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="image_color_primary">#FFFFFF</color>
+    <color name="image_color_accent">#E32528</color>
+
+    <color name="image_color_white">#FFFFFF</color>
+    <color name="image_color_black">#2B2B2B</color>
+    <color name="image_color_red">#FF5151</color>
+    <color name="image_color_green">#4EBF65</color>
+    <color name="image_color_yellow">#F9BF38</color>
+    <color name="image_color_blue">#0078FF</color>
+    <color name="image_color_purple">#6D65F6</color>
+
+</resources>

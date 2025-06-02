@@ -1,0 +1,15 @@
+<resources>
+    <string name="str_file_unknown_file">未知</string>
+    <string name="str_file_file">文件</string>
+    <string name="str_file_documents">最近文件</string>
+    <string name="str_file_sys_file">选择系统文件</string>
+    <string name="unknown_file">未知</string>
+    <string name="str_file_send">发送</string>
+    <string name="open_file">打开文件</string>
+    <string name="download_open">下载并打开</string>
+    <string name="last_msg_file">[文件]</string>
+    <string name="file_is_deleted">文件不存在或被删除</string>
+    <string name="flame_can_not_send_file">阅后即焚模式下无法发送文件</string>
+    <string name="manager_all_permission">访问所有文件。需要开启允许访问以管理所有文件</string>
+    <string name="go_to_setting">去设置</string>
+</resources>

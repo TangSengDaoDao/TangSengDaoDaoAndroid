@@ -36,6 +36,7 @@ allprojects {
             force "androidx.camera:camera-camera2:$camerax_version"
             force "androidx.camera:camera-lifecycle:$camerax_version"
             force "androidx.camera:camera-view:$camerax_version"
+            force "androidx.sqlite:sqlite-ktx:2.4.0"
         }
     }
 }

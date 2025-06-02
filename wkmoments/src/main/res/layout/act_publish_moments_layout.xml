@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeColor"
+    android:orientation="vertical">
+
+    <include layout="@layout/wk_title_bar_layout" />
+
+    <com.effective.android.panel.view.PanelSwitchLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/homeColor"
+        android:orientation="vertical"
+        app:android11KeyboardFeature="true"
+        app:animationSpeed="standard">
+
+        <com.effective.android.panel.view.content.LinearContentContainer
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/homeColor"
+            android:orientation="vertical"
+            app:edit_view="@id/contentEt">
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/layoutColor">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/contentEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:background="@color/transparent"
+                        android:gravity="top"
+                        android:hint="@string/hint_publish_moments"
+                        android:maxLines="4"
+                        android:paddingStart="15dp"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/colorDark"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/countTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="0/500"
+                        android:textColor="@color/color999"
+                        android:textSize="@dimen/font_size_14" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/imageRecycleView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginBottom="20dp"
+                                android:visibility="visible" />
+
+                            <View style="@style/view_line" />
+
+                            <LinearLayout
+                                android:id="@+id/chooseLocationLayout"
+                                style="@style/layoutBg">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/addressIv"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@mipmap/icon_moments_location" />
+
+                                <TextView
+                                    android:id="@+id/addressTv"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/choose_location"
+                                    android:textColor="@color/colorDark"
+                                    android:textSize="16sp" />
+
+                                <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/chooseRemindLayout"
+                                style="@style/layoutBg">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/remindIv"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@mipmap/icon_moments_aite" />
+
+                                <TextView
+                                    android:id="@+id/remindTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:text="@string/str_moments_aite"
+                                    android:textColor="@color/colorDark"
+                                    android:textSize="14sp" />
+
+                                <LinearLayout
+                                    android:id="@+id/userLayout"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:orientation="horizontal">
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/userRecyclerView"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="end"
+                                        android:layout_marginEnd="10dp"
+                                        android:minWidth="0dp" />
+                                </LinearLayout>
+
+                                <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/chooseUserLayout"
+                                style="@style/layoutBg">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/visibleRangeIv"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@mipmap/icon_moments_user" />
+
+                                <TextView
+                                    android:id="@+id/visibleRangeTitleTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:text="@string/str_moments_shield"
+                                    android:textColor="@color/colorDark"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/visibleRangeTv"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_weight="1"
+                                    android:enabled="true"
+                                    android:gravity="end"
+                                    android:lines="1"
+                                    android:text="@string/moments_public"
+                                    android:textColor="@color/colorDark"
+                                    android:textSize="14sp" />
+
+                                <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/bottomView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="visible" />
+                    </FrameLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+            <LinearLayout
+                android:id="@+id/bottom_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="@color/homeColor"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="bottom"
+                android:minHeight="50dp"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="7.5dp"
+                android:visibility="gone">
+
+                <!-- 表情入口 -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/emotion_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/selector_emotion_btn" />
+
+            </LinearLayout>
+        </com.effective.android.panel.view.content.LinearContentContainer>
+
+        <com.effective.android.panel.view.panel.PanelContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/homeColor"
+            tools:layout_height="160dp">
+
+
+            <!-- 每一项面板 -->
+            <!-- panel_layout 用于指定面板该 ID 对应的布局 ，必须项-->
+            <!-- panel_trigger 用于用户点击该 ID 对应的 View 时切换到该面板 -->
+            <!-- panel_toggle  用于当该面板显示时 ，用户再次点击 panel_trigger 对应的 View 时是否回切输入法-->
+            <com.effective.android.panel.view.panel.PanelView
+                android:id="@+id/panel_emotion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:panel_layout="@layout/panel_emotion_layout"
+                app:panel_trigger="@id/emotion_btn" />
+
+        </com.effective.android.panel.view.panel.PanelContainer>
+
+    </com.effective.android.panel.view.PanelSwitchLayout>
+</LinearLayout>

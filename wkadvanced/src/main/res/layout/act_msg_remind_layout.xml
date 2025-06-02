@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeColor"
+    android:orientation="vertical">
+
+    <include layout="@layout/wk_title_bar_layout" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/homeColor"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/layoutBgPaddingSmall">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/screenshot_notice" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/screenshotSwitchView"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:checked="true" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/homeColor"
+                    android:paddingStart="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="15dp"
+                    android:text="@string/screenshot_notice_desc"
+                    android:textColor="@color/color999" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout style="@style/layoutBgPaddingSmall">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/revoke_remind" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/revokeSwitchView"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:checked="true" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/homeColor"
+                    android:paddingStart="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="15dp"
+                    android:text="@string/revoke_remind_desc"
+                    android:textColor="@color/color999" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/joinGroupLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout style="@style/layoutBgPaddingSmall">
+
+                    <TextView
+                        style="@style/leftTextView"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/join_group_remind" />
+
+                    <com.chat.base.ui.components.SwitchView
+                        android:id="@+id/joinGroupSwitchView"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:checked="true" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/homeColor"
+                    android:paddingStart="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="15dp"
+                    android:text="@string/join_group_remind_desc"
+                    android:textColor="@color/color999" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

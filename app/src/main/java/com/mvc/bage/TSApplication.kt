@@ -18,6 +18,7 @@ import android.os.Process
 import android.text.TextUtils
 import android.util.Log
 import androidx.multidex.MultiDexApplication
+import com.chat.advanced.WKAdvancedApplication
 import com.chat.base.WKBaseApplication
 import com.chat.base.config.WKApiConfig
 import com.chat.base.config.WKConfig
@@ -29,13 +30,18 @@ import com.chat.base.utils.ActManagerUtils
 import com.chat.base.utils.WKPlaySound
 import com.chat.base.utils.WKTimeUtils
 import com.chat.base.utils.language.WKMultiLanguageUtil
+import com.chat.file.WKFileApplication
+import com.chat.groupmanage.WKGroupManageApplication
+import com.chat.imgeditor.WKImageEditorApplication
 import com.chat.login.WKLoginApplication
+import com.chat.moments.WKMomentsApplication
 import com.chat.push.WKPushApplication
 import com.chat.scan.WKScanApplication
 import com.chat.uikit.TabActivity
 import com.chat.uikit.WKUIKitApplication
 import com.chat.uikit.chat.manager.WKIMUtils
 import com.chat.uikit.user.service.UserModel
+import com.chat.video.WKVideoApplication
 import kotlin.system.exitProcess
 
 class TSApplication : MultiDexApplication() {
@@ -185,6 +191,11 @@ class TSApplication : MultiDexApplication() {
         WKScanApplication.getInstance().init(this)
         WKUIKitApplication.getInstance().init(this)
         WKPushApplication.getInstance().init(getAppPackageName(), this)
+        WKGroupManageApplication.getInstance().init()
+        WKFileApplication.getInstance().init(this)
+        WKVideoApplication.getInstance().init(this)
+        WKMomentsApplication.getInstance().init(this)
+        WKImageEditorApplication.getInstance().init()
         UserModel.getInstance().getOnlineUsers()
         // 添加其他监听器
         addListener()

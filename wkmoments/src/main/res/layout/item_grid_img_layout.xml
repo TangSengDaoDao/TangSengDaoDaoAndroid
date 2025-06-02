@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+
+        <com.chat.base.ui.components.FilterImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_view_bg" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/statusIv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/icon_play" />
+
+        <com.chat.base.views.CircularProgressView
+            android:id="@+id/progressView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:backColor="@color/white"
+            app:backWidth="2dp"
+            app:progColor="@color/color999"
+            app:progWidth="2dp"
+            app:progress="0" />
+
+    </FrameLayout>
+
+</FrameLayout>

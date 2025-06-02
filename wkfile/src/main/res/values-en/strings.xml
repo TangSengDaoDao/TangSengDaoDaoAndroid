@@ -1,0 +1,15 @@
+<resources>
+    <string name="str_file_unknown_file">Unknown</string>
+    <string name="str_file_file">File</string>
+    <string name="str_file_documents">Chat File</string>
+    <string name="str_file_sys_file">Phone storage</string>
+    <string name="unknown_file">Unknown</string>
+    <string name="str_file_send">Send</string>
+    <string name="open_file">Open</string>
+    <string name="download_open">Download And Open</string>
+    <string name="last_msg_file">[File]</string>
+    <string name="file_is_deleted">File Deleted</string>
+    <string name="flame_can_not_send_file">Unable to send documents in burn after reading mode</string>
+    <string name="manager_all_permission">Access all files. Allow access needs to be enabled to manage all files</string>
+    <string name="go_to_setting">Go to setting</string>
+</resources>

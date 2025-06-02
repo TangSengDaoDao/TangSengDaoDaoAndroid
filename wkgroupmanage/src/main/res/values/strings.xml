@@ -1,0 +1,42 @@
+<resources>
+    <string name="group_manage">Manage Group</string>
+    <string name="invitation_confirmation">Invitation Approval</string>
+    <string name="invitation_confirmation_explain">Once enabled,group members need group owner or group admin approval before they can invite friends to the group. The option to scan QR codes to join the group will be disabled.</string>
+    <string name="group_owner_transfer">Transfer Ownership</string>
+    <string name="member_setting">Member settings</string>
+    <string name="full_staff_ban">Forbidden</string>
+    <string name="forbidden_add_friend">Prohibit group members from adding friends to each other</string>
+    <string name="forbidden_add_friend_explain">Once enabled, group members cannot add friends through the group</string>
+    <string name="full_staff_ban_explain">After the prohibition is enabled, only group leaders and administrators are allowed to speak. Members can be set to enter the group.</string>
+    <string name="group_admin_and_manager">Owner、Admin</string>
+    <string name="add_group_managers">Add Admin</string>
+    <string name="choose_new_group_admin">New Leader</string>
+    <string name="choose_new_group_admin_desc">Selecting %s as new owner will release your ownership.</string>
+    <string name="group_approve">To audit</string>
+    <string name="black_list">Blacklist</string>
+    <string name="remove_user_in_black_list">Are you sure you want to remove %s from the blacklist</string>
+    <string name="group_manager_members">Members</string>
+    <string name="group_admin">Owner</string>
+    <string name="group_manager">Admin</string>
+    <string name="new_members_view_historical_messages">Allow new members to view historical messages</string>
+    <string name="new_members_view_historical_messages_desc">Once enabled, new chat members can see the previous chat records</string>
+    <string name="forbidden_time">Forbidden time</string>
+    <string name="forbidden_with_group_member">Forbidden</string>
+    <string name="forbiddening">In the forbidden words</string>
+    <string name="lift_ban">Lift the ban</string>
+    <string name="lift_forbiddening">Are you sure you want to lift the ban ？</string>
+    <string name="exit_members">Outgoing user</string>
+    <string name="gm_forbidden_to_day">Lift the ban after %d days</string>
+    <string name="gm_forbidden_to_hour">Lift the ban after %d hours</string>
+    <string name="gm_forbidden_to_minute">Lift the ban after %d minutes</string>
+    <string name="group_avatar">Group header</string>
+    <string name="update_avatar">Update Avatar</string>
+    <string name="group_disband">Disband group</string>
+    <string name="disband_group_tip">After dissolving the group chat, both group members and group owners will be removed from the group chat</string>
+    <string name="disband">Disband</string>
+    <string name="allow_member_pinned_message">Allow members to pinned messages</string>
+    <string name="allow_member_pinned_message_desc">After activation, ordinary members can post messages in this group</string>
+    <string name="delete_member">Delete this group member</string>
+    <string name="delete_member_dialog_content">Are you sure you want to delete this group member?</string>
+
+</resources>

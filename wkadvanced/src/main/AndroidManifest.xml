@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".ui.MsgRemindActivity" />
+        <activity android:name=".ui.search.ChatWithDateActivity" />
+        <activity android:name=".ui.search.ChatImgActivity" />
+        <activity android:name=".ui.search.ChatWithFromUIDActivity" />
+        <activity android:name=".ui.search.RecordActivity" />
+        <activity android:name=".ui.search.SearchAllMembersActivity" />
+        <activity android:name=".ui.ReadMsgMembersActivity" />
+        <activity android:name=".ui.ChatBgListActivity" />
+        <activity android:name=".ui.PreviewChatBgActivity" />
+
+    </application>
+
+</manifest>

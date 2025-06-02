@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeColor"
+    android:orientation="vertical">
+
+    <include layout="@layout/wk_title_bar_layout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/moment_history"
+        android:textColor="@color/color999"
+        android:textSize="14sp" />
+
+    <LinearLayout style="@style/layoutBgPaddingSmall">
+
+        <TextView
+            style="@style/leftTextView"
+            android:text="@string/hide_my" />
+
+        <com.chat.base.ui.components.SwitchView
+            android:id="@+id/hideMySwitchView"
+            android:layout_width="45dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/layoutBgPaddingSmall">
+
+        <TextView
+            style="@style/leftTextView"
+            android:text="@string/hide_his" />
+
+        <com.chat.base.ui.components.SwitchView
+            android:id="@+id/hideHisSwitchView"
+            android:layout_width="45dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+</LinearLayout>

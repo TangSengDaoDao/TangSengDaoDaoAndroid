@@ -92,6 +92,12 @@ dependencies {
     implementation project(path: ':wklogin')
     implementation project(path: ':wkscan')
     implementation project(path: ':wkpush')
+    implementation project(path: ':wkfile')
+    implementation project(path: ':wkadvanced')
+    implementation project(path: ':wkimageeditor')
+    implementation project(path: ':wkmoments')
+    implementation project(path: ':wkvideo')
+    implementation project(path: ':wkgroupmanage')
     implementation 'androidx.test.ext:junit-ktx:1.2.1'
     implementation 'androidx.test:monitor:1.7.2'
     testImplementation 'junit:junit:4.12'

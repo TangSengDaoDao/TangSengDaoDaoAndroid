@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                groupId = 'com.xinbida.advanced'
+                artifactId = 'WKAdvanced_loca'
+                version = '1.0.0'
+            }
+        }
+        repositories {
+            maven {
+                url = uri('../repository')
+            }
+        }
+    }
+}
+
+
+android {
+    compileSdk rootProject.ext.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+//    kotlinOptions {
+//        jvmTarget = '1.8'
+//    }
+    buildFeatures {
+        viewBinding true
+    }
+    namespace 'com.chat.advanced'
+}
+
+dependencies {
+    api project(':wkbase')
+//    implementation project(path: ':wkimageeditor')
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="wkvideo_recording">拍摄</string>
+
+    <string name="wk_video_go_to_chat_item">定位到聊天</string>
+    <string name="not_use_the_camera">通话中不可使用相机</string>
+    <string name="tap_photo_desc">轻触拍照，长按摄像</string>
+</resources>

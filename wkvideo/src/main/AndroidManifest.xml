@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".RecordingActivity" />
+        <activity android:name="com.chat.video.search.SearchChatVideoActivity" />
+        <activity android:name="com.chat.video.search.remote.SearchActivity" />
+
+    </application>
+</manifest>

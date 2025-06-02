@@ -43,6 +43,11 @@ repositories {
 //        dirs 'libs'
 //    }
 }
+//configurations.all {
+//    resolutionStrategy {
+//        force "androidx.sqlite:sqlite-ktx:2.4.0"
+//    }
+//}
 dependencies {
     api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.7.0'
