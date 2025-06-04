@@ -262,17 +262,16 @@ class TSApplication : MultiDexApplication() {
             }
 
             override fun onBack() {
-//                val result = EndpointManager.getInstance().invoke("rtc_is_calling", null)
-//                var isCalling = false
-//                if (result != null) {
-//                    isCalling = result as Boolean
-//                }
-//                if (WKBaseApplication.getInstance().disconnect && !isCalling) {
+                val result = EndpointManager.getInstance().invoke("rtc_is_calling", null)
+                var isCalling = false
+                if (result != null) {
+                    isCalling = result as Boolean
+                }
+                if (WKBaseApplication.getInstance().disconnect && !isCalling) {
 //                    WKUIKitApplication.getInstance().stopConn()
-//                }
+                }
 //                WKIMUtils.getInstance().removeListener()
-//                WKSharedPreferencesUtil.getInstance()
-//                    .putLong("lock_start_time", WKTimeUtils.getInstance().currentSeconds)
+                WKSharedPreferencesUtil.getInstance().putLong("lock_start_time", WKTimeUtils.getInstance().currentSeconds)
 
             }
         })
