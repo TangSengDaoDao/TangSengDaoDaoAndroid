@@ -98,6 +98,11 @@ dependencies {
     implementation project(path: ':wkmoments')
     implementation project(path: ':wkvideo')
     implementation project(path: ':wkgroupmanage')
+    //bugly
+    implementation 'com.tencent.bugly:crashreport:4.1.9.3'
+    // 如果需要NDK支持（可选）
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+
     implementation 'androidx.test.ext:junit-ktx:1.2.1'
     implementation 'androidx.test:monitor:1.7.2'
     testImplementation 'junit:junit:4.12'

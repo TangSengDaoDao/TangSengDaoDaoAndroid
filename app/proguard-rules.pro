@@ -298,6 +298,10 @@
 -keep class io.socket.** {*;}
 -dontwarn io.socket.**
 
+# Bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+
 -keep class com.xinbida.rtc.WKRTCApplication {*;}
 -keep class com.xinbida.rtc.WKRTCCallType {*;}
 -keep class com.xinbida.rtc.utils.WKRTCManager {*;}

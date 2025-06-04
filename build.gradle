@@ -11,6 +11,8 @@ buildscript {
         }
         //华为推送
         maven {url 'https://developer.huawei.com/repo/'}
+        //腾讯bugly
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.8.2'

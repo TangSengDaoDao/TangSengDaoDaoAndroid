@@ -32,7 +32,7 @@ public final class SplashActivity : AppCompatActivity() {
     val KEY_API_URL = "api_url"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         // 确保全屏
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN

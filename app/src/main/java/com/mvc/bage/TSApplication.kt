@@ -42,6 +42,7 @@ import com.chat.uikit.WKUIKitApplication
 import com.chat.uikit.chat.manager.WKIMUtils
 import com.chat.uikit.user.service.UserModel
 import com.chat.video.WKVideoApplication
+import com.tencent.bugly.crashreport.CrashReport
 import kotlin.system.exitProcess
 
 class TSApplication : MultiDexApplication() {
@@ -65,9 +66,7 @@ class TSApplication : MultiDexApplication() {
         instance = this  // 保存实例引用
 
         // 只初始化基础组件
-        initBasicComponents()
-        val cachedApiUrl = WKSharedPreferencesUtil.getInstance().getSP(KEY_API_URL)
-        initApi(cachedApiUrl);
+
         // 检查本地是否已缓存API地址
 //        val cachedApiUrl = WKSharedPreferencesUtil.getInstance().getSP(KEY_API_URL)
 //        if (!TextUtils.isEmpty(cachedApiUrl)) {
@@ -76,13 +75,16 @@ class TSApplication : MultiDexApplication() {
 //        }
         // 否则，等待SplashActivity获取API地址后再初始化
 
-//        val processName = getProcessName(this, Process.myPid())
-//        if (processName != null) {
-//            val defaultProcess = processName == getAppPackageName()
-//            if (defaultProcess) {
-//                initAll()
-//            }
-//        }
+        val processName = getProcessName(this, Process.myPid())
+        if (processName != null) {
+            val defaultProcess = processName == getAppPackageName()
+            if (defaultProcess) {
+                initBasicComponents()
+                val cachedApiUrl = WKSharedPreferencesUtil.getInstance().getSP(KEY_API_URL)
+                initApi(cachedApiUrl);
+            }
+        }
+        CrashReport.initCrashReport(applicationContext, "d383347352", true)
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityCreated(p0: Activity, p1: Bundle?) {
             }
