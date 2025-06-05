@@ -197,6 +197,7 @@ class TSApplication : MultiDexApplication() {
         WKFileApplication.getInstance().init(this)
         WKVideoApplication.getInstance().init(this)
         WKMomentsApplication.getInstance().init(this)
+        WKAdvancedApplication.instance.init()
         WKImageEditorApplication.getInstance().init()
         UserModel.getInstance().getOnlineUsers()
         // 添加其他监听器
