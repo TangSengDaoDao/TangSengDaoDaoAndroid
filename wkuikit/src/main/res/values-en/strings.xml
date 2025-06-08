@@ -254,7 +254,7 @@
     <string name="backup_message_desc">1.To migrate local chat records,you need to upload your chat records to the server to support new device downloads;\n2.Chat records are stored on the server anonymously encrypted;\n3.To prevent information leakage,the server will delete the chat records uploaded by users at 0:00 everyday.\n4.In order to prevent information leakage,the server will delete chat records uploaded by users at 0:00 everyday;\n5.Users are advised to confirm that chat records are migrated before deleting chat records on the original device;\n6.Any undesirable consequences caused by this function shall be borne by the users themselves;
 </string>
     <string name="recovery_msg_fail">Recovery messages fail</string>
-    <string name="choose_module">Choose Module</string>
+    <string name="choose_module">Edit password</string>
     <string name="third_party_sharing_list">Third party sharing list</string>
     <string name="error_data">Development logs</string>
     <string name="call_blacklist_group">You have been pulled into the group blacklist and cannot chat with audio and video</string>
@@ -298,5 +298,12 @@
     <string name="uikit_search_for_date">Date</string>
     <string name="uikit_go_to_chat_item">Go to chat</string>
     <string name="uikit_search_for_image">Image</string>
+    <string name="update_new_password">New password</string>
+    <string name="update_confirm_password">Confirm password</string>
+    <string name="update_pwd_error">Confirm password error</string>
+    <string name="update_pwd">Edit password</string>
+    <string name="placeholder_pwd">Password</string>
+    <string name="update_loading">Loading</string>
+    <string name="update_sure">Confirm</string>
 </resources>
 

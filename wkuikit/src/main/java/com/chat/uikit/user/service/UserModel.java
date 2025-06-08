@@ -20,6 +20,7 @@ import com.chat.base.net.ud.WKUploader;
 import com.chat.base.utils.WKDeviceUtils;
 import com.chat.base.utils.WKReader;
 import com.chat.base.utils.WKTimeUtils;
+import com.chat.uikit.R;
 import com.chat.uikit.enity.Device;
 import com.chat.uikit.enity.MailListEntity;
 import com.chat.uikit.enity.OnlineUser;
@@ -33,6 +34,7 @@ import com.xinbida.wukongim.entity.WKChannelType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 2020-06-30 12:37
@@ -101,6 +103,23 @@ public class UserModel extends WKBaseModel {
 
     public void deleteUser(String uid, final ICommonListener iCommonListener) {
         request(createService(UserService.class).deleteFriend(uid), new IRequestResultListener<CommonResponse>() {
+            @Override
+            public void onSuccess(CommonResponse result) {
+                iCommonListener.onResult(result.status, result.msg);
+            }
+
+            @Override
+            public void onFail(int code, String msg) {
+                iCommonListener.onResult(code, msg);
+            }
+        });
+    }
+
+    public void updatePassword(String oldPassword, String newPassword, final ICommonListener iCommonListener) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("password", oldPassword);
+        jsonObject.put("new_password", newPassword);
+        request(createService(UserService.class).updatePassword(jsonObject), new IRequestResultListener<CommonResponse>() {
             @Override
             public void onSuccess(CommonResponse result) {
                 iCommonListener.onResult(result.status, result.msg);

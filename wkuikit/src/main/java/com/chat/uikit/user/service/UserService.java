@@ -36,6 +36,9 @@ public interface UserService {
     @PUT("friend/remark")
     Observable<CommonResponse> updateFriendRemark(@Body JSONObject jsonObject);
 
+    @PUT("user/updatepassword")
+    Observable<CommonResponse> updatePassword(@Body JSONObject jsonObject);
+
     @DELETE("friends/{uid}")
     Observable<CommonResponse> deleteFriend(@Path("uid") String uid);
 

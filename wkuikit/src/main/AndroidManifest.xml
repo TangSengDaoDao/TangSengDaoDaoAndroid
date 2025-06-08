@@ -32,6 +32,7 @@
         <activity android:name=".user.UserQrActivity" />
         <activity android:name=".user.MyHeadPortraitActivity" />
         <activity android:name=".setting.MsgNoticesSettingActivity" />
+        <activity android:name=".setting.UpdatePwdActivity"/>
         <activity
             android:name=".user.UserDetailActivity"
             android:launchMode="singleTask" />
