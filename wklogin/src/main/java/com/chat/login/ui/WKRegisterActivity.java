@@ -167,10 +167,6 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
         wkVBinding.getVCodeBtn.setOnClickListener(v -> {
             String phone = Objects.requireNonNull(wkVBinding.nameEt.getText()).toString();
             if (!TextUtils.isEmpty(phone)) {
-                if (code.equals("0086") && wkVBinding.nameEt.getText().toString().length() != 11) {
-                    showSingleBtnDialog(getString(R.string.phone_error));
-                    return;
-                }
                 presenter.registerCode(code, phone);
             }
         });
@@ -290,6 +286,11 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
 
     @Override
     public void setResetPwdResult(int code, String msg) {
+    }
+
+    @Override
+    public void setUpdatePwdResult(int code, String msg) {
+
     }
 
     @Override

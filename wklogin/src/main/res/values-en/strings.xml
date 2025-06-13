@@ -1,6 +1,6 @@
 <resources>
     <string name="hint_pwd">Enter password</string>
-    <string name="hint_name">Phone number</string>
+    <string name="hint_name">Account</string>
     <string name="hint_verfi">Enter verification code</string>
     <string name="name_not_null">Enter name</string>
     <string name="nickname_not_null">Nickname should be filled</string>
@@ -14,6 +14,7 @@
     <string name="register">Register</string>
     <string name="register_app">Welcome Register %s</string>
     <string name="get_verf_code">Get verify code</string>
+    <string name="update_pwd">Edit password</string>
     <string name="has_account">Already have an account？</string>
     <string name="login">Login</string>
     <string name="wk_login_search">Search</string>
@@ -63,4 +64,7 @@
     <string name="invite_code_not_null">The invitation code cannot be empty</string>
     <string name="reset_base_url">Reset</string>
     <string name="update_api_content">The method of filling in server address, domain name, or IP+port must start with HTTP.\nExample：https://api.botgate.cn\nExample：https://172.0.0.1:8090</string>
+    <string name="update_new_password">New password</string>
+    <string name="update_confirm_password">Confirm password</string>
+    <string name="update_pwd_error">Confirm password error</string>
 </resources>

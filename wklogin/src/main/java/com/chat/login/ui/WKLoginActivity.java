@@ -129,10 +129,10 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
         wkVBinding.loginBtn.setOnClickListener(v -> {
             if (checkEditInputIsEmpty(wkVBinding.nameEt, R.string.name_not_null)) return;
             if (checkEditInputIsEmpty(wkVBinding.pwdEt, R.string.pwd_not_null)) return;
-            if (code.equals("0086") && Objects.requireNonNull(wkVBinding.nameEt.getText()).toString().length() != 11) {
-                showSingleBtnDialog(getString(R.string.phone_error));
-                return;
-            }
+//            if (code.equals("0086") && Objects.requireNonNull(wkVBinding.nameEt.getText()).toString().length() != 11) {
+//                showSingleBtnDialog(getString(R.string.phone_error));
+//                return;
+//            }
             if (!wkVBinding.checkbox.isChecked()) {
                 showSingleBtnDialog(getString(R.string.agree_auth_tips));
                 return;
@@ -258,6 +258,11 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
 
     @Override
     public void setResetPwdResult(int code, String msg) {
+
+    }
+
+    @Override
+    public void setUpdatePwdResult(int code, String msg) {
 
     }
 

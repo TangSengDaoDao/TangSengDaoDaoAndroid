@@ -1,6 +1,6 @@
 <resources>
     <string name="hint_pwd">请输入密码</string>
-    <string name="hint_name">请输入手机号</string>
+    <string name="hint_name">请输入账号</string>
     <string name="hint_verfi">请输入验证码</string>
     <string name="name_not_null">请输入名称</string>
     <string name="nickname_not_null">昵称不能为空</string>
@@ -13,6 +13,7 @@
     <string name="new_account_register">新用户？请</string>
     <string name="register">注册</string>
     <string name="register_app">欢迎注册%s</string>
+    <string name="update_pwd">修改密码</string>
     <string name="get_verf_code">获取验证码</string>
     <string name="has_account">已有账号？请</string>
     <string name="login">登录</string>
@@ -63,4 +64,7 @@
     <string name="invite_code_not_null">邀请码不能为空</string>
     <string name="reset_base_url">重置</string>
     <string name="update_api_content">填写服务器地址，域名或IP+端口的方式，都必须是http开头。\n例：https://api.botgate.cn\n例：https://172.0.0.1:8090</string>
+    <string name="update_new_password">请输入新密码</string>
+    <string name="update_confirm_password">请确认新密码</string>
+    <string name="update_pwd_error">确认密码输入错误</string>
 </resources>

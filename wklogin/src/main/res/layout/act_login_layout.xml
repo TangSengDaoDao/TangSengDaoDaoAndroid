@@ -46,7 +46,8 @@
                 android:id="@+id/chooseCodeTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/codeTv"
@@ -65,10 +66,11 @@
             </LinearLayout>
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="0dp"
                 android:layout_height="15dp"
                 android:layout_gravity="center_vertical"
-                android:background="#d8d8d8" />
+                android:background="#d8d8d8"
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/nameEt"
@@ -77,9 +79,9 @@
                 android:background="@color/transparent"
                 android:gravity="center_vertical"
                 android:hint="@string/hint_name"
-                android:inputType="phone"
+                android:inputType="text"
                 android:maxLength="20"
-                android:paddingStart="10dp"
+                android:paddingStart="0dp"
                 android:paddingEnd="0dp"
                 android:textColor="@color/colorDark"
                 android:textColorHint="@color/color999"
