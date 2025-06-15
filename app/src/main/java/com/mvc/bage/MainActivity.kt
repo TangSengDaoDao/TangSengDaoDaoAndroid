@@ -23,19 +23,19 @@ import com.xinbida.wukongim.WKIM
 
 class MainActivity : WKBaseActivity<ActivityMainBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // 检查应用是否已正确初始化
-        if (!TSApplication.getInstance().isApiInitialized()) {
-            // 如果未初始化，重定向到SplashActivity
-            val intent = Intent(this, SplashActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
-            finish()
-            return
-        }
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//
+//        // 检查应用是否已正确初始化
+//        if (!TSApplication.getInstance().isApiInitialized()) {
+//            // 如果未初始化，重定向到SplashActivity
+//            val intent = Intent(this, SplashActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//            startActivity(intent)
+//            finish()
+//            return
+//        }
+//    }
 
 
     override fun getViewBinding(): ActivityMainBinding {
