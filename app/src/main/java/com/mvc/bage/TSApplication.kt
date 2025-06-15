@@ -48,6 +48,7 @@ import kotlin.system.exitProcess
 class TSApplication : MultiDexApplication() {
     val KEY_API_URL = "api_url"
     val DEFAULT_API_URL = "http://api.newhxchat.top/api"
+    val BUGLY_ID = "d383347352"
 
     // 使用单例模式保存实例引用
     companion object {
@@ -84,7 +85,7 @@ class TSApplication : MultiDexApplication() {
                 initApi(cachedApiUrl);
             }
         }
-        CrashReport.initCrashReport(applicationContext, "d383347352", true)
+        CrashReport.initCrashReport(applicationContext, BUGLY_ID, true)
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityCreated(p0: Activity, p1: Bundle?) {
             }
@@ -174,7 +175,6 @@ class TSApplication : MultiDexApplication() {
         WKMultiLanguageUtil.getInstance().init(this)
         WKBaseApplication.getInstance().init(getAppPackageName(), this)
         Theme.applyTheme()
-        addAppFrontBack()
         // 其他不依赖API的基础初始化...
     }
 
@@ -197,10 +197,11 @@ class TSApplication : MultiDexApplication() {
         WKFileApplication.getInstance().init(this)
         WKVideoApplication.getInstance().init(this)
         WKMomentsApplication.getInstance().init(this)
-        WKAdvancedApplication.instance.init()
+//        WKAdvancedApplication.instance.init()
         WKImageEditorApplication.getInstance().init()
         UserModel.getInstance().getOnlineUsers()
         // 添加其他监听器
+        addAppFrontBack()
         addListener()
 
         isApiInitialized = true
@@ -259,6 +260,8 @@ class TSApplication : MultiDexApplication() {
                     }
                     WKIMUtils.getInstance().initIMListener()
                     WKUIKitApplication.getInstance().startChat()
+                    UserModel.getInstance().getOnlineUsers()
+
                 }
             }
 
@@ -272,7 +275,8 @@ class TSApplication : MultiDexApplication() {
 //                    WKUIKitApplication.getInstance().stopConn()
                 }
 //                WKIMUtils.getInstance().removeListener()
-                WKSharedPreferencesUtil.getInstance().putLong("lock_start_time", WKTimeUtils.getInstance().currentSeconds)
+                WKSharedPreferencesUtil.getInstance()
+                    .putLong("lock_start_time", WKTimeUtils.getInstance().currentSeconds)
 
             }
         })
