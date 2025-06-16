@@ -288,10 +288,10 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
     public void setResetPwdResult(int code, String msg) {
     }
 
-    @Override
-    public void setUpdatePwdResult(int code, String msg) {
-
-    }
+//    @Override
+//    public void setUpdatePwdResult(int code, String msg) {
+//
+//    }
 
     @Override
     public Button getVerfiCodeBtn() {

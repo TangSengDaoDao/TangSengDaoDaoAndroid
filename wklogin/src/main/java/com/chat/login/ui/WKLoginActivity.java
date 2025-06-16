@@ -261,10 +261,10 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
 
     }
 
-    @Override
-    public void setUpdatePwdResult(int code, String msg) {
-
-    }
+//    @Override
+//    public void setUpdatePwdResult(int code, String msg) {
+//
+//    }
 
     @Override
     public Button getVerfiCodeBtn() {
