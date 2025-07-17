@@ -7,7 +7,6 @@ afterEvaluate {
     publishing {
         publications {
             maven(MavenPublication) {
-                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
                 groupId = 'com.xinbida.file'
                 artifactId = 'WKFile_loca'
                 version = '1.0.0'
@@ -42,6 +41,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding true

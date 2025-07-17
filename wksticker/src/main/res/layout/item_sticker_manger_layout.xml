@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layoutBg"
+    android:orientation="horizontal">
+    <com.chat.sticker.ui.components.StickerView
+        android:id="@+id/stickerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="15dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorDark"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/removeBtn"
+        style="@style/buttonNormal"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:insetTop="8dp"
+        android:insetBottom="8dp"
+        android:stateListAnimator="@null"
+        android:text="@string/str_sticker_remove"
+        android:elevation="0dp"
+        android:textColor="@color/red"
+        app:backgroundTint="@color/gary"
+        app:cornerRadius="@dimen/button_radian" />
+</LinearLayout>

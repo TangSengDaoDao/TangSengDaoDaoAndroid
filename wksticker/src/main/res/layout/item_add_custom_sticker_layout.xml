@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/addIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/menu_add"
+            android:tint="@color/color999" />
+
+        <com.chat.sticker.ui.components.StickerView
+            android:id="@+id/stickerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <com.chat.base.ui.components.CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_margin="5dp" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="bottom"
+        android:background="@color/colorDark" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/colorDark" />
+</FrameLayout>

@@ -37,6 +37,7 @@ import com.chat.login.WKLoginApplication
 import com.chat.moments.WKMomentsApplication
 import com.chat.push.WKPushApplication
 import com.chat.scan.WKScanApplication
+import com.chat.sticker.WKStickerApplication
 import com.chat.uikit.TabActivity
 import com.chat.uikit.WKUIKitApplication
 import com.chat.uikit.chat.manager.WKIMUtils
@@ -197,9 +198,10 @@ class TSApplication : MultiDexApplication() {
         WKFileApplication.getInstance().init(this)
         WKVideoApplication.getInstance().init(this)
         WKMomentsApplication.getInstance().init(this)
-//        WKAdvancedApplication.instance.init()
+        WKAdvancedApplication.instance.init()
         WKImageEditorApplication.getInstance().init()
         UserModel.getInstance().getOnlineUsers()
+        WKStickerApplication.instance.init()
         // 添加其他监听器
         addAppFrontBack()
         addListener()

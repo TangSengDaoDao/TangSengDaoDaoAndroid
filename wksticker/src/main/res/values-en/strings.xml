@@ -1,0 +1,27 @@
+<resources>
+    <string name="str_sticker_add">Add</string>
+    <string name="str_sticker_added">Added</string>
+    <string name="str_sticker_store">Store</string>
+    <string name="str_more_sticker">More Stickers</string>
+    <string name="str_sticker_search_result">Search Result：</string>
+    <string name="str_add_custom_sticker">Favorites</string>
+    <string name="upload_sticker_err">Upload Fail</string>
+    <string name="str_my_sticker">My Stickers</string>
+    <string name="str_added_sticker">Sticker Sets in Chat Panel</string>
+    <string name="str_sticker_reorder">Reorder</string>
+    <string name="str_sticker_remove">Remove</string>
+    <string name="str_sticker_manager">My Stickers</string>
+    <string name="str_sticker_reorder_done">Done</string>
+    <string name="str_sticker_reorder_desc">Adjust order of sticker sets shown in chat panel</string>
+    <string name="str_sticker_arrangement">Manage</string>
+    <string name="str_sticker_move_to_front">Move to Front</string>
+    <string name="str_sticker_delete">Delete</string>
+    <string name="str_delete_sticker_desc">Stickers can\'t be recovered once deleted. Delete now?</string>
+    <string name="smileys_and_people">Smileys and people</string>
+    <string name="nature">Nature</string>
+    <string name="symbols">Symbols</string>
+    <string name="delete_from_favorites">Delete from Favorites</string>
+    <string name="deleted_from_favorites">Sticker was removed from Favorites</string>
+    <string name="img_size_is_too_large">Picture is too large</string>
+    <string name="show_collections">Collections</string>
+</resources>

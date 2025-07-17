@@ -1,0 +1,27 @@
+<resources>
+    <string name="str_sticker_add">添加</string>
+    <string name="str_sticker_added">已添加</string>
+    <string name="str_sticker_store">表情商店</string>
+    <string name="str_more_sticker">更多表情</string>
+    <string name="str_sticker_search_result">搜索结果：</string>
+    <string name="str_add_custom_sticker">添加的单个表情</string>
+    <string name="upload_sticker_err">上传表情失败</string>
+    <string name="str_my_sticker">我的表情</string>
+    <string name="str_added_sticker">聊天面板中的整套表情</string>
+    <string name="str_sticker_reorder">排序</string>
+    <string name="str_sticker_remove">移除</string>
+    <string name="str_sticker_manager">表情管理</string>
+    <string name="str_sticker_reorder_done">完成</string>
+    <string name="str_sticker_reorder_desc">可以调整表情在聊天界面中的排序</string>
+    <string name="str_sticker_arrangement">整理</string>
+    <string name="str_sticker_move_to_front">移到前面</string>
+    <string name="str_sticker_delete">删除</string>
+    <string name="str_delete_sticker_desc">表情删除后不可回复，是否删除？</string>
+    <string name="smileys_and_people">笑脸和人</string>
+    <string name="nature">自然现象</string>
+    <string name="symbols">符号</string>
+    <string name="delete_from_favorites">移除</string>
+    <string name="deleted_from_favorites">已移除</string>
+    <string name="img_size_is_too_large">图片过大无法添加</string>
+    <string name="show_collections">查看专辑</string>
+</resources>

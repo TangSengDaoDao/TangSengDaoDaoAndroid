@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layoutBg"
+    android:orientation="horizontal">
+
+    <com.chat.sticker.ui.components.StickerView
+        android:id="@+id/stickerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorDark"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:id="@+id/sortIV"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/list_reorder" />
+</LinearLayout>

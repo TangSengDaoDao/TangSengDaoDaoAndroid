@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeColor"
+    tools:ignore="MissingDefaultResource">
+
+    <include layout="@layout/wk_title_bar_layout" />
+
+
+    <com.chat.sticker.ui.components.StickerView
+        android:id="@+id/stickerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp">
+
+        <com.chat.sticker.ui.components.StickerView
+            android:id="@+id/categoryIv"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/font_size_16" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addBtn"
+            style="@style/buttonNormal"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:alpha="0.2"
+            android:enabled="false"
+            android:minWidth="80dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:text="@string/str_sticker_added"
+            app:cornerRadius="@dimen/button_radian" />
+    </LinearLayout>
+</RelativeLayout>

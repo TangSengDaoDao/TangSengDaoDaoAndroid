@@ -97,6 +97,7 @@ dependencies {
     implementation project(path: ':wkimageeditor')
     implementation project(path: ':wkmoments')
     implementation project(path: ':wkvideo')
+    implementation project(path: ':wksticker')
     implementation project(path: ':wkgroupmanage')
     //bugly
     implementation 'com.tencent.bugly:crashreport:4.1.9.3'

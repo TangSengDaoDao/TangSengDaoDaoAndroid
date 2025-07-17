@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application>
+        <activity android:name=".ui.StickerStoreActivity" />
+        <activity android:name=".ui.AddCustomStickerActivity" />
+        <activity android:name=".ui.CustomStickerActivity" />
+        <activity android:name=".ui.StickerStoreDetailActivity" />
+        <activity android:name=".ui.StickerManagerActivity" />
+        <activity android:name=".ui.StickerReorderActivity" />
+        <activity android:name=".ui.StickerDetailActivity" />
+    </application>
+
+</manifest>
