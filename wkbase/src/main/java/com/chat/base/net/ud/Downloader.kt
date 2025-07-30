@@ -120,7 +120,7 @@ internal class Downloader private constructor() {
         }
         taskUrls.forEachIndexed { index, taskUrl ->
             validateNeedCallback(taskUrl, onDownload, onComplete, onFail)
-            download(taskUrl, filenames[index], onDownload)
+            download(taskUrl, filenames[index], onDownload, onComplete, onFail)
         }
 
 
