@@ -52,3 +52,6 @@ project.ext {
 tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
+// keystore bage.jks
+// pass Aa3536781314
+// alias key0

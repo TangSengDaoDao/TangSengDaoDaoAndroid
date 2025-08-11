@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 15 (API 35) 专用主题，修复滑动返回残影问题 -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:textColorPrimary">@color/colorDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/welcome_bg</item>
+        <item name="colorPrimary">@color/color999</item>
+        <item name="android:forceDarkAllowed">false</item>
+        
+        <!-- 修复Android 15滑动返回残影问题的关键设置 -->
+        <!-- 确保窗口不透明，避免残影 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 设置实色窗口背景 -->
+        <item name="android:windowBackground">@color/layoutColor</item>
+        <!-- 禁用窗口内容过渡动画 -->
+        <item name="android:windowContentTransitions">false</item>
+        <!-- 禁用窗口的边缘绘制优化 -->
+        <item name="android:windowDisablePreview">true</item>
+        
+        <!-- 自定义Activity过渡动画 -->
+        <item name="android:windowAnimationStyle">@style/AppActivityAnimation</item>
+    </style>
+
+    <!-- 自定义Activity动画样式 -->
+    <style name="AppActivityAnimation" parent="@android:style/Animation.Activity">
+        <!-- 进入动画：从右侧滑入 -->
+        <item name="android:activityOpenEnterAnimation">@anim/activity_slide_in_right</item>
+        <!-- 退出动画：向左侧滑出 -->
+        <item name="android:activityOpenExitAnimation">@anim/activity_slide_out_left</item>
+        <!-- 返回进入动画：从左侧滑入 -->
+        <item name="android:activityCloseEnterAnimation">@anim/activity_slide_in_left</item>
+        <!-- 返回退出动画：向右侧滑出 -->
+        <item name="android:activityCloseExitAnimation">@anim/activity_slide_out_right</item>
+    </style>
+
+
+
+    <style name="Theme.FullscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/layoutColor</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
