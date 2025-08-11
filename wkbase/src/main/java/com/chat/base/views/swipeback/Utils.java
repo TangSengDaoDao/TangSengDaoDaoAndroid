@@ -47,6 +47,12 @@ public class Utils {
      * with the {@link android.R.attr#windowIsFloating} attribute.
      */
     public static void convertActivityToTranslucent(Activity activity) {
+        // Android 15 (API 35) 禁用透明转换以避免滑动返回残影
+        if (Build.VERSION.SDK_INT >= 35) {
+            // 不执行透明转换，保持Activity不透明
+            return;
+        }
+        
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             convertActivityToTranslucentAfterL(activity);
         } else {

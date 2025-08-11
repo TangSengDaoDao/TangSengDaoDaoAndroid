@@ -61,6 +61,16 @@ public abstract class WKBaseActivity<WKVBinding extends ViewBinding> extends Swi
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        // Android 15 (API 35) 滑动返回残影修复
+        if (Build.VERSION.SDK_INT >= 35) {
+            // 禁用窗口透明以避免残影
+            getWindow().setBackgroundDrawableResource(android.R.color.white);
+            // 确保窗口不透明
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            // 设置窗口为不透明
+            getWindow().setFormat(android.graphics.PixelFormat.OPAQUE);
+        }
+        
         super.onCreate(savedInstanceState);
         //禁止横屏
         // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
