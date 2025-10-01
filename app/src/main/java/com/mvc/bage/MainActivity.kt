@@ -3,6 +3,7 @@ package com.mvc.bage
 import android.content.Intent
 import android.os.Bundle
 import android.text.Spannable
+import android.util.Log
 import android.text.SpannableStringBuilder
 import android.text.TextUtils
 import android.view.View
@@ -25,9 +26,11 @@ class MainActivity : WKBaseActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("AppFlow", "[MainActivity] onCreate called")
 
         // 检查应用是否已正确初始化
         if (!TSApplication.getInstance().isApiInitialized()) {
+            Log.d("AppFlow", "[MainActivity] API not initialized, redirecting to SplashActivity")
             // 如果未初始化，重定向到SplashActivity
             val intent = Intent(this, SplashActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -44,38 +47,57 @@ class MainActivity : WKBaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         super.initView()
+        Log.d("AppFlow", "[MainActivity] initView called")
         val isShowDialog: Boolean =
             WKSharedPreferencesUtil.getInstance().getBoolean("show_agreement_dialog")
+        Log.d("AppFlow", "[MainActivity] show_agreement_dialog: $isShowDialog")
         if (isShowDialog) {
+            Log.d("AppFlow", "[MainActivity] Redirecting to SplashActivity for agreement")
             // 将隐私协议放到 SplashActivity 统一处理，避免跳过 getConfig
             val intent = Intent(this, SplashActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()
             return
-        } else gotoApp()
+        } else {
+            Log.d("AppFlow", "[MainActivity] Calling gotoApp")
+            gotoApp()
+        }
     }
 
     private fun gotoApp() {
-        if (!TextUtils.isEmpty(WKConfig.getInstance().token)) {
-            if (TextUtils.isEmpty(WKConfig.getInstance().userInfo.name)) {
+        Log.d("AppFlow", "[MainActivity] gotoApp called")
+        val token = WKConfig.getInstance().token
+        Log.d("AppFlow", "[MainActivity] Token: ${if (token.isNullOrEmpty()) "empty" else "exists"}")
+        
+        if (!TextUtils.isEmpty(token)) {
+            val userInfo = WKConfig.getInstance().userInfo
+            Log.d("AppFlow", "[MainActivity] User name: ${if (userInfo.name.isNullOrEmpty()) "empty" else "exists"}")
+            
+            if (TextUtils.isEmpty(userInfo.name)) {
+                Log.d("AppFlow", "[MainActivity] Starting PerfectUserInfoActivity")
                 startActivity(Intent(this@MainActivity, PerfectUserInfoActivity::class.java))
             } else {
-                val publicRSAKey: String =
-                    WKIM.getInstance().cmdManager.rsaPublicKey
+                val publicRSAKey: String = WKIM.getInstance().cmdManager.rsaPublicKey
+                Log.d("AppFlow", "[MainActivity] RSA Key: ${if (publicRSAKey.isNullOrEmpty()) "empty" else "exists"}")
+                
                 if (TextUtils.isEmpty(publicRSAKey)) {
+                    Log.d("AppFlow", "[MainActivity] Starting WKLoginActivity (no RSA key)")
                     val intent = Intent(this@MainActivity, WKLoginActivity::class.java)
                     intent.putExtra("from", getIntent().getIntExtra("from", 0))
                     startActivity(intent)
                 } else {
+                    Log.d("AppFlow", "[MainActivity] Starting TabActivity")
                     startActivity(Intent(this@MainActivity, TabActivity::class.java))
                 }
             }
         } else {
+            Log.d("AppFlow", "[MainActivity] Starting WKLoginActivity (no token)")
             val intent = Intent(this@MainActivity, WKLoginActivity::class.java)
             intent.putExtra("from", getIntent().getIntExtra("from", 0))
             startActivity(intent)
         }
+        Log.d("AppFlow", "[MainActivity] Finishing MainActivity")
         finish()
     }
 

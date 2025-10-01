@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,6 +65,9 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
 
     @Override
     protected void initView() {
+        Log.d("AppFlow", "[WKLoginActivity] initView called - Stack trace:");
+        Log.d("AppFlow", "[WKLoginActivity] " + android.util.Log.getStackTraceString(new Exception()));
+        
         wkVBinding.loginBtn.getBackground().setTint(Theme.colorAccount);
         wkVBinding.privacyPolicyTv.setTextColor(Theme.colorAccount);
         wkVBinding.userAgreementTv.setTextColor(Theme.colorAccount);

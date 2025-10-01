@@ -186,6 +186,7 @@ public final class SplashActivity : AppCompatActivity() {
 
 
     private fun startMainActivity() {
+        Log.d("AppFlow", "[SplashActivity] startMainActivity called")
         // 创建进入MainActivity的Intent，让MainActivity处理隐私协议
         val intent = Intent(this, MainActivity::class.java)
 

@@ -1,6 +1,7 @@
 package com.chat.base.net;
 
 
+import android.app.Activity;
 import android.text.TextUtils;
 
 import com.chat.base.WKBaseApplication;
@@ -44,6 +45,15 @@ public abstract class BaseObserver<T> implements Observer<T> {
                 WKBaseApplication.getInstance().closeDbHelper();
                 WKConfig.getInstance().clearInfo();
                 WKIM.getInstance().getConnectionManager().disconnect(true);
+                
+                // 检查当前是否已经在登录界面
+                Activity currentActivity = ActManagerUtils.getInstance().getCurrentActivity();
+                if (currentActivity != null && currentActivity.getClass().getSimpleName().equals("WKLoginActivity")) {
+                    // 如果已经在登录界面，只清理数据，不关闭Activity
+                    return;
+                }
+                
+                // 如果不在登录界面，关闭所有Activity并启动MainActivity
                 ActManagerUtils.getInstance().clearAllActivity();
                 EndpointManager.getInstance().invoke("main_show_home_view",0);
             }
