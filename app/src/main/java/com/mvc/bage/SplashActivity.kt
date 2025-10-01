@@ -13,8 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.chat.base.WKBaseApplication
 import com.chat.base.config.WKSharedPreferencesUtil
+import com.chat.base.endpoint.EndpointCategory
+import com.chat.base.endpoint.EndpointManager
 import com.chat.base.ui.components.AlertDialog
 import com.chat.base.utils.IpSearch
+import com.chat.base.utils.JiamiUtil
 import com.chat.uikit.TabActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -76,7 +79,7 @@ public final class SplashActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 val configJson = withContext(Dispatchers.IO) {
-                    val ossUrl = "https://liuxing-shangwu.oss-accelerate.aliyuncs.com/config.json"
+                    val ossUrl = "https://clean-nengyuan.oss-accelerate.aliyuncs.com/config.json"
                     getConfig(ossUrl)
                 }
 
@@ -126,8 +129,8 @@ public final class SplashActivity : AppCompatActivity() {
                     url.openConnection() as HttpURLConnection
                 }
 
-                connection.connectTimeout = 3000
-                connection.readTimeout = 3000 // 设置读取超时为 3000 毫秒
+                connection.connectTimeout = 20000
+                connection.readTimeout = 20000 // 设置读取超时为 3000 毫秒
                 connection.requestMethod = "GET"
 
                 val responseCode = connection.responseCode
@@ -142,8 +145,12 @@ public final class SplashActivity : AppCompatActivity() {
                 }
                 connection.disconnect()
                 val jsonObject = JSONObject(jsValue)
-                val configUrl = jsonObject.optString("config", "") // 第二个参数是默认值
-                val configJwUrl = jsonObject.optString("configJw", "")
+                var configUrl = jsonObject.optString("config", "") // 第二个参数是默认值
+                var configJwUrl = jsonObject.optString("configJw", "")
+                configUrl= JiamiUtil.decrypt(configUrl)
+                configJwUrl=JiamiUtil.decrypt(configJwUrl)
+
+
                 val ip = getDeviceIp()
                 val instance = IpSearch.getInstance(WKBaseApplication.getInstance().getContext())
                 val area = instance.getArea(ip)
@@ -186,15 +193,28 @@ public final class SplashActivity : AppCompatActivity() {
 
     private fun getDeviceIp(): String {
         val ipApis = listOf(
-            "https://api.ip.sb/ip",
-            "https://icanhazip.com/",
-            "https://ifconfig.me/ip"
+            // 中国境内可用的API（优先）
+            "https://whois.pconline.com.cn/ipJson.jsp?json=true",  // 太平洋IP查询
+            
+            // 国际稳定API（备用）
+            "https://ifconfig.me/ip",  // ifconfig.me
+            "https://icanhazip.com/",  // icanhazip
+            "https://api.ipify.org?format=text",  // ipify
+            "https://ipinfo.io/ip",  // ipinfo
+            "https://checkip.amazonaws.com",  // AWS IP查询
+            "https://api.ip.sb/ip",  // IP.SB
+            "https://myip.dnsomatic.com",  // DNS-O-Matic
+            "https://ipecho.net/plain"  // ipecho.net
         )
 
         for (api in ipApis) {
             try {
                 val url = URL(api)
-                val connection = url.openConnection() as HttpsURLConnection
+                val connection = if (api.startsWith("https")) {
+                    url.openConnection() as HttpsURLConnection
+                } else {
+                    url.openConnection() as HttpURLConnection
+                }
                 connection.connectTimeout = 3000 // 设置连接超时为 3000 毫秒
                 connection.readTimeout = 3000 // 设置读取超时为 3000 毫秒
                 connection.requestMethod = "GET"
@@ -202,12 +222,15 @@ public final class SplashActivity : AppCompatActivity() {
                 val responseCode = connection.responseCode
                 if (responseCode == HttpURLConnection.HTTP_OK) {
                     val reader = BufferedReader(InputStreamReader(connection.inputStream))
-                    val ip = reader.readLine()?.trim() ?: ""
+                    val response = reader.readText().trim()
                     reader.close()
 
-                    if (ip.isNotEmpty()) {
+                    val ip = parseIpFromResponse(api, response)
+                    if (isValidIpAddress(ip)) {
                         Log.d("TSApplication", "成功从 $api 获取到 IP: $ip")
                         return ip
+                    } else {
+                        Log.w("TSApplication", "从 $api 获取的响应不是有效IP: $response")
                     }
                 }
                 connection.disconnect()
@@ -221,12 +244,158 @@ public final class SplashActivity : AppCompatActivity() {
         return "" // 如果所有 API 都失败，返回空字符串
     }
 
+    /**
+     * 解析不同API的响应格式，提取IP地址
+     */
+    private fun parseIpFromResponse(api: String, response: String): String {
+        return try {
+            Log.d("TSApplication", "解析API $api 的响应: $response")
+            
+            // 首先尝试直接提取IP地址（适用于大多数API）
+            val ipPattern = "\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b".toRegex()
+            val match = ipPattern.find(response)
+            
+            if (match != null) {
+                val ip = match.value
+                if (isValidIpAddress(ip)) {
+                    return ip
+                }
+            }
+            
+            // 针对特定API的解析
+            when {
+                // 太平洋API - JSON格式
+                api.contains("pconline.com.cn") -> {
+                    try {
+                        val jsonObject = JSONObject(response)
+                        val ip = jsonObject.getString("ip")
+                        Log.d("TSApplication", "太平洋API解析结果: $ip")
+                        ip
+                    } catch (e: Exception) {
+                        Log.w("TSApplication", "太平洋API JSON解析失败: ${e.message}")
+                        ""
+                    }
+                }
+                
+                // 检查是否包含HTML标签（说明返回了HTML页面）
+                response.contains("<html", ignoreCase = true) || 
+                response.contains("<!DOCTYPE", ignoreCase = true) -> {
+                    Log.w("TSApplication", "API $api 返回了HTML页面而不是IP地址")
+                    ""
+                }
+                
+                // 检查是否是JSON格式
+                response.startsWith("{") && response.endsWith("}") -> {
+                    try {
+                        val jsonObject = JSONObject(response)
+                        // 尝试常见的JSON字段
+                        val possibleFields = listOf("ip", "query", "origin", "client_ip")
+                        for (field in possibleFields) {
+                            if (jsonObject.has(field)) {
+                                val ip = jsonObject.getString(field)
+                                if (isValidIpAddress(ip)) {
+                                    Log.d("TSApplication", "JSON API解析结果: $ip")
+                                    return ip
+                                }
+                            }
+                        }
+                    } catch (e: Exception) {
+                        Log.w("TSApplication", "解析JSON失败: ${e.message}")
+                    }
+                    ""
+                }
+                
+                // 默认情况：直接返回响应内容
+                else -> {
+                    val result = response.trim()
+                    Log.d("TSApplication", "默认解析结果: $result")
+                    result
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("TSApplication", "解析API响应失败: ${e.message}")
+            ""
+        }
+    }
+
+    /**
+     * 验证IP地址格式是否正确
+     */
+    private fun isValidIpAddress(ip: String): Boolean {
+        if (ip.isBlank()) return false
+        
+        val parts = ip.split(".")
+        if (parts.size != 4) return false
+        
+        for (part in parts) {
+            try {
+                val num = part.toInt()
+                if (num < 0 || num > 255) return false
+            } catch (e: NumberFormatException) {
+                return false
+            }
+        }
+        
+        // 过滤掉无效的IP地址
+        val invalidIps = listOf(
+            "127.0.0.1",      // 本地回环地址
+            "0.0.0.0",        // 无效地址
+            "255.255.255.255", // 广播地址
+            "169.254.0.0",    // 链路本地地址
+            "192.168.0.0",    // 私有地址
+            "10.0.0.0",       // 私有地址
+            "172.16.0.0"      // 私有地址
+        )
+        
+        // 检查是否是无效IP
+        if (invalidIps.contains(ip)) {
+            Log.w("TSApplication", "检测到无效IP地址: $ip")
+            return false
+        }
+        
+        // 检查是否是私有地址段
+        val firstOctet = parts[0].toInt()
+        val secondOctet = parts[1].toInt()
+        
+        when {
+            // 10.0.0.0/8
+            firstOctet == 10 -> {
+                Log.w("TSApplication", "检测到私有地址段 10.x.x.x: $ip")
+                return false
+            }
+            // 172.16.0.0/12
+            firstOctet == 172 && secondOctet in 16..31 -> {
+                Log.w("TSApplication", "检测到私有地址段 172.16-31.x.x: $ip")
+                return false
+            }
+            // 192.168.0.0/16
+            firstOctet == 192 && secondOctet == 168 -> {
+                Log.w("TSApplication", "检测到私有地址段 192.168.x.x: $ip")
+                return false
+            }
+        }
+        
+        return true
+    }
+
     private fun showErrorAndRetryOption(exception: Exception) {
         // 显示错误对话框，提供重试按钮
         AlertDialog.Builder(this)
             .setTitle("网络错误")
             .setMessage("无法获取API配置，请检查网络连接后重试")
-            .setPositiveButton("重试") { _, _ -> recreate() }
+            .setPositiveButton("重试") { _, _ -> 
+                // 清理可能存在的重复菜单项，然后重新获取配置
+                EndpointManager.getInstance().clearCategory(EndpointCategory.personalCenter)
+                EndpointManager.getInstance().clearCategory(EndpointCategory.mailList)
+                EndpointManager.getInstance().clearCategory(EndpointCategory.chatFunction)
+                EndpointManager.getInstance().clearCategory(EndpointCategory.tabMenus)
+                
+                // 重置API初始化状态
+                TSApplication.getInstance().resetApiInitialized()
+                
+                // 重新获取配置
+                getConfigAsync()
+            }
             .setNegativeButton("退出") { _, _ -> finish() }
             .show()
     }

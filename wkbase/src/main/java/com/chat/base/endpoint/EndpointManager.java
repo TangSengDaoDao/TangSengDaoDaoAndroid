@@ -108,4 +108,33 @@ public class EndpointManager {
             return list;
         }
     }
+
+    /**
+     * 清理指定分类的所有端点
+     * @param category 分类名称
+     */
+    public void clearCategory(String category) {
+        if (endpointList != null && endpointList.containsKey(category)) {
+            endpointList.remove(category);
+        }
+    }
+
+    /**
+     * 清理所有端点
+     */
+    public void clearAll() {
+        if (endpointList != null) {
+            endpointList.clear();
+        }
+    }
+
+    /**
+     * 检查指定分类是否已存在端点
+     * @param category 分类名称
+     * @return 是否存在
+     */
+    public boolean hasCategory(String category) {
+        return endpointList != null && endpointList.containsKey(category) && 
+               endpointList.get(category) != null && !endpointList.get(category).isEmpty();
+    }
 }

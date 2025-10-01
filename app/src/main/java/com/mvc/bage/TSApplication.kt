@@ -24,6 +24,7 @@ import com.chat.base.config.WKApiConfig
 import com.chat.base.config.WKConfig
 import com.chat.base.config.WKConstants
 import com.chat.base.config.WKSharedPreferencesUtil
+import com.chat.base.endpoint.EndpointCategory
 import com.chat.base.endpoint.EndpointManager
 import com.chat.base.ui.Theme
 import com.chat.base.utils.ActManagerUtils
@@ -66,6 +67,14 @@ class TSApplication : MultiDexApplication() {
         super.onCreate()
 
         instance = this  // 保存实例引用
+
+        // 检查是否是进程重启，如果是则清理可能残留的状态
+        if (isProcessRestarted()) {
+            Log.d("TSApplication", "检测到进程重启，清理残留状态")
+            // 清理EndpointManager中的重复菜单项
+            EndpointManager.getInstance().clearAll()
+            isApiInitialized = false
+        }
 
         // 只初始化基础组件
 
@@ -183,6 +192,12 @@ class TSApplication : MultiDexApplication() {
         // 避免重复初始化
         if (isApiInitialized) return
 
+        // 清理可能存在的重复菜单项
+        EndpointManager.getInstance().clearCategory(EndpointCategory.personalCenter)
+        EndpointManager.getInstance().clearCategory(EndpointCategory.mailList)
+        EndpointManager.getInstance().clearCategory(EndpointCategory.chatFunction)
+        EndpointManager.getInstance().clearCategory(EndpointCategory.tabMenus)
+
         // 保存API地址到本地缓存，下次启动可以直接使用
 //        WKSharedPreferencesUtil.getInstance().putSP(KEY_API_URL, apiUrl)
 
@@ -231,6 +246,11 @@ class TSApplication : MultiDexApplication() {
     // 检查API组件是否已初始化
     fun isApiInitialized(): Boolean {
         return isApiInitialized
+    }
+
+    // 重置API初始化状态（用于重试场景）
+    fun resetApiInitialized() {
+        isApiInitialized = false
     }
 
 

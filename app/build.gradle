@@ -14,7 +14,7 @@ android {
             keyPassword 'demo1365'
         }
         release {
-            storeFile file('../huaxin.jks')
+            storeFile file('../bage.jks')
             storePassword 'Aa3536781314'
             keyAlias = 'key0'
             keyPassword 'Aa3536781314'
