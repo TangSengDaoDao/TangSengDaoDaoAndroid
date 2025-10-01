@@ -23,19 +23,19 @@ import com.xinbida.wukongim.WKIM
 
 class MainActivity : WKBaseActivity<ActivityMainBinding>() {
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        // 检查应用是否已正确初始化
-//        if (!TSApplication.getInstance().isApiInitialized()) {
-//            // 如果未初始化，重定向到SplashActivity
-//            val intent = Intent(this, SplashActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-//            startActivity(intent)
-//            finish()
-//            return
-//        }
-//    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // 检查应用是否已正确初始化
+        if (!TSApplication.getInstance().isApiInitialized()) {
+            // 如果未初始化，重定向到SplashActivity
+            val intent = Intent(this, SplashActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+            return
+        }
+    }
 
 
     override fun getViewBinding(): ActivityMainBinding {
@@ -47,7 +47,12 @@ class MainActivity : WKBaseActivity<ActivityMainBinding>() {
         val isShowDialog: Boolean =
             WKSharedPreferencesUtil.getInstance().getBoolean("show_agreement_dialog")
         if (isShowDialog) {
-            showDialog()
+            // 将隐私协议放到 SplashActivity 统一处理，避免跳过 getConfig
+            val intent = Intent(this, SplashActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+            return
         } else gotoApp()
     }
 
@@ -99,7 +104,9 @@ class MainActivity : WKBaseActivity<ActivityMainBinding>() {
                 NormalClickableContent(NormalClickableContent.NormalClickableTypes.Other, ""),
                 object : NormalClickableSpan.IClick {
                     override fun onClick(view: View) {
-                        WKApiConfig.baseWebUrl + "privacy_policy.html"
+                        showWebView(
+                            WKApiConfig.baseWebUrl + "privacy_policy.html"
+                        )
                     }
                 }), privacyPolicyIndex, privacyPolicyIndex + 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
@@ -121,7 +128,11 @@ class MainActivity : WKBaseActivity<ActivityMainBinding>() {
                     WKBaseApplication.getInstance().packageName,
                     WKBaseApplication.getInstance().application
                 )
-                gotoApp()
+                // 协议在 MainActivity 不再处理，交给 SplashActivity 继续后续流程
+                val intent = Intent(this, SplashActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+                finish()
             } else {
                 finish()
             }

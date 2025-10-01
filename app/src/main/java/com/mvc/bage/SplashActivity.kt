@@ -7,17 +7,25 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.chat.base.WKBaseApplication
+import com.chat.base.config.WKApiConfig
 import com.chat.base.config.WKSharedPreferencesUtil
 import com.chat.base.endpoint.EndpointCategory
 import com.chat.base.endpoint.EndpointManager
 import com.chat.base.ui.components.AlertDialog
+import com.chat.base.ui.components.NormalClickableContent
+import com.chat.base.ui.components.NormalClickableSpan
 import com.chat.base.utils.IpSearch
 import com.chat.base.utils.JiamiUtil
+import com.chat.base.utils.WKDialogUtils
+import com.chat.base.act.WKWebViewActivity
 import com.chat.uikit.TabActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -57,6 +65,16 @@ public final class SplashActivity : AppCompatActivity() {
 
         setContentView(R.layout.splash_activity_with_animation)
 
+        // 先检查隐私协议是否同意，未同意则先拦截，避免进入主页或跳过 getConfig
+        val needShowAgreement = WKSharedPreferencesUtil.getInstance().getBoolean("show_agreement_dialog")
+        if (needShowAgreement) {
+            showAgreementAndThenProceed()
+        } else {
+            proceedInit()
+        }
+    }
+
+    private fun proceedInit() {
         // 使用单例方法获取TSApplication实例，而不是使用application属性转换
         val tsApp = TSApplication.getInstance()
 
@@ -75,6 +93,69 @@ public final class SplashActivity : AppCompatActivity() {
             showErrorAndRetryOption(Exception("网络连接不可用，使用默认API地址"))
         }
     }
+
+    private fun showAgreementAndThenProceed() {
+        val content = getString(R.string.dialog_content)
+        val linkSpan = SpannableStringBuilder()
+        linkSpan.append(content)
+        val userAgreementIndex = content.indexOf(getString(R.string.main_user_agreement))
+        linkSpan.setSpan(
+            NormalClickableSpan(
+                true,
+                ContextCompat.getColor(this, R.color.blue),
+                NormalClickableContent(NormalClickableContent.NormalClickableTypes.Other, ""),
+                object : NormalClickableSpan.IClick {
+                    override fun onClick(view: View) {
+                        showWebView(
+                            WKApiConfig.baseWebUrl + "user_agreement.html"
+                        )
+                    }
+                }), userAgreementIndex, userAgreementIndex + 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        val privacyPolicyIndex = content.indexOf(getString(R.string.main_privacy_policy))
+        linkSpan.setSpan(
+            NormalClickableSpan(true,
+                ContextCompat.getColor(this, R.color.blue),
+                NormalClickableContent(NormalClickableContent.NormalClickableTypes.Other, ""),
+                object : NormalClickableSpan.IClick {
+                    override fun onClick(view: View) {
+                        showWebView(
+                            WKApiConfig.baseWebUrl + "privacy_policy.html"
+                        )
+                    }
+                }), privacyPolicyIndex, privacyPolicyIndex + 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        WKDialogUtils.getInstance().showDialog(
+            this,
+            getString(R.string.dialog_title),
+            linkSpan,
+            false,
+            getString(R.string.disagree),
+            getString(R.string.agree),
+            0,
+            0
+        ) { index ->
+            if (index == 1) {
+                WKSharedPreferencesUtil.getInstance()
+                    .putBoolean("show_agreement_dialog", false)
+                WKBaseApplication.getInstance().init(
+                    WKBaseApplication.getInstance().packageName,
+                    WKBaseApplication.getInstance().application
+                )
+                proceedInit()
+            } else {
+                finish()
+            }
+        }
+    }
+
+    private fun showWebView(url: String) {
+        val intent = Intent(this, WKWebViewActivity::class.java)
+        intent.putExtra("url", url)
+        startActivity(intent)
+    }
+
     fun getConfigAsync() {
         lifecycleScope.launch {
             try {
@@ -105,13 +186,13 @@ public final class SplashActivity : AppCompatActivity() {
 
 
     private fun startMainActivity() {
-        // 创建进入主页的Intent
-        val intent = Intent(this, TabActivity::class.java)
+        // 创建进入MainActivity的Intent，让MainActivity处理隐私协议
+        val intent = Intent(this, MainActivity::class.java)
 
         // 添加标志以清除任务栈，确保SplashActivity完全退出
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
-        // 启动主页Activity
+        // 启动MainActivity
         startActivity(intent)
 
         // 结束SplashActivity
