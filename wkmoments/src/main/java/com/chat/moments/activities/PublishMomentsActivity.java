@@ -56,6 +56,7 @@ import com.chat.base.utils.AndroidUtilities;
 import com.chat.base.utils.SoftKeyboardUtils;
 import com.chat.base.utils.StringUtils;
 import com.chat.base.utils.WKFileUtils;
+import com.chat.base.utils.WKLogUtils;
 import com.chat.base.utils.WKMediaFileUtils;
 import com.chat.base.utils.WKPermissions;
 import com.chat.base.utils.WKReader;
@@ -746,7 +747,9 @@ public class PublishMomentsActivity extends WKBaseActivity<ActPublishMomentsLayo
         GlideUtils.getInstance().chooseIMG(this, maxCount, true, mimeType, false, new GlideUtils.ISelectBack() {
             @Override
             public void onBack(List<ChooseResult> paths) {
+                WKLogUtils.e("PublishMomentsActivity onBack called, paths size: " + (paths != null ? paths.size() : 0));
                 if (WKReader.isEmpty(paths)) {
+                    WKLogUtils.e("Paths is empty, returning");
                     if (WKReader.isEmpty(adapter.getData())) {
                         adapter.addData(new ImgEntity());
                     }
@@ -758,6 +761,7 @@ public class PublishMomentsActivity extends WKBaseActivity<ActPublishMomentsLayo
                 isVideoUploaded = true;
                 if (paths.size() == 1 && paths.get(0).model == ChooseResultModel.video) {
                     //视频文件
+                    WKLogUtils.e("Processing video, path: " + paths.get(0).path);
                     if (WKFileUtils.getInstance().isFileOverSize(PublishMomentsActivity.this, paths.get(0).path)) {
                         if (WKReader.isEmpty(adapter.getData())) {
                             adapter.addData(new ImgEntity());
@@ -773,8 +777,22 @@ public class PublishMomentsActivity extends WKBaseActivity<ActPublishMomentsLayo
                     uploadMomentsFile();
                     return;
                 }
+                WKLogUtils.e("Processing images, count: " + paths.size());
                 for (int i = 0, size = paths.size(); i < size; i++) {
-                    list.add(new ImgEntity(paths.get(i).path, 1));
+                    String path = paths.get(i).path;
+                    WKLogUtils.e("Image " + i + " path: " + path);
+                    if (TextUtils.isEmpty(path)) {
+                        WKLogUtils.e("Image path is empty, skipping");
+                        continue;
+                    }
+                    list.add(new ImgEntity(path, 1));
+                }
+                if (list.isEmpty()) {
+                    WKLogUtils.e("No valid images after filtering, returning");
+                    if (WKReader.isEmpty(adapter.getData())) {
+                        adapter.addData(new ImgEntity());
+                    }
+                    return;
                 }
                 List<ImgEntity> oldList = new ArrayList<>();
                 for (int i = 0, size = adapter.getData().size(); i < size; i++) {

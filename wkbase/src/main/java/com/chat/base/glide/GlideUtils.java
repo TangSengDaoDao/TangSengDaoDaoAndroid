@@ -25,6 +25,7 @@ import com.chat.base.config.WKApiConfig;
 import com.chat.base.config.WKConstants;
 import com.chat.base.endpoint.EndpointManager;
 import com.chat.base.endpoint.entity.EditImgMenu;
+import com.chat.base.utils.WKFileUtils;
 import com.chat.base.utils.WKLogUtils;
 import com.luck.picture.lib.animators.AnimationType;
 import com.luck.picture.lib.basic.PictureSelector;
@@ -312,8 +313,29 @@ public class GlideUtils {
                             } else {
                                 chooseResult.model = ChooseResultModel.image;
                                 chooseResult.path = path;
+                                // 检查图片路径是否是 content URI，如果是则转换
+                                if (PictureMimeType.isContent(chooseResult.path)) {
+                                    String realPath = getRealPathFromUri(activity, Uri.parse(chooseResult.path));
+                                    if (!TextUtils.isEmpty(realPath)) {
+                                        chooseResult.path = realPath;
+                                    } else {
+                                        // 如果转换失败，尝试使用 media.getPath()
+                                        String fallbackPath = media.getPath();
+                                        if (!TextUtils.isEmpty(fallbackPath)) {
+                                            chooseResult.path = fallbackPath;
+                                        } else {
+                                            // 如果都失败，保留原始路径（可能是 content URI，某些库可能支持）
+                                            WKLogUtils.e("Image path conversion failed, using original: " + chooseResult.path);
+                                        }
+                                    }
+                                }
+                                // 验证路径是否有效
+                                if (TextUtils.isEmpty(chooseResult.path)) {
+                                    WKLogUtils.e("Image path is empty, skipping");
+                                    continue;
+                                }
                             }
-                            WKLogUtils.e(path);
+                            WKLogUtils.e("Selected path: " + chooseResult.path + ", model: " + chooseResult.model);
                             list.add(chooseResult);
                         }
                         iSelectBack.onBack(list);
@@ -328,18 +350,35 @@ public class GlideUtils {
     }
 
     private String getRealPathFromUri(Context context, Uri contentUri) {
+        if (contentUri == null) {
+            return null;
+        }
         Cursor cursor = null;
         try {
             String[] proj = {MediaStore.Images.Media.DATA};
             cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
+            if (cursor != null && cursor.moveToFirst()) {
+                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                String path = cursor.getString(column_index);
+                // 在 Android 10+ 上，如果返回的是 content:// URI 或无效路径，返回 null
+                if (path != null && !path.startsWith("content://") && (path.startsWith("/") || path.startsWith("file://"))) {
+                    return path;
+                }
+            }
+        } catch (Exception e) {
+            WKLogUtils.e("getRealPathFromUri error: " + e.getMessage());
         } finally {
             if (cursor != null) {
                 cursor.close();
             }
         }
+        // 如果上述方法失败，尝试使用 WKFileUtils 的方法
+        try {
+            return WKFileUtils.getInstance().getPath(contentUri);
+        } catch (Exception e) {
+            WKLogUtils.e("WKFileUtils.getPath error: " + e.getMessage());
+        }
+        return null;
     }
 
     public void compressImg(Context context, String path, final ICompressListener icompressListener) {

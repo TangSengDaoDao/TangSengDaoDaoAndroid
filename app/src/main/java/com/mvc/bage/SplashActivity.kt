@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.chat.base.WKBaseApplication
+import com.chat.base.act.WKWebViewActivity
 import com.chat.base.config.WKApiConfig
 import com.chat.base.config.WKSharedPreferencesUtil
 import com.chat.base.endpoint.EndpointCategory
@@ -25,8 +26,6 @@ import com.chat.base.ui.components.NormalClickableSpan
 import com.chat.base.utils.IpSearch
 import com.chat.base.utils.JiamiUtil
 import com.chat.base.utils.WKDialogUtils
-import com.chat.base.act.WKWebViewActivity
-import com.chat.uikit.TabActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -211,8 +210,8 @@ public final class SplashActivity : AppCompatActivity() {
                     url.openConnection() as HttpURLConnection
                 }
 
-                connection.connectTimeout = 20000
-                connection.readTimeout = 20000 // 设置读取超时为 3000 毫秒
+                connection.connectTimeout = 10000
+                connection.readTimeout = 10000 // 设置读取超时为 3000 毫秒
                 connection.requestMethod = "GET"
 
                 val responseCode = connection.responseCode
@@ -229,11 +228,13 @@ public final class SplashActivity : AppCompatActivity() {
                 val jsonObject = JSONObject(jsValue)
                 var configUrl = jsonObject.optString("config", "") // 第二个参数是默认值
                 var configJwUrl = jsonObject.optString("configJw", "")
+                var apiList = jsonObject.optString("apiList", "")
                 configUrl= JiamiUtil.decrypt(configUrl)
                 configJwUrl=JiamiUtil.decrypt(configJwUrl)
+                apiList = JiamiUtil.decrypt(apiList);
 
 
-                val ip = getDeviceIp()
+                val ip = getDeviceIp(apiList)
                 val instance = IpSearch.getInstance(WKBaseApplication.getInstance().getContext())
                 val area = instance.getArea(ip)
                 if (area != "CN") {
@@ -273,21 +274,34 @@ public final class SplashActivity : AppCompatActivity() {
     }
 
 
-    private fun getDeviceIp(): String {
-        val ipApis = listOf(
-            // 中国境内可用的API（优先）
-            "https://whois.pconline.com.cn/ipJson.jsp?json=true",  // 太平洋IP查询
-            
-            // 国际稳定API（备用）
-            "https://ifconfig.me/ip",  // ifconfig.me
-            "https://icanhazip.com/",  // icanhazip
-            "https://api.ipify.org?format=text",  // ipify
-            "https://ipinfo.io/ip",  // ipinfo
-            "https://checkip.amazonaws.com",  // AWS IP查询
-            "https://api.ip.sb/ip",  // IP.SB
-            "https://myip.dnsomatic.com",  // DNS-O-Matic
-            "https://ipecho.net/plain"  // ipecho.net
-        )
+    private fun getDeviceIp(ipapi: String): String {
+        var ipApis: Array<String> = arrayOf<String>()
+
+        // 优先使用从OSS返回的API列表
+        if (ipapi != null && !ipapi.isEmpty()) {
+            val split = ipapi.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            if (split.size > 0) {
+                ipApis = split
+                Log.d("TSApplication", "使用OSS返回的API列表，共" + ipApis.size + "个API")
+            }
+        }
+        if(ipApis.size == 0){
+            ipApis = listOf(
+                // 中国境内可用的API（优先）
+                "https://whois.pconline.com.cn/ipJson.jsp?json=true",  // 太平洋IP查询
+
+                // 国际稳定API（备用）
+                "https://ifconfig.me/ip",  // ifconfig.me
+                "https://icanhazip.com/",  // icanhazip
+                "https://api.ipify.org?format=text",  // ipify
+                "https://ipinfo.io/ip",  // ipinfo
+                "https://checkip.amazonaws.com",  // AWS IP查询
+                "https://api.ip.sb/ip",  // IP.SB
+                "https://myip.dnsomatic.com",  // DNS-O-Matic
+                "https://ipecho.net/plain"  // ipecho.net
+            ).toTypedArray()
+        }
+
 
         for (api in ipApis) {
             try {
@@ -297,8 +311,8 @@ public final class SplashActivity : AppCompatActivity() {
                 } else {
                     url.openConnection() as HttpURLConnection
                 }
-                connection.connectTimeout = 3000 // 设置连接超时为 3000 毫秒
-                connection.readTimeout = 3000 // 设置读取超时为 3000 毫秒
+                connection.connectTimeout = 5000 // 设置连接超时为 3000 毫秒
+                connection.readTimeout = 5000 // 设置读取超时为 3000 毫秒
                 connection.requestMethod = "GET"
 
                 val responseCode = connection.responseCode
