@@ -19,31 +19,49 @@ public class WKSharedPreferencesUtil {
 
     @SuppressLint("CommitPrefEdits")
     private WKSharedPreferencesUtil(Context context) {
+        if (context == null) {
+            throw new IllegalStateException("Context cannot be null. Please ensure WKBaseApplication.getInstance().init() is called before using WKSharedPreferencesUtil.");
+        }
         String mTAG = "wkSharedPreferences";
         mPreferences = context.getSharedPreferences(mTAG, Context.MODE_PRIVATE);
         mEditor = mPreferences.edit();
     }
 
-//    private static class SharedPreferencesUtilBinder {
-//        private static final WKSharedPreferencesUtil sharedPreferencesUtil = new WKSharedPreferencesUtil(WKBaseApplication.getInstance().getContext());
-//    }
+    private static class SharedPreferencesUtilBinder {
+        private static WKSharedPreferencesUtil sharedPreferencesUtil;
 
-    enum SingletonEnum {
-        INSTANCE;
-        private final WKSharedPreferencesUtil util;
-
-        SingletonEnum() {
-            util = new WKSharedPreferencesUtil(WKBaseApplication.getInstance().application);
+        private static WKSharedPreferencesUtil getInstance() {
+            if (sharedPreferencesUtil == null) {
+                synchronized (SharedPreferencesUtilBinder.class) {
+                    if (sharedPreferencesUtil == null) {
+                        Context context = getContext();
+                        if (context == null) {
+                            throw new IllegalStateException("Context is null. Please ensure WKBaseApplication.getInstance().init() is called before using WKSharedPreferencesUtil.");
+                        }
+                        sharedPreferencesUtil = new WKSharedPreferencesUtil(context);
+                    }
+                }
+            }
+            return sharedPreferencesUtil;
         }
 
-        public WKSharedPreferencesUtil getInstance() {
-            return util;
+        private static Context getContext() {
+            WKBaseApplication app = WKBaseApplication.getInstance();
+            // 优先使用 application 字段
+            if (app.application != null) {
+                return app.application;
+            }
+            // 如果 application 为 null，尝试使用 getContext()
+            Context context = app.getContext();
+            if (context != null) {
+                return context;
+            }
+            return null;
         }
     }
 
-
     public static WKSharedPreferencesUtil getInstance() {
-        return SingletonEnum.INSTANCE.getInstance();
+        return SharedPreferencesUtilBinder.getInstance();
     }
 
     public void putSPWithUID(String key, String value) {

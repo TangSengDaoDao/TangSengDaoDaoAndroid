@@ -179,9 +179,13 @@ public class WKUIKitApplication {
             String uid = WKConfig.getInstance().getUid();
             WKIM.getInstance().init(mContext.get(), uid, imToken);
 
-            CrashReport.initCrashReport(getContext(), "b8bf09f25f", false);
+            // CrashReport.initCrashReport(getContext(), "b8bf09f25f", false);
+            try {
             CrashReport.setUserId(WKConfig.getInstance().getUid());
             CrashReport.setDeviceModel(getContext(), WKDeviceUtils.getInstance().getSystemModel());
+        } catch (Exception e) {
+                    Log.e("WKUIKitApplication", "Failed to set Bugly user info", e);
+                }
 
         }
     }

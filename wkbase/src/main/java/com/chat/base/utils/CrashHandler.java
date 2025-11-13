@@ -80,30 +80,37 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      */
     @Override
     public void uncaughtException(@NonNull Thread thread, @NonNull Throwable ex) {
-        if (!handleException(ex) && mDefaultHandler != null) {
-            // 如果用户没有处理则让系统默认的异常处理器来处理
-            mDefaultHandler.uncaughtException(thread, ex);
-        } else {
+        // 先调用默认处理器（通常是Bugly），让Bugly能够上报异常
+        if (mDefaultHandler != null) {
             try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                Log.e(TAG, "error : ", e);
+                mDefaultHandler.uncaughtException(thread, ex);
+            } catch (Exception e) {
+                Log.e(TAG, "Error in default handler", e);
             }
-            // 退出程序
-            android.os.Process.killProcess(android.os.Process.myPid());
-            System.exit(1);
         }
+        
+        // 然后执行自定义的异常处理（保存日志等）
+        handleException(ex);
+        
+        // 等待一段时间，确保Bugly有足够时间上报异常
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Log.e(TAG, "error : ", e);
+        }
+        // 退出程序
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 
     /**
      * 自定义错误处理,收集错误信息 发送错误报告等操作均在此完成.
      *
      * @param ex
-     * @return true:如果处理了该异常信息;否则返回false.
      */
-    private boolean handleException(Throwable ex) {
+    private void handleException(Throwable ex) {
         if (ex == null) {
-            return false;
+            return;
         }
         // 使用Toast来显示异常信息
         new Thread() {
@@ -119,7 +126,6 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         // 保存日志文件
         saveCrashInfo2File(ex);
         EndpointManager.getInstance().invoke("saveCrashFile", ex);
-        return true;
     }
 
     /**

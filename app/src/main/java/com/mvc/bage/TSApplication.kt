@@ -86,6 +86,9 @@ class TSApplication : MultiDexApplication() {
 //        }
         // 否则，等待SplashActivity获取API地址后再初始化
 
+        // 优先初始化Bugly，确保异常处理器在CrashHandler之前设置
+        CrashReport.initCrashReport(applicationContext, BUGLY_ID, true)
+        
         val processName = getProcessName(this, Process.myPid())
         if (processName != null) {
             val defaultProcess = processName == getAppPackageName()
@@ -95,7 +98,6 @@ class TSApplication : MultiDexApplication() {
                 initApi(cachedApiUrl);
             }
         }
-        CrashReport.initCrashReport(applicationContext, BUGLY_ID, true)
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityCreated(p0: Activity, p1: Bundle?) {
             }
