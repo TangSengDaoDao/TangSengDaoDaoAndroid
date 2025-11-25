@@ -30,12 +30,15 @@ android {
         applicationId "com.mvc.bage"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 232
-        versionName "2.3.2"
+        versionCode 235
+        versionName "2.3.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
+
+
+
         }
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true

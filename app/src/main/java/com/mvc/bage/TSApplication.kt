@@ -87,7 +87,7 @@ class TSApplication : MultiDexApplication() {
         // 否则，等待SplashActivity获取API地址后再初始化
 
         // 优先初始化Bugly，确保异常处理器在CrashHandler之前设置
-        CrashReport.initCrashReport(applicationContext, BUGLY_ID, true)
+        CrashReport.initCrashReport(applicationContext, BUGLY_ID, false)
         
         val processName = getProcessName(this, Process.myPid())
         if (processName != null) {
