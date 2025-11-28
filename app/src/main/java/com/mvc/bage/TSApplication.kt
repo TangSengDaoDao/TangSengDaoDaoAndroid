@@ -281,9 +281,14 @@ class TSApplication : MultiDexApplication() {
                             EndpointManager.getInstance()
                                 .invoke("chow_check_lock_screen_pwd", null)
                         }, 1000)
+                        // 只有在 disconnect 为 true 时才重新连接（表示之前可能断开了）
+                        // 如果 disconnect 为 false，说明连接应该一直保持，不需要重新连接
+                        WKIMUtils.getInstance().initIMListener()
+                        WKUIKitApplication.getInstance().startChat()
+                    } else {
+                        // disconnect 为 false 时，只重新初始化监听器，不重新连接
+                        WKIMUtils.getInstance().initIMListener()
                     }
-                    WKIMUtils.getInstance().initIMListener()
-                    WKUIKitApplication.getInstance().startChat()
                     UserModel.getInstance().getOnlineUsers()
 
                 }

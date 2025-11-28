@@ -41,15 +41,17 @@ public class MyFragment extends WKBaseFragment<FragMyLayoutBinding> {
         initAdapter(wkVBinding.recyclerView, adapter);
         //设置数据item
         List<PersonalInfoMenu> endpoints = EndpointManager.getInstance().invokes(EndpointCategory.personalCenter, null);
-        for (int i = 0; i < endpoints.size(); i++) {
-            if (!TextUtils.isEmpty(endpoints.get(i).sid)
-                    && endpoints.get(i).sid.equals("invite_code")
-                    && WKConfig.getInstance().getAppConfig().register_invite_on == 0) {
-                endpoints.remove(i);
-                break;
+        if (endpoints != null) {
+            for (int i = 0; i < endpoints.size(); i++) {
+                if (!TextUtils.isEmpty(endpoints.get(i).sid)
+                        && endpoints.get(i).sid.equals("invite_code")
+                        && WKConfig.getInstance().getAppConfig().register_invite_on == 0) {
+                    endpoints.remove(i);
+                    break;
+                }
             }
+            adapter.setList(endpoints);
         }
-        adapter.setList(endpoints);
     }
 
     @Override
@@ -124,7 +126,9 @@ public class MyFragment extends WKBaseFragment<FragMyLayoutBinding> {
                     }
                 } else {
                     List<PersonalInfoMenu> endpoints = EndpointManager.getInstance().invokes(EndpointCategory.personalCenter, null);
-                    adapter.setList(endpoints);
+                    if (endpoints != null) {
+                        adapter.setList(endpoints);
+                    }
                 }
             }
         });
