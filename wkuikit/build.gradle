@@ -41,6 +41,7 @@ android {
 }
 dependencies {
     api project(':wkbase')
+    api project(':wkadvanced')
     androidTestImplementation 'org.testng:testng:6.9.6'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
 //    implementation "androidx.work:work-runtime:2.8.1"

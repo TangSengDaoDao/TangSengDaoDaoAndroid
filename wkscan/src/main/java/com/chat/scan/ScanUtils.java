@@ -14,10 +14,13 @@ import com.chat.base.endpoint.EndpointManager;
 import com.chat.base.endpoint.EndpointSID;
 import com.chat.base.endpoint.entity.ChatViewMenu;
 import com.chat.base.endpoint.entity.ScanResultMenu;
+import com.chat.base.entity.WKAPPConfig;
 import com.chat.base.net.IRequestResultListener;
 import com.chat.base.utils.WKReader;
 import com.chat.base.utils.WKToastUtils;
 import com.chat.scan.entity.ScanResult;
+import com.lxj.xpopup.XPopup;
+import com.lxj.xpopup.impl.LoadingPopupView;
 import com.xinbida.wukongim.WKIM;
 import com.xinbida.wukongim.entity.WKChannelMember;
 import com.xinbida.wukongim.entity.WKChannelType;
@@ -26,6 +29,7 @@ import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -55,7 +59,19 @@ class ScanUtils extends WKBaseModel {
             if (result.startsWith("HTTP") || result.startsWith("http") || result.startsWith("www") || result.startsWith("WWW")) {
                 URL resultURL = new URL(result);
                 URL baseURL = new URL(WKApiConfig.baseUrl + "qrcode/");
-                if (resultURL.getHost().equals(baseURL.getHost()) && resultURL.getPath().contains(baseURL.getPath())) {
+
+                //han
+                WKAPPConfig appConfig = WKConfig.getInstance().getAppConfig();
+                boolean found = false;
+                for(String s : appConfig.web_url_list) {
+
+                    URL base = new URL(s.trim() + "v" + appConfig.version + "/qrcode/");
+                    found = resultURL.getHost().contains(base.getHost());
+                    if(found) break;
+                }
+//                if (resultURL.getHost().equals(baseURL.getHost()) && resultURL.getPath().contains(baseURL.getPath())) {
+                 //han
+                if(found){
                     requestScanResult(activity, result);
                 } else {
                     iHandleScanResult.showWebView(result);

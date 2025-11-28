@@ -2,6 +2,8 @@ package com.chat.uikit.chat;
 
 import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 
+import static com.chat.advanced.utils.EditUtilKt.checkEditTime;
+
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -1831,6 +1833,11 @@ public class ChatActivity extends SwipeBackActivity implements IConversationCont
     public void sendMessage(WKMessageContent messageContent) {
 
         if (messageContent.type == WKContentType.WK_TEXT && editMsg != null) {
+            //han
+            if(checkEditTime(editMsg.createdAt)){
+                deleteOperationMsg();
+                return;
+            }
             JSONObject jsonObject = messageContent.encodeMsg();
             if (jsonObject == null) jsonObject = new JSONObject();
             try {
@@ -2010,6 +2017,11 @@ public class ChatActivity extends SwipeBackActivity implements IConversationCont
         if (wkMsg != null) {
             this.editMsg = wkMsg;
             chatPanelManager.showEditLayout(wkMsg);
+
+            //han
+            if(checkEditTime(this.editMsg.createdAt)){
+                deleteOperationMsg();
+            }
         }
 
     }

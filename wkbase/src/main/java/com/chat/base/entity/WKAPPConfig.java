@@ -1,8 +1,12 @@
 package com.chat.base.entity;
 
+import java.util.ArrayList;
+
 public class WKAPPConfig {
     public int version;
     public String web_url;
+
+    public ArrayList<String> web_url_list;
     public int phone_search_off;
     public int shortno_edit_off;
     public int revoke_second;

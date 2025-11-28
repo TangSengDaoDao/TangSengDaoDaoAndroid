@@ -1,5 +1,7 @@
 package com.chat.uikit.chat.manager;
 
+import static com.chat.advanced.utils.EditUtilKt.checkEditTime;
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -47,6 +49,7 @@ import com.chat.uikit.search.SearchUserActivity;
 import com.chat.uikit.user.UserDetailActivity;
 import com.chat.uikit.user.service.UserModel;
 import com.chat.uikit.utils.PushNotificationHelper;
+import com.luck.picture.lib.utils.ToastUtils;
 import com.xinbida.wukongim.WKIM;
 import com.xinbida.wukongim.entity.WKCMDKeys;
 import com.xinbida.wukongim.entity.WKChannel;
@@ -277,7 +280,11 @@ public class WKIMUtils {
             if (msg != null) {
                 msgSeq = msg.messageSeq;
             }
+            if(msg != null && checkEditTime(msg.createdAt)){
+                return;
+            }
             MsgModel.getInstance().editMsg(msgExtra.messageID, msgSeq, msgExtra.channelID, msgExtra.channelType, msgExtra.contentEdit, null);
+
         });
 
         /*
@@ -363,7 +370,7 @@ public class WKIMUtils {
                             if (groupType == WKGroupType.superGroup) {
                                 String uid = cmd.paramJsonObject.optString("uid");
                                 if (!TextUtils.isEmpty(uid)) {
-                                    UserModel.getInstance().getUserInfo(uid,groupNo,null);
+                                    UserModel.getInstance().getUserInfo(uid, groupNo, null);
                                 }
                             }
                         }

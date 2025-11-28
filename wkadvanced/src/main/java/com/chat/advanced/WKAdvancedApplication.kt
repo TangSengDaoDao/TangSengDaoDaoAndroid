@@ -6,12 +6,14 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -26,13 +28,11 @@ import com.chat.advanced.service.AdvancedModel
 import com.chat.advanced.ui.ChatBgListActivity
 import com.chat.advanced.ui.MsgRemindActivity
 import com.chat.advanced.ui.ReadMsgMembersActivity
-import com.chat.advanced.ui.search.ChatImgActivity
-import com.chat.advanced.ui.search.ChatWithDateActivity
 import com.chat.advanced.ui.search.RecordActivity
-import com.chat.advanced.ui.search.SearchAllMembersActivity
 import com.chat.advanced.utils.ReactionAnimation
 import com.chat.advanced.utils.ReactionStickerUtils
 import com.chat.advanced.utils.ScreenShotListenManager
+import com.chat.advanced.utils.checkEditTime
 import com.chat.base.WKBaseApplication
 import com.chat.base.config.WKApiConfig
 import com.chat.base.config.WKConfig
@@ -52,7 +52,6 @@ import com.chat.base.endpoint.entity.MsgReactionMenu
 import com.chat.base.endpoint.entity.OtherLoginViewMenu
 import com.chat.base.endpoint.entity.ReadMsgDetailMenu
 import com.chat.base.endpoint.entity.ReadMsgMenu
-import com.chat.base.endpoint.entity.SearchChatContentMenu
 import com.chat.base.endpoint.entity.SetChatBgMenu
 import com.chat.base.endpoint.entity.ShowMsgReactionMenu
 import com.chat.base.endpoint.entity.WKSendMsgMenu
@@ -80,6 +79,9 @@ import com.xinbida.wukongim.entity.WKMsg
 import com.xinbida.wukongim.message.type.WKSendMsgResult
 import com.xinbida.wukongim.msgmodel.WKImageContent
 import java.io.File
+import java.time.Duration
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 
 
@@ -225,6 +227,10 @@ class WKAdvancedApplication private constructor() {
                 object : EndpointHandler {
                     override fun invoke(`object`: Any?): Any? {
                         val mMsg = `object` as WKMsg
+                        //han
+                        if(checkEditTime(mMsg.createdAt)){//if sent time is greater than 60s
+                            return null
+                        }//han
                         if (mMsg.type == WKContentType.WK_TEXT) {
                             if (!TextUtils.isEmpty(mMsg.fromUID) && mMsg.fromUID.equals(
                                     WKConfig.getInstance().uid
