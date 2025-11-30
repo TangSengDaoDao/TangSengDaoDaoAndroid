@@ -34,7 +34,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/homeColor"
-                        android:padding="15dp">
+                        android:padding="15dp"
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -58,6 +59,29 @@
                                 android:textSize="14sp" />
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:id="@+id/inGroupNameLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/in_group_name"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/inGroupNameTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/addIv"
                             android:layout_width="40dp"
@@ -65,6 +89,19 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="0dp"
                             android:src="@mipmap/icon_chat_add" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/remarkLayout"
+                        style="@style/layoutBg"
+                        >
+
+                        <TextView
+                            style="@style/leftTextView"
+                            android:layout_weight="1"
+                            android:text="@string/set_remark" />
+
+                        <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
                     </LinearLayout>
 
                     <LinearLayout

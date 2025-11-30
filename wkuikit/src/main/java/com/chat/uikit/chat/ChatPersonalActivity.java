@@ -1,23 +1,30 @@
 package com.chat.uikit.chat;
 
 import android.content.Intent;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.chat.base.act.WKWebViewActivity;
 import com.chat.base.base.WKBaseActivity;
 import com.chat.base.config.WKApiConfig;
+import com.chat.base.config.WKConfig;
 import com.chat.base.config.WKSystemAccount;
 import com.chat.base.endpoint.EndpointCategory;
 import com.chat.base.endpoint.EndpointManager;
 import com.chat.base.endpoint.entity.ChatSettingCellMenu;
 import com.chat.base.endpoint.entity.PrivacyMessageMenu;
 import com.chat.base.net.HttpResponseCode;
+import com.chat.base.ui.Theme;
+import com.chat.base.ui.components.NormalClickableContent;
+import com.chat.base.ui.components.NormalClickableSpan;
 import com.chat.base.utils.WKDialogUtils;
 import com.chat.base.utils.singleclick.SingleClickUtil;
 import com.chat.uikit.R;
@@ -26,9 +33,16 @@ import com.chat.uikit.contacts.ChooseContactsActivity;
 import com.chat.uikit.contacts.service.FriendModel;
 import com.chat.uikit.databinding.ActChatPersonalLayoutBinding;
 import com.chat.uikit.message.MsgModel;
+import com.chat.uikit.user.MyInfoActivity;
+import com.chat.uikit.user.SetUserRemarkActivity;
 import com.chat.uikit.user.UserDetailActivity;
+import com.chat.uikit.user.WKFileHelperActivity;
+import com.chat.uikit.user.WKSystemTeamActivity;
+import com.chat.uikit.user.service.UserModel;
 import com.xinbida.wukongim.WKIM;
 import com.xinbida.wukongim.entity.WKChannel;
+import com.xinbida.wukongim.entity.WKChannelMember;
+import com.xinbida.wukongim.entity.WKChannelMemberExtras;
 import com.xinbida.wukongim.entity.WKChannelType;
 
 /**
@@ -38,6 +52,22 @@ import com.xinbida.wukongim.entity.WKChannelType;
 public class ChatPersonalActivity extends WKBaseActivity<ActChatPersonalLayoutBinding> {
     private String channelId;
     private WKChannel channel;
+
+    private WKChannel userChannel;
+
+    ActivityResultLauncher<Intent> chooseResultLac = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == RESULT_OK) {
+//            getUserInfo();
+            channel = WKIM.getInstance().getChannelManager().getChannel(channelId, WKChannelType.PERSONAL);
+            if (channel != null) {
+                wkVBinding.avatarView.showAvatar(channel.channelID, channel.channelType, false);
+                wkVBinding.nameTv.setText(TextUtils.isEmpty(channel.channelRemark) ? channel.channelName : channel.channelRemark);
+                wkVBinding.muteSwitchView.setChecked(channel.mute == 1);
+                wkVBinding.stickSwitchView.setChecked(channel.top == 1);
+
+            }
+        }
+    });
 
     @Override
     protected ActChatPersonalLayoutBinding getViewBinding() {
@@ -52,6 +82,12 @@ public class ChatPersonalActivity extends WKBaseActivity<ActChatPersonalLayoutBi
     @Override
     protected void initPresenter() {
         channelId = getIntent().getStringExtra("channelId");
+        userChannel = WKIM.getInstance().getChannelManager().getChannel(channelId, WKChannelType.PERSONAL);
+    }
+
+    @Override
+    protected void onNewIntent(@NonNull Intent intent) {
+        super.onNewIntent(intent);
     }
 
     @Override
@@ -104,6 +140,13 @@ public class ChatPersonalActivity extends WKBaseActivity<ActChatPersonalLayoutBi
             intent.putExtra("channel_id", channelId);
             intent.putExtra("channel_type", WKChannelType.PERSONAL);
             startActivity(intent);
+        });
+        //remark
+        SingleClickUtil.onSingleClick(wkVBinding.remarkLayout,v-> {
+            Intent intent = new Intent(this, SetUserRemarkActivity.class);
+            intent.putExtra("uid", channelId);
+            intent.putExtra("oldStr", userChannel == null ? "" : userChannel.channelRemark);
+            chooseResultLac.launch(intent);
         });
         //免打扰
         wkVBinding.muteSwitchView.setOnCheckedChangeListener((compoundButton, b) -> {
@@ -216,4 +259,5 @@ public class ChatPersonalActivity extends WKBaseActivity<ActChatPersonalLayoutBi
         super.finish();
         EndpointManager.getInstance().remove("chat_personal_activity");
     }
+
 }

@@ -147,7 +147,8 @@
 
                     <LinearLayout
                         android:id="@+id/remarkLayout"
-                        style="@style/layoutBg">
+                        style="@style/layoutBg"
+                        android:visibility="gone">
 
                         <TextView
                             style="@style/leftTextView"
