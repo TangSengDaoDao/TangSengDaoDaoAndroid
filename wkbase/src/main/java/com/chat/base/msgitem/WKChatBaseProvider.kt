@@ -852,22 +852,15 @@ abstract class WKChatBaseProvider : BaseItemProvider<WKUIChatMsgItemEntity>() {
                     }
                 }
             }
-            if (mMsg.status <= WKSendMsgResult.send_success) {
-                statusIV.colorFilter =
-                    PorterDuffColorFilter(
-                        ContextCompat.getColor(
-                            context,
-                            if (isShowNormalColor) R.color.color999 else R.color.white
-                        ), PorterDuff.Mode.MULTIPLY
-                    )
+            val tintColor = if (mMsg.status <= WKSendMsgResult.send_success) {
+                ContextCompat.getColor(
+                    context,
+                    if (isShowNormalColor) R.color.color999 else R.color.white
+                )
             } else {
-                statusIV.colorFilter =
-                    PorterDuffColorFilter(
-                        ContextCompat.getColor(
-                            context, R.color.white
-                        ), PorterDuff.Mode.MULTIPLY
-                    )
+                ContextCompat.getColor(context, R.color.white)
             }
+            statusIV.setLottieColorFilter(tintColor)
             statusIV.setAutoRepeat(autoRepeat)
             statusIV.setAnimation(drawable)
             if (autoRepeat || isPlayAnimation) {
