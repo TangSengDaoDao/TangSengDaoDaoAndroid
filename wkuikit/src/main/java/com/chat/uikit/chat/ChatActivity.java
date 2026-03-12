@@ -2387,6 +2387,11 @@ public class ChatActivity extends SwipeBackActivity implements IConversationCont
                             if (chatAdapter.getItemCount() > 0 && chatAdapter.getData().get(chatAdapter.getItemCount() - 1).wkMsg != null && chatAdapter.getData().get(chatAdapter.getItemCount() - 1).wkMsg.type == WKContentType.typing) {
                                 chatAdapter.removeAt(chatAdapter.getItemCount() - 1);
                             }
+//                            SafeAdapterHelper.safeNotify(wkVBinding.recyclerView, () -> {
+//                                if (chatAdapter.getItemCount() > 0 && chatAdapter.getData().get(chatAdapter.getItemCount() - 1).wkMsg != null && chatAdapter.getData().get(chatAdapter.getItemCount() - 1).wkMsg.type == WKContentType.typing) {
+//                                    chatAdapter.removeAt(chatAdapter.getItemCount() - 1);
+//                                }
+//                            });
                             WKMsg timeMsg = addTimeMsg(msg.timestamp);
                             WKUIChatMsgItemEntity itemEntity = WKIMUtils.getInstance().msg2UiMsg(this, msg, count, showNickName, chatAdapter.isShowChooseItem());
                             if (timeMsg != null && chatAdapter.getData().size() > 1) {

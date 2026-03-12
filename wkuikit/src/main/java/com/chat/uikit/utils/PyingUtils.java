@@ -163,16 +163,20 @@ public class PyingUtils {
      * 判断首字母是否为字母
      */
     public boolean isStartLetter(String str) {
-        String temp = str.substring(0, 1);
-        return Character.isLetter(temp.charAt(0));
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        return Character.isLetter(str.charAt(0));
     }
 
     /**
      * 判断首字母是否数字
      */
     public boolean isStartNum(String str) {
-        String temp = str.substring(0, 1);
-        return Character.isDigit(temp.charAt(0));
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        return Character.isDigit(str.charAt(0));
     }
 
 }

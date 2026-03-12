@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.fastjson.JSON;
 import com.chat.base.WKBaseApplication;
 import com.chat.base.config.WKApiConfig;
+import com.chat.base.config.WKBinder;
 import com.chat.base.config.WKConfig;
 import com.chat.base.config.WKSharedPreferencesUtil;
 import com.chat.base.config.WKSystemAccount;
@@ -170,8 +171,8 @@ public class WKUIKitApplication {
     public void initIM() {
         if (!TextUtils.isEmpty(WKConfig.getInstance().getToken())) {
             //设置开发模式
-//            WKIM.getInstance().setDebug(WKBinder.isDebug);
-            WKIM.getInstance().setDebug(true);
+            WKIM.getInstance().setDebug(WKBinder.isDebug);
+//            WKIM.getInstance().setDebug(true);
             WKIM.getInstance().setFileCacheDir("wkIMFile");
 
             String imToken = WKConfig.getInstance().getImToken();

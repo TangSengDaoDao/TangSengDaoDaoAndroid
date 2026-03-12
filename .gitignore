@@ -10,6 +10,7 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/app/build
 /wkbase/build
 /wklogin/build
 /wkscan/build

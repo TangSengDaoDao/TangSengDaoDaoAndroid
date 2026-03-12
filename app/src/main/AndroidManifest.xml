@@ -102,7 +102,7 @@
     </queries>
 
     <application
-        android:name=".TSApplication"
+        android:name="com.test.demo2.TSApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_logo"
@@ -117,7 +117,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.test.demo2.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.FullscreenTheme">

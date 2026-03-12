@@ -92,8 +92,10 @@ dependencies {
     api "androidx.emoji2:emoji2-views:1.6.0"
     api 'org.jsoup:jsoup:1.21.2'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2'
-    api 'com.github.CarGuo.GSYVideoPlayer:gsyvideoplayer:v10.0.0'
-    api project(path: ':MyLibs:rlottie')
+    api('io.github.carguo:gsyvideoplayer:11.3.0') {
+        exclude group: 'io.antmedia', module: 'rtmp-client'
+    }
+    api 'com.airbnb.android:lottie:6.6.2'
     api 'com.github.WuKongIM:WuKongIMAndroidSDK:1.4.7'
 
 }

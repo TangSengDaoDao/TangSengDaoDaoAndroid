@@ -527,18 +527,18 @@ public class ReactionsContainerLayout extends FrameLayout {
         }
 
         private void setReaction(ReactionSticker react) {
-            resetAnimation();
             currentReaction = react;
+            pressedBackupImageView.cancelAnimation();
             RLottieDrawable drawable = new RLottieDrawable(getContext(), currentReaction.resourceID, currentReaction.name, AndroidUtilities.dp(30), AndroidUtilities.dp(30));
             pressedBackupImageView.setAutoRepeat(false);
             pressedBackupImageView.setAnimation(drawable);
             pressedBackupImageView.playAnimation();
+            isEnter = false;
         }
 
         @Override
         protected void onAttachedToWindow() {
             super.onAttachedToWindow();
-            resetAnimation();
         }
 
         public boolean play(int delay) {
@@ -548,7 +548,16 @@ public class ReactionsContainerLayout extends FrameLayout {
                 return false;
             }
             AndroidUtilities.cancelRunOnUIThread(playRunnable);
-            return false;
+            if (pressedBackupImageView.getAnimatedDrawable() != null) {
+                pressedBackupImageView.getAnimatedDrawable().setCurrentFrame(0, false, true);
+                if (delay > 0) {
+                    AndroidUtilities.runOnUIThread(playRunnable, delay);
+                } else {
+                    playRunnable.run();
+                }
+            }
+            isEnter = true;
+            return true;
         }
 
         public void resetAnimation() {
