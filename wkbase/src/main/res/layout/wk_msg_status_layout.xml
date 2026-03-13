@@ -43,8 +43,8 @@
 
     <org.telegram.ui.Components.RLottieImageView
         android:id="@+id/statusIV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_gravity="center_vertical"
         android:visibility="visible" />
 

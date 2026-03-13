@@ -1,6 +1,9 @@
 package org.telegram.ui.Components;
 
 import android.content.Context;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
@@ -9,6 +12,10 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieDrawable;
+import com.airbnb.lottie.LottieProperty;
+import com.airbnb.lottie.RenderMode;
+import com.airbnb.lottie.model.KeyPath;
+import com.airbnb.lottie.value.SimpleLottieValueCallback;
 
 public class RLottieImageView extends LottieAnimationView {
 
@@ -17,6 +24,7 @@ public class RLottieImageView extends LottieAnimationView {
     private boolean wasPlaying = false;
     private LottieComposition lastComposition;
     private int lastRepeatCount = 0;
+    private ColorFilter pendingColorFilter;
 
     public RLottieImageView(@NonNull Context context) {
         super(context);
@@ -34,6 +42,7 @@ public class RLottieImageView extends LottieAnimationView {
     }
 
     private void init() {
+        setRenderMode(RenderMode.AUTOMATIC);
         setFailureListener(throwable -> {
         });
     }
@@ -56,6 +65,9 @@ public class RLottieImageView extends LottieAnimationView {
         }
         drawable.attachToView(this);
         lastComposition = drawable.composition;
+        if (pendingColorFilter != null) {
+            applyLottieColorFilter(pendingColorFilter);
+        }
     }
 
     public void setAnimation(int rawRes, int w, int h) {
@@ -78,6 +90,27 @@ public class RLottieImageView extends LottieAnimationView {
     public void stopAnimation() {
         wasPlaying = false;
         cancelAnimation();
+    }
+
+    public void setLottieColorFilter(ColorFilter colorFilter) {
+        this.pendingColorFilter = colorFilter;
+        if (getComposition() != null) {
+            applyLottieColorFilter(colorFilter);
+        }
+    }
+
+    public void setLottieColorFilter(int color) {
+        setLottieColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
+    }
+
+    private void applyLottieColorFilter(ColorFilter colorFilter) {
+        addValueCallback(new KeyPath("**"), LottieProperty.COLOR_FILTER,
+                new SimpleLottieValueCallback<ColorFilter>() {
+                    @Override
+                    public ColorFilter getValue(com.airbnb.lottie.value.LottieFrameInfo<ColorFilter> frameInfo) {
+                        return colorFilter;
+                    }
+                });
     }
 
     public RLottieDrawable getAnimatedDrawable() {
