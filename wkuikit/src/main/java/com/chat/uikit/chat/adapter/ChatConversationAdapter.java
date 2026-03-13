@@ -226,14 +226,14 @@ public class ChatConversationAdapter extends BaseQuickAdapter<ChatConversationMs
                 } else {
                     drawable = new RLottieDrawable(getContext(), R.raw.ticks_single, "ticks_single", AndroidUtilities.dp(22), AndroidUtilities.dp(22));
                 }
-                sendingMsgIv.setColorFilter(new PorterDuffColorFilter(Theme.colorAccount, PorterDuff.Mode.MULTIPLY));
+                sendingMsgIv.setLottieColorFilter(Theme.colorAccount);
             } else if (status == WKSendMsgResult.send_loading) {
                 autoRepeat = true;
                 drawable = new RLottieDrawable(getContext(), R.raw.msg_sending, "msg_sending", AndroidUtilities.dp(22), AndroidUtilities.dp(22));
-                sendingMsgIv.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(getContext(), R.color.color999), PorterDuff.Mode.MULTIPLY));
+                sendingMsgIv.setLottieColorFilter(ContextCompat.getColor(getContext(), R.color.color999));
             } else {
                 isError = true;
-                sendingMsgIv.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(getContext(), R.color.white), PorterDuff.Mode.MULTIPLY));
+                sendingMsgIv.setLottieColorFilter(ContextCompat.getColor(getContext(), R.color.white));
                 drawable = new RLottieDrawable(getContext(), R.raw.error, "error", AndroidUtilities.dp(22), AndroidUtilities.dp(22));
             }
             sendingMsgIv.setAutoRepeat(autoRepeat);

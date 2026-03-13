@@ -433,9 +433,7 @@ public class WKUIKitApplication {
         });
         //监听登录状态
         EndpointManager.getInstance().setMethod("", EndpointCategory.loginMenus, object -> new LoginMenu(() -> {
-            Log.e("接受登录", "-->3");
             WKSharedPreferencesUtil.getInstance().putInt("wk_lock_screen_pwd_count", 5);
-            WKSharedPreferencesUtil.getInstance().putBoolean("sync_friend", true);
             //初始化im
             WKUIKitApplication.getInstance().initIM();
             //初始化密钥

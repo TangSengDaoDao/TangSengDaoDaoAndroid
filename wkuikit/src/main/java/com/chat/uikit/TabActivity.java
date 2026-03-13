@@ -260,17 +260,11 @@ public class TabActivity extends WKBaseActivity<ActTabMainBinding> {
     protected void onResume() {
         super.onResume();
         getAllRedDot();
-        boolean sync_friend = WKSharedPreferencesUtil.getInstance().getBoolean("sync_friend");
-        if (sync_friend) {
-            FriendModel.getInstance().syncFriends((code, msg) -> {
-                if (code != HttpResponseCode.success && !TextUtils.isEmpty(msg)) {
-                    showToast(msg);
-                }
-                if (code == HttpResponseCode.success) {
-                    WKSharedPreferencesUtil.getInstance().putBoolean("sync_friend", false);
-                }
-            });
-        }
+        FriendModel.getInstance().syncFriends((code, msg) -> {
+            if (code != HttpResponseCode.success && !TextUtils.isEmpty(msg)) {
+                showToast(msg);
+            }
+        });
     }
 
     public void setMsgCount(int number) {
