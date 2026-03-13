@@ -95,7 +95,7 @@ dependencies {
     api('io.github.carguo:gsyvideoplayer:11.3.0') {
         exclude group: 'io.antmedia', module: 'rtmp-client'
     }
-    api 'com.airbnb.android:lottie:6.7.1'
+    api project(':MyLibs:rlottie')
     // 本地仓库
     api 'com.xinbida.wukongim:WKIMLib_local:1.0.7'
 //    api 'com.github.WuKongIM:WuKongIMAndroidSDK:1.4.6'

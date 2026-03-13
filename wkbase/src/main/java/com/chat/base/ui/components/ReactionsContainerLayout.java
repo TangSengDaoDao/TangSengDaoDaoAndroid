@@ -528,7 +528,7 @@ public class ReactionsContainerLayout extends FrameLayout {
 
         private void setReaction(ReactionSticker react) {
             currentReaction = react;
-            pressedBackupImageView.cancelAnimation();
+//            pressedBackupImageView.cancelAnimation();
             RLottieDrawable drawable = new RLottieDrawable(getContext(), currentReaction.resourceID, currentReaction.name, AndroidUtilities.dp(30), AndroidUtilities.dp(30));
             pressedBackupImageView.setAutoRepeat(false);
             pressedBackupImageView.setAnimation(drawable);

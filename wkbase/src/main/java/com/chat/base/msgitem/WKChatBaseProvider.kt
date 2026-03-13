@@ -860,7 +860,8 @@ abstract class WKChatBaseProvider : BaseItemProvider<WKUIChatMsgItemEntity>() {
             } else {
                 ContextCompat.getColor(context, R.color.white)
             }
-            statusIV.setLottieColorFilter(tintColor)
+            Theme.setColorFilter(statusIV,tintColor)
+//            statusIV.setLottieColorFilter(tintColor)
             statusIV.setAutoRepeat(autoRepeat)
             statusIV.setAnimation(drawable)
             if (autoRepeat || isPlayAnimation) {
