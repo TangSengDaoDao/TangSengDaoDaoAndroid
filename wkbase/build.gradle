@@ -96,9 +96,7 @@ dependencies {
         exclude group: 'io.antmedia', module: 'rtmp-client'
     }
     api project(':MyLibs:rlottie')
-    // 本地仓库
-    api 'com.xinbida.wukongim:WKIMLib_local:1.0.7'
-//    api 'com.github.WuKongIM:WuKongIMAndroidSDK:1.4.6'
+    api 'com.github.WuKongIM:WuKongIMAndroidSDK:1.5.0'
 //    api 'com.tencent.bugly:crashreport:latest.release'
 
 }
