@@ -71,7 +71,6 @@ import com.chat.base.ui.components.AvatarView;
 import com.chat.base.utils.ActManagerUtils;
 import com.chat.base.utils.ImageUtils;
 import com.chat.base.utils.LayoutHelper;
-import com.chat.base.utils.WKDeviceUtils;
 import com.chat.base.utils.WKFileUtils;
 import com.chat.base.utils.WKMediaFileUtils;
 import com.chat.base.utils.WKPermissions;

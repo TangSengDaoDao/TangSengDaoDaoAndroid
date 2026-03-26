@@ -89,7 +89,7 @@ public class WKBaseApplication {
         new Thread(() -> {
             EmojiManager.getInstance().init();
             LottieUtils.init(context);
-            RLottieApplication.getInstance().init(context);
+//            RLottieApplication.getInstance().init(context);
             CrashHandler.getInstance().init(context);
             //158638
 //            HttpsUtils.SSLParams sslParams1 = HttpsUtils.getSslSocketFactory();

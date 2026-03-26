@@ -226,14 +226,17 @@ public class ChatConversationAdapter extends BaseQuickAdapter<ChatConversationMs
                 } else {
                     drawable = new RLottieDrawable(getContext(), R.raw.ticks_single, "ticks_single", AndroidUtilities.dp(22), AndroidUtilities.dp(22));
                 }
-                sendingMsgIv.setLottieColorFilter(Theme.colorAccount);
+                Theme.setColorFilter(sendingMsgIv,Theme.colorAccount);
+//                sendingMsgIv.setLottieColorFilter(Theme.colorAccount);
             } else if (status == WKSendMsgResult.send_loading) {
                 autoRepeat = true;
                 drawable = new RLottieDrawable(getContext(), R.raw.msg_sending, "msg_sending", AndroidUtilities.dp(22), AndroidUtilities.dp(22));
-                sendingMsgIv.setLottieColorFilter(ContextCompat.getColor(getContext(), R.color.color999));
+//                sendingMsgIv.setLottieColorFilter(ContextCompat.getColor(getContext(), R.color.color999));
+                Theme.setColorFilter(sendingMsgIv,ContextCompat.getColor(getContext(), R.color.color999));
             } else {
                 isError = true;
-                sendingMsgIv.setLottieColorFilter(ContextCompat.getColor(getContext(), R.color.white));
+//                sendingMsgIv.setLottieColorFilter(ContextCompat.getColor(getContext(), R.color.white));
+                Theme.setColorFilter(sendingMsgIv,ContextCompat.getColor(getContext(), R.color.white));
                 drawable = new RLottieDrawable(getContext(), R.raw.error, "error", AndroidUtilities.dp(22), AndroidUtilities.dp(22));
             }
             sendingMsgIv.setAutoRepeat(autoRepeat);
