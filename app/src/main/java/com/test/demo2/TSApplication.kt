@@ -107,10 +107,11 @@ class TSApplication : MultiDexApplication() {
     }
 
     private fun initApi() {
-        var apiURL = WKSharedPreferencesUtil.getInstance().getSP("api_base_url")
+        val apiURL = WKSharedPreferencesUtil.getInstance().getSP("api_base_url")
         if (TextUtils.isEmpty(apiURL)) {
-            apiURL = "https://api.botgate.cn"
-            WKApiConfig.initBaseURL(apiURL)
+//            apiURL = ""
+//            WKApiConfig.initBaseURL(apiURL)
+            throw IllegalStateException("api_base_url 未设置，请先配置接口地址")
         } else {
             WKApiConfig.initBaseURLIncludeIP(apiURL)
         }
